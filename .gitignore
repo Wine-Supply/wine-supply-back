@@ -1,0 +1,11 @@
+node_modules
+
+# package-lock.json
+package-lock.json
+
+# dotenv environment variables file
+.env
+.env.test
+
+# TypeScript cache
+*.tsbuildinfo
