@@ -21,6 +21,7 @@
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.14",
     "@types/mongoose": "^5.11.97",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1"
   }
