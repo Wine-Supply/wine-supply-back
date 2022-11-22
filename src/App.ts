@@ -12,7 +12,7 @@ const PORT = 3001
 
 
 
-app.get("/", (_req, res) => {
+app.get("/", (req, res) => {
     try {
         console.log("db online")
         res.send("database")
