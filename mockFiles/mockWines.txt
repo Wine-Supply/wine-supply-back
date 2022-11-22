@@ -1,0 +1,143 @@
+[
+    {
+    name: "Cabernet Sauvignon"
+    brand: "Gato Negro",
+    description: "Descubre audaces y elegantes aromas y sabores con notas de frutilla y chocolate. El cuerpo medio del vino crea una deliciosa sensación en boca, con un final largo y suave.",
+    type: "red",
+    body: "robusto",
+    cropYear: 2010,
+    origin: "Argentina",
+    volume: 700,
+    alcoholVolume: 9,
+    rating: 4,
+    images:["https://gatonegro.cl/wp-content/uploads/2020/03/gn_sc_ca.png"],
+    strain: "CABERNET SAUVIGNON"
+    },
+    {
+    name: "Cabernet Sauvignon"
+    brand: "Gato Negro",
+    description: "Descubre audaces y elegantes aromas y sabores con notas de frutilla y chocolate. El cuerpo medio del vino crea una deliciosa sensación en boca, con un final largo y suave.",
+    type: "red",
+    body: "Intenso",
+    cropYear: 2015,
+    origin: "Argentina",
+    volume: 700,
+    alcoholVolume: 11,
+    rating: 3,
+    images:["https://gatonegro.cl/wp-content/uploads/2020/03/gn_sc_ca.png"],
+    strain: "CARMENERE"
+    },
+    {
+    name: "Intense Red"
+    brand: "Casillero del Diablo",
+    description: "En nariz refleja intensos aromas a fruta negra, junto con un toque de chocolate amargo. En boca posee marcados taninos, con presencia de cereza negra, acompañado de un intenso final.",
+    type: "red",
+    body: "Intenso",
+    cropYear: 2005,
+    origin: "Chile",
+    volume: 1000,
+    alcoholVolume: 12,
+    rating: 4.5,
+    images:["https://www.casillerodeldiablo.com/wp-content/uploads/2020/07/cdd-intense-red.png"],
+    strain: "MERLOT"
+    },
+    {
+    name: "Chardonnay"
+    brand: "Casillero del Diablo",
+    description: "Este vino destaca por aromas a piña, durazno y cítricos, junto con suaves toques de avellana. En boca es vivo y bien estructurado, con presencia de pomelo, acompañado de sutiles notas de vainilla. Este Chardonnay es perfecto para maridar con pescados grillados, mariscos y pastas con salsas cremosas.",
+    type: "white",
+    body: "soft",
+    cropYear: 2020,
+    origin: "Chile",
+    volume: 1000,
+    alcoholVolume: 9,
+    rating: 3.7,
+    images:["https://www.casillerodeldiablo.com/wp-content/uploads/2021/12/cdd_eng_ch_sc_res.png"],
+    strain: "CHARDONNAY" 
+    },
+    {
+    name: "Farrah Syrah Grand Reserve"
+    brand: "Klinker Brick",
+    description: "Carefully crafted with top quality in mind, Grand Reserve represents the finest Syrah from each vintage. Aromas reflect black currant, leather, tobacco and subtle floral notes. On the palate, seasonal notes of anise and nutmeg are wrapped with bold flavors of licorice, plum and black cherry. This wine is big, bold and not for the faint of heart.",
+    type: "white",
+    body: "Lodi - Mokelumne River",
+    cropYear: 2016,
+    origin: "USA",
+    volume: 1000,
+    alcoholVolume: 15.9,
+    rating: 4.7,
+    images:["https://www.klinkerbrickwinery.com/assets/images/products/pictures/GrandReservenowax-BSYZMX.png"],
+    strain: "SYRAH" 
+    },
+    {
+    name: "Mourvèdre"
+    brand: "Klinker Brick",
+    description: "Mourvèdre, also known as Monastrell or Mataró, is widely grown around the world, more significantly in France and Spain. A bouquet of cranberry with a hint of red licorice to create one enticing aroma. Flavors of earth and a hint of cherry are braced with firm yet balanced tannins.",
+    type: "white",
+    body: "Lodi - Mokelumne River",
+    cropYear: 2019,
+    origin: "USA",
+    volume: 1200,
+    alcoholVolume: 14.9,
+    rating: 3.2,
+    images:["https://www.klinkerbrickwinery.com/assets/images/products/pictures/Mourvedre_t.png"],
+    strain: "SYRAH" 
+    },
+    {
+    name: "Mercurey"
+    brand: "Domaine Faiveley",
+    description: "Volumes are low although the quality is outstanding. Characterised by extreme weather conditions and perfectly healthy and aromatic grapes, 2019 saw weak rainfalls (-50% less than usual), several frosts spells in April/May followed by heatwave in summer. The harvests began on Monday 9 September in the Côte chalonnaise and came to an end on the 21 September in the Côte de Nuits.",
+    type: "red",
+    body: "Deep ruby red in colour with notes of fresh red fruits and spice on the nose.",
+    cropYear: 2019,
+    origin: "France",
+    volume: 800,
+    alcoholVolume: 17.9,
+    rating: 4.6,
+    images:["https://www.domaine-faiveley.com/image/wines/51/bouteille-fiche-mercurey.png?1647767514"],
+    strain: "PINOT NOIR" 
+    },
+    {
+    name: "Mercurey"
+    brand: "Ladoix Blanc",
+    description: "We began the harvests on the 27th of August in Mercurey. 2018 is a very classic vintage that can be enjoyed in its youth and is already drinking beautifully. The whites are showing excellent balance between freshness and ripeness, halfway between 2016 et 2015. The grapes, although harvested early, were very ripe and gave rise to smooth, light and aromatic wines. This vintage is characterised by its delicious palette of fruity notes.",
+    type: "white",
+    body: "Ladoix-Serrigny is one of the Côte de Beaune's oldest winemaking villages.",
+    cropYear: 2018,
+    origin: "France",
+    volume: 800,
+    alcoholVolume: 11.9,
+    rating: 3.9,
+    images:["https://www.domaine-faiveley.com/image/wines/14/bouteille-fiche-ladoix-blanc.png?1647767509"],
+    strain: "CHARDONNAY" 
+    },
+     {
+    name: "Barbaresco D.O.C.G."
+    brand: "Produttori del Barbaresco",
+    description: "Medium body vintage, bright red fruit and spicy flavours wiith an elegant tannic finish.",
+    type: "red",
+    body: "Medium.",
+    cropYear: 2022,
+    origin: "Italy",
+    volume: 800,
+    alcoholVolume: 12.5,
+    rating: 4.1,
+    images:["http://www.produttoridelbarbaresco.com/prodotti/barbaresco/bottiglia.jpg"],
+    strain: "NEBBIOLO" 
+    },
+    {
+    name: "Barbaresco D.O.C.G. Riserva Muncagota."
+    brand: "Produttori del Barbaresco",
+    description: "Medium body vintage with intense mineral and red fruit aromas, balanced ripe tannins.",
+    type: "red",
+    body: "Medium.",
+    cropYear: 2021,
+    origin: "Italy",
+    volume: 800,
+    alcoholVolume: 14.5,
+    rating: 3.4,
+    images:["http://www.produttoridelbarbaresco.com/prodotti/barbaresco_muncagota/bottiglia.jpg"],
+    strain: "NEBBIOLO" 
+    }
+
+]
