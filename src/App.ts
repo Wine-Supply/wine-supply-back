@@ -1,14 +1,11 @@
-import express from "express"
-import mongoose from "mongoose"
+import express, {Request, Response} from "express";
+const morgan = require('morgan');
+// import cors from "cors";
 
 
-
-const app = express()
+export const app = express()
+app.use(morgan('dev'));
 app.use(express.json())
-
-
-const PORT = 3001
-
 
 
 
@@ -23,10 +20,3 @@ app.get("/", (_req, res) => {
 
 
 
-mongoose.connect('mongodb+srv://nico0f:testpassword951@cluster0.vtnjsce.mongodb.net/?retryWrites=true&w=majority').then(
-    () => 
-    app.listen(PORT, () => {
-        console.log(`Server listening on port ${PORT}`)
-    })
-    
-)
