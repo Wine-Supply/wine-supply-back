@@ -9,7 +9,7 @@ app.use(express.json())
 
 
 
-app.get("/", (_req, res) => {
+app.get("/", (req, res) => {
     try {
         console.log("db online")
         res.send("database")
