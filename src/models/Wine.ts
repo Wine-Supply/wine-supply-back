@@ -5,17 +5,19 @@ const Schema = mongoose.Schema;
 
 const WineSchema = new Schema({
     // _id: ObjectId,
-    name: String,
-    description: String,
-    type: String,
-    body: String,
-    cropYear: Number,
-    origin: String,
-    volume: Number,
-    alcoholVolume: Number,
-    rating: Number,
-    images:[String],
-    strain: String
+    name: {type:String, required: true},
+    brand:{ type: String, require: true},
+    description: {type: String, require: true},
+    type: {type: String, require: true},
+    body: {type: String, require: true},
+    cropYear: {type: Number, require: true},
+    origin: {type: String, require: true},
+    zone: {type: String, require: true},
+    volume: {type: Number, require: true},
+    alcoholVolume: {type: Number, require: true},
+    rating: Number, //TODO tabla de ratings
+    images:{type: [String], require: true},
+    strain: {type: String, require: true}
 })
 
 const WineModel = mongoose.model('Wine', WineSchema);
