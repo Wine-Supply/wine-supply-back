@@ -19,7 +19,8 @@ const UserSchema = new Schema({
 			{type: mongoose.Types.ObjectId, ref:"Adress", required: true},
 			{type: mongoose.Types.ObjectId, ref:"Adress", required: false},
 			{type: mongoose.Types.ObjectId, ref:"Adress", required: false}
-		] //* array limit = 3
+		], //* array limit = 3
+  review_id: {type: mongoose.Types.ObjectId, ref:"Review"}
 });
 
 const UserModel = mongoose.model('User',UserSchema);
