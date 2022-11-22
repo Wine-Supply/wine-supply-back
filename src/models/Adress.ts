@@ -3,16 +3,16 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const AdressSchema = new Schema({
-    ifDefault: { type: Boolean, require: true },
-    country: { type: String, require: true },
-    region: { type: String, require: true },
-    city: { type: String, require: true },
-    postalCode: { type: String, require: true },
-    adressLine1: { type: String, require: true },
-    adressLine2: { type: String, require: true },
-    adressNumber: { type: String, require: true },
-    floor: { type: Number, require: false },
-    flatNumber: { type: Number, require: false },
+    ifDefault: { type: Boolean, required: true },
+    country: { type: String, required: true },
+    region: { type: String, required: true },
+    city: { type: String, required: true },
+    postalCode: { type: String, required: true },
+    adressLine1: { type: String, required: true },
+    adressLine2: { type: String, required: true },
+    adressNumber: { type: String, required: true },
+    floor: { type: Number, required: false },
+    flatNumber: { type: Number, required: false },
 })
 
 const AdressModel = mongoose.model('Adress', AdressSchema);
