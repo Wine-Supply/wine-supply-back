@@ -5,9 +5,8 @@ import Wine from "../models/Wine"
 
 
 
-const postWine = async (name: string, brand: string, description: string, type: string, body: string, cropYear: number, origin: string, zone: string, volume: number, alcoholVolume: number, rating: number, images: Array<string>, strain: string, quantity: number, price: number) => {
+const postWine = async (name: string, brand: string, description: string, type: string, body: string, cropYear: number, origin: string, zone: string, volume: number, alcoholVolume: number, rating: number, images: Array<string>, strain: string, stock: number, price: number) => {
 
-    try {
         const newWine = new Wine(
             {
                 name,
@@ -23,17 +22,13 @@ const postWine = async (name: string, brand: string, description: string, type: 
                 rating,
                 images,
                 strain,
-                quantity,
+                stock,
                 price,
                 review_id: new mongoose.Types.ObjectId
             })
         const createdWine = await newWine.save()
 
         return createdWine
-
-    } catch (error: any) {
-        console.log(error);
-    }
 };
 
 
