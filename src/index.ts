@@ -1,7 +1,7 @@
 import { config } from "dotenv";
 config();
 import mongoose from "mongoose";
-import { app } from './app'
+import { app } from './App'
 
 const PORT = 3001
 
