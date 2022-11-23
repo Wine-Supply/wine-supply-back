@@ -23,8 +23,7 @@ const postWine = async (name: string, brand: string, description: string, type: 
                 images,
                 strain,
                 stock,
-                price,
-                review_id: new mongoose.Types.ObjectId
+                price
             })
         const createdWine = await newWine.save()
 

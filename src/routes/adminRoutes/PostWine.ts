@@ -19,9 +19,9 @@ const validate =
 if (!validate) return res.status(400).send(`Missing data!`);
 
   try {
-      const newWine = postWine(name, brand, description, type, body, cropYear, origin, zone, volume, alcoholVolume, rating, images, strain, stock, price)
+      const newWine = await postWine(name, brand, description, type, body, cropYear, origin, zone, volume, alcoholVolume, rating, images, strain, stock, price)
 
-      res.status(200).json(newWine)
+      res.status(200).send(`${newWine.name} wine created successfully!`)
 
   } catch (error: any) {
       throw new Error( error );
