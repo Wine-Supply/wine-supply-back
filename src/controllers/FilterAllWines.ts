@@ -7,6 +7,7 @@ const filterAllWines = (wines: any) => {
         brand: e.brand,
         description: e.description,
         images: e.images,
+        alcoholVolume: e.alcoholVolume,
         rating: e.rating,
         price: e.price
         }
