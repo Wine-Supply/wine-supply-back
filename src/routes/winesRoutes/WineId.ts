@@ -3,17 +3,19 @@ import getWineById from "../../controllers/GetWineById"
 
 const router = Router()
 
-//* /wine/:id
+router.get("/:id", async (req, res) => {
 
-router.get("/", (req, res) => {
+  let { id }  = req.params;
+
   try {
-      console.log("soy la ruta /wine/:id")
-      res.send("checking")
-  } catch (error: any) {
-      throw new Error( error );
+    const wine = await getWineById(id);
+    res.send(wine);
   }
-})
+  catch (error: any) {
+    throw new Error( error );
+  }
+});
 
 
 
-export default router
+export default router;

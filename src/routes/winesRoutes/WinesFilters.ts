@@ -1,18 +1,30 @@
-import { Router } from "express";
-import filterWines from '../../controllers/FilterWines'
+import { Router, Request, Response} from "express";
+import Wine from "../../models/Wine";
+import checkEmptyQuery from "../../controllers/FilterWines"
 
 const router = Router()
 
 //* /wines/filters
 
-router.get("/", (req, res) => {
+router.get("/", async (req: Request, res: Response) => {
+
+  const querys = req.query; 
+ 
   try {
-      console.log("soy ruta '/wines/filters'")
-      res.send("checking")
+
+   const noEmptyQuerys = checkEmptyQuery(querys);
+ 
+   if (noEmptyQuerys) {
+    const filteredWines = await Wine.find(querys);      
+    // console.log("filteredWines:", filteredWines);
+    res.send(filteredWines);
+   }
+
   } catch (error: any) {
-      throw new Error( error );
+
+    res.status(400).send(error.message)
   }
-})
+});
 
 
 

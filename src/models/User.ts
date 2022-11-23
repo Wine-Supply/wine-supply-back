@@ -6,7 +6,7 @@ const UserSchema = new Schema({
 	// _id: ObjectId,
 	name: {type: String, required: true},
 	lastName: {type: String, required: true},
-	userName: {type: String, required: true},
+	userName: {type: String, required: true, unique: true},
   email: {type: String, required: true},
 	isAdmin: {type: Boolean, default: false, required: true},
   isActive: {type: Boolean, default: true, required: true},
