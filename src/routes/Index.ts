@@ -7,14 +7,14 @@ import RecommendedWines from './winesRoutes/RecommendedWines';
 import PostWine from './adminRoutes/PostWine'
 
 
- const router = Router()
+const router = Router()
 
 
 router.use('/wines', AllWines);
 router.use('/wines/filters', WinesFilters);
 router.use('/wines/recomendados', RecommendedWines);
 
-router.use('/wine/:id', WineId);
+router.use('/wine/', WineId);
 
 router.use('/admin/post', PostWine);
 

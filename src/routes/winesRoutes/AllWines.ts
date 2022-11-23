@@ -1,20 +1,25 @@
 import { Router } from "express";
-import getAllWines from '../../controllers/GetAllWines'
+import  getAllWines  from '../../controllers/GetAllWines';
+import filterAllWines from "../../controllers/FilterAllWines"
 
 const router = Router()
 
 //* /wines
 
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
+
   try {
-      console.log("soy ruta /wines")
-      res.send("checking")
-  } catch (error: any) {
-      throw new Error( error );
+    const wines = await getAllWines();
+    const fWines= filterAllWines(wines);
+    res.send(fWines);
+  } 
+  catch (error: any) {
+    throw new Error( error );
   }
-})
+
+});
 
 
 
-export default router
+export default router;
