@@ -1,6 +1,6 @@
 import express from "express"
 import mongoose from "mongoose"
-
+const { MONGO_URL } = process.env
 
 
 const app = express()
@@ -22,8 +22,7 @@ app.get("/", (req, res) => {
 })
 
 
-
-mongoose.connect('mongodb+srv://nico0f:testpassword951@cluster0.vtnjsce.mongodb.net/?retryWrites=true&w=majority').then(
+mongoose.connect(`${MONGO_URL}`).then(
     () => 
     app.listen(PORT, () => {
         console.log(`Server listening on port ${PORT}`)
