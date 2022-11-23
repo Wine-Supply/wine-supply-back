@@ -5,34 +5,6 @@ const router = Router()
 
 //* /admin/post
 
-/*
-router.get("/", (req, res) => {
-  try {
-      console.log("soy la ruta /admin/post")
-      res.send("checking")
-  } catch (error: any) {
-      throw new Error( error );
-  }
-})
-dejo la ruta de prueba momentaneamente
-*/ 
-
-// interface WineRequest<T> extends Request {
-//         name: string,
-//         brand: string,
-//         description: string,
-//         type: string,
-//         body: string,
-//         cropYear: number,
-//         origin: string,
-//         zone: string,
-//         volume: number,
-//         alcoholVolume: number,
-//         rating: number,
-//         images: Array<string>,
-//         strain: string,
-//         review_id: mongoose.Types.ObjectId
-//       }
 
 router.post("/", async (req: Request, res: Response) => {
 
