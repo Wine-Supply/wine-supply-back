@@ -1,6 +1,6 @@
 import { Router, Request, Response} from "express";
 import Wine from "../../models/Wine";
-import checkEmptyQuery from "../../controllers/FilterWines"
+import checkEmptyQuery from "../../controllers/CheckEmptyQuery"
 
 const router = Router()
 
