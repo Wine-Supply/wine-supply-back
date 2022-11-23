@@ -18,7 +18,11 @@ const WineSchema = new Schema({
     rating: Number, //TODO logica de ratings
     images:{type: [String], required: true},
     strain: {type: String, required: true},
-    review_id: {type: mongoose.Types.ObjectId, ref:"Review"}
+    quantity: {type: Number, required: true},
+    price: {type: Number, required: true},
+    review_id: [
+      { type: mongoose.Types.ObjectId, ref:"Review" }
+    ]
 })
 
 const WineModel = mongoose.model('Wine', WineSchema);
