@@ -1,14 +1,28 @@
-import { Router } from "express";
+import { Router, Response, Request } from "express";
 import postWine from "../../controllers/PostWine"
 
 const router = Router()
 
 //* /admin/post
 
-router.get("/", (req, res) => {
+
+router.post("/", async (req: Request, res: Response) => {
+
+  let { name, brand, description, type, body, cropYear, origin, zone, volume, alcoholVolume, rating, images, strain, stock, price } =
+  req.body;
+
+const validate =
+  name && brand && description && type && body && cropYear && origin && zone && volume && alcoholVolume && rating && images && strain && stock && price
+    ? true
+    : false;
+
+if (!validate) return res.status(400).send(`Missing data!`);
+
   try {
-      console.log("soy la ruta /admin/post")
-      res.send("checking")
+      const newWine = await postWine(name, brand, description, type, body, cropYear, origin, zone, volume, alcoholVolume, rating, images, strain, stock, price)
+
+      res.status(200).send(`${newWine.name} wine created successfully!`)
+
   } catch (error: any) {
       throw new Error( error );
   }
