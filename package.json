@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node build/index.js",
+    "start": "node build/index.js",  
     "dev": "nodemon --watch \"src/**\" --ext \"ts, json\" --exec \"ts-node src/index.ts\""
   },
   "keywords": [],

@@ -7,12 +7,12 @@ const router = Router()
 //* /wines/recomendados
 
 
-router.get("/", (req, res) => {
+router.get("/", async(req, res) => {
   try {
-      console.log("soy ruta /wines/recomendados")
-      res.send("checking")
-  } catch (error: any) {
-      throw new Error( error );
+    const wineRecommended = await getRecommendedWines()    
+    res.send(wineRecommended)
+  }catch (error : any) {
+      res.status(400).send(error.message)
   }
 })
 

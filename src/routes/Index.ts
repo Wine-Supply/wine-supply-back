@@ -18,5 +18,4 @@ router.use('/wine/', WineId);
 
 router.use('/admin/post', PostWine);
 
-
 export default router;
