@@ -1,0 +1,4 @@
+GET http://localhost:3001/wines
+
+###
+GET http://localhost:3001/wine/637d40af9082843e17058a3f
