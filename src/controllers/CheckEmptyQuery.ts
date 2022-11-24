@@ -1,4 +1,3 @@
-import Wine from "../models/Wine";
 
 const checkEmptyQuery = (querys: {})=> {
 
@@ -9,14 +8,3 @@ const checkEmptyQuery = (querys: {})=> {
 }
 
 export default checkEmptyQuery;
-
-
-const filterWines = async (querys: {}) => {
- 
-   if (Object.keys(querys).length === 0) {
-    const filteredWines = await Wine.find();      
-    // console.log("filteredWines:", filteredWines);
-    return filteredWines;
-  }
-  
-};
