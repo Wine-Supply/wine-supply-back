@@ -13,8 +13,11 @@ router.get("/", async (req: Request, res: Response) => {
       const cabernetFiltered = await Wine.where({strain: "CABERNET SAUVIGNON"}).limit(4).select("_id name brand type description cropYear strain volume images rating" );
       const merlotFiltered = await Wine.where({strain: "MERLOT"}).limit(4).select("_id name brand type description cropYear strain volume images rating" );
       const chardonnayFiltered = await Wine.where({strain: "CHARDONNAY"}).limit(4).select("_id name brand type description cropYear strain volume images rating" );
+      const syrahFiltered = await Wine.where({strain: "SYRAH"}).limit(4).select("_id name brand type description cropYear strain volume images rating" );
+      const pinotNoirFiltered = await Wine.where({strain: "PINOT NOIR"}).limit(4).select("_id name brand type description cropYear strain volume images rating" );
+      const nebbioloFiltered = await Wine.where({strain: "NEBBIOLO"}).limit(4).select("_id name brand type description cropYear strain volume images rating" );
 
-      const categoriesArray = carmenereFiltered.concat(cabernetFiltered)
+      const categoriesArray = [carmenereFiltered,cabernetFiltered,merlotFiltered,chardonnayFiltered,syrahFiltered,pinotNoirFiltered,nebbioloFiltered].flat()
 
       return res.send(categoriesArray);
     
@@ -25,8 +28,6 @@ router.get("/", async (req: Request, res: Response) => {
   }
 });
 
-/* 
- */
 
 
 export default router
