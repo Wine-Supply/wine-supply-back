@@ -7,11 +7,21 @@ const router = Router()
 
 router.get("/", async (req: Request, res: Response) => {
 
-  const {name} = req.query; 
- 
+  const {input} = req.query; 
+  const regexContainInsensitive= {$regex:'.*' + input + '.*', $options: 'i'}
+  const filters = {
+    $or:[
+      {name: regexContainInsensitive},
+      {strain: regexContainInsensitive},
+      {brand: regexContainInsensitive},
+      {type: regexContainInsensitive},
+    ]
+  }
+
+
   try {
-    if (name) {
-      const filteredWines = await Wine.where({name: {$regex:'.*' + name + '.*', $options: 'i'}}).select("_id name brand type description cropYear volume images rating" ); 
+    if (input) {
+      const filteredWines = await Wine.find(filters).select("_id name brand type description cropYear strain volume images rating" ); 
       if(filteredWines.length === 0) {throw new Error("No matches found")}
       return res.send(filteredWines);
     }
