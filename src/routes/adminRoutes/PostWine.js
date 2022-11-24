@@ -1,4 +1,5 @@
 import { Router } from "express"
+import CheckWines from "../../controllers/CheckForExistingWine"
 import postWine from "../../controllers/PostWine"
 import upLoadImg from "../../controllers/Cloudinary"
 import fs from "fs-extra"
@@ -10,8 +11,14 @@ const router = Router()
 
 router.post("/", async(req, res) => {
 
+  
   let { name, brand, description, type, body, cropYear, origin, zone, volume, alcoholVolume, rating, images, strain, stock, price } =
   req.body;
+
+  
+  let existingWines = await CheckWines(name, brand, cropYear, volume)
+  if ( existingWines.length ) return res.send("Vino ya esxiste en la DB!");
+  
 
   let result;
   if(req.files?.images){
