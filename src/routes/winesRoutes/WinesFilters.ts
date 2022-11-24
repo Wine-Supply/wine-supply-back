@@ -16,7 +16,7 @@ router.get("/", async (req: Request, res: Response) => {
  
    if (noEmptyQuerys) {
     const filteredWines = await Wine.find(querys).select("_id name brand type description cropYear strain volume images rating" );
-    // console.log("filteredWines:", filteredWines);
+    // console.log("filteredWines:", filteredWines)
     res.send(filteredWines);
    }
 
