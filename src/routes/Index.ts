@@ -4,7 +4,7 @@ import AllWines from './winesRoutes/AllWines';
 import WineId from './winesRoutes/WineId';
 import WinesFilters from './winesRoutes/WinesFilters';
 import RecommendedWines from './winesRoutes/RecommendedWines';
-import PostWine from './adminRoutes/PostWine'
+import PostWine from './adminRoutes/PostWine.js'
 
 
 const router = Router()
