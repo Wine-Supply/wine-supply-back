@@ -17,7 +17,7 @@ el archivo .env debe estar en la carpeta principal del repo, donde esta el READM
 ### RUTAS GET:
 * **/wines** : Devuelve todos los vinos
 * **/wines/categories** : Devuelve 4 vinos de cada cepa
-* **/wines/recomendados** : Devuelve todos 10 vinos con mejor rating de la base de datos
+* **/wines/recomendados** : Devuelve 10 vinos con mejor rating de la base de datos
 * **/wines/filters** : Devuelve vinos mediante keys pasadas como querys, puede concatenar diferentes querys
 * **/wines/search** : Función de busqueda mediante querys
 * **/wine/:id** : Devuelve el vino con la id especificada por parametro
