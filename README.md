@@ -11,3 +11,16 @@ npm run build: para hacer el build, que va a transpilar todo a js
 npm start: que corre node en index.js (que esta en el build), se puede usar una vez hecho el build
 
 el archivo .env debe estar en la carpeta principal del repo, donde esta el README
+
+# RUTAS
+
+### RUTAS GET:
+* **/wines** : Devuelve todos los vinos
+* **/wines/categories** : Devuelve 4 vinos de cada cepa
+* **/wines/recomendados** : Devuelve 10 vinos con mejor rating de la base de datos
+* **/wines/filters** : Devuelve vinos mediante keys pasadas como querys, puede concatenar diferentes querys
+* **/wines/search** : Función de busqueda mediante querys
+* **/wine/:id** : Devuelve el vino con la id especificada por parametro
+
+### RUTAS POST:
+* **/admin/post** : Permite ingresar un vino en la base de datos
