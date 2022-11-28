@@ -24,3 +24,9 @@ el archivo .env debe estar en la carpeta principal del repo, donde esta el READM
 
 ### RUTAS POST:
 * **/admin/post** : Permite ingresar un vino en la base de datos
+
+### RUTAS AUTH:
+* **/login/** : Genera un Json Web Token y lo devuelve junto con informacion del usuario. Recibe información (email, password) por body.
+* **/signup/** : Ingresa al usuario a la base de datos. Recibe información (name, email, password _-sujeto a cambios-_) por body.
+* **/getuser/** : Ruta de testeo de funcionalidad token. Verifica el token ('Bearer token' en header) y devuelve info del usuario cuyo id se
+encuentra en el payload del token.
