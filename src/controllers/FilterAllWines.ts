@@ -2,7 +2,7 @@
 const filterAllWines = (wines: any) => {
     const filterWines = wines.map((e: any) => {
         return {
-        id: e._id,
+        _id: e._id,
         name: e.name,
         brand: e.brand,
         description: e.description,
