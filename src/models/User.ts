@@ -7,7 +7,7 @@ const UserSchema = new Schema({
 	name: {type: String, required: true, minLength: 1, maxLength: 25, trim: true},
 	lastName: {type: String, default:"void", minLength: 1, maxLength: 25, trim: true },
 	userName: {type: String, default:"void", minLength: 3, maxLength: 15, trim: true },
-  email: {type: String, required: true, unique: true, minLength: 8,  maxLength: 40, trim: true },
+  email: {type: String, required: true, unique: true, minLength: 8,  maxLength: 50, trim: true },
 	isAdmin: {type: Boolean, default: false},
   isActive: {type: Boolean, default: true},
 	phone: {type: String, default:"void", minLength: 6, maxLength: 15, trim: true}, //* Los numeros de tel tienen "-" y a veces "()"
