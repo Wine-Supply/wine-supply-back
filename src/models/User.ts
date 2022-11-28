@@ -4,14 +4,14 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
 	// _id: ObjectId,
-	name: {type: String, required: true},
+	name: {type: String},
 	lastName: {type: String},
-	userName: {type: String, unique: false},
-  	email: {type: String, required: true},
+	userName: {type: String},
+  	email: {type: String},
 	isAdmin: {type: Boolean, default: false},
   	isActive: {type: Boolean, default: false},
 	phone: {type: String}, //* Los numeros de tel tienen "-" y a veces "()"
-	hashedPass:{type: String, required: true},
+	hashedPass:{type: String},
 	//TODO autenticación de terceros
 	membership_id: [
 		{ isMember: { type: Boolean} },
