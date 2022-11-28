@@ -12,12 +12,14 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cloudinary": "^1.32.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "fs-extra": "^10.1.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.2"
   },
   "devDependencies": {
