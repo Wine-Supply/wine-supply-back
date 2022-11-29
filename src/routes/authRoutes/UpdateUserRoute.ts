@@ -4,11 +4,14 @@ import updateUser from '../../controllers/UpdateUser'
 
 //* /user/update
 
-router.patch("/", async(req: any, res: any) => {
+router.get("/", async(req: any, res: any) => {
+
+  const userId = req.user?._id;
+  let user;
   try {
 
-    const user = req.user
-    // console.log("user", user);
+    user = await User.findById(userId, "-hashedPass")
+    console.log("user", user);
 
     if (!user) {
         return res.status(404).send("User not found!")
