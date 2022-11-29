@@ -29,15 +29,13 @@ router.post("/", async(req, res) => {
     res.status(400).send("No image to upload")
   }
 
-  images =  result.secure_url
 
   //TODO actualizar para poder updatear la imagen. Modelo abajo
-  /*
-  images = {
-    image: result.secure_url, //Direccion de la imagen
-    imageID: result.public_id //Id de la imagen
-  } 
-  */
+  //?? ECHO
+
+  images = [result.secure_url, //Direccion de la imagen
+            result.public_id //Id de la imagen
+  ]
 
   const validate =
     name && brand && description && type && body && cropYear && origin && zone && volume && alcoholVolume && rating && images && strain && stock && price

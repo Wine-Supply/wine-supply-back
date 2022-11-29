@@ -11,6 +11,7 @@ import SignUp from './authRoutes/SignupRoute'
 import Login from './authRoutes/LoginRoute'
 import VerifyUserToken from './authRoutes/VerifyUserToken'
 import GetUser from './authRoutes/GetUser'
+import UpdateWine from './adminRoutes/UpdateWine'
 
 const router = Router()
 
@@ -25,6 +26,7 @@ router.use('/wine/', WineId);
 
 //admin
 router.use('/admin/post', PostWine);
+router.use('/admin/updatewine', UpdateWine);
 
 //auth
 router.use('/login/', Login)
