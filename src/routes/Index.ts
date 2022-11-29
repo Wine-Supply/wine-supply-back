@@ -12,6 +12,7 @@ import Login from './authRoutes/LoginRoute'
 import VerifyUserToken from './authRoutes/VerifyUserToken'
 import GetUser from './authRoutes/GetUser'
 import UpdateWine from './adminRoutes/UpdateWine'
+import UpdateUser from './authRoutes/UpdateUserRoute';
 
 const router = Router()
 
@@ -29,9 +30,10 @@ router.use('/admin/post', PostWine);
 router.use('/admin/updatewine', UpdateWine);
 
 //auth
-router.use('/login/', Login)
-router.use('/signup/', SignUp)
-router.use('/getuser', VerifyUserToken, GetUser) /*<------ ejemplo de ruta verificada por middleware*/
+router.use('/login', Login);
+router.use('/signup', SignUp);
+router.use('/getuser', VerifyUserToken, GetUser); /*<------ ejemplo de ruta verificada por middleware*/
+router.use('/user/update', VerifyUserToken, UpdateUser);
 
 
 export default router;

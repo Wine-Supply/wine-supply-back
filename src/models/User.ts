@@ -10,7 +10,7 @@ const UserSchema = new Schema({
   email: {type: String, required: true, unique: true, minLength: 8,  maxLength: 50, trim: true },
 	isAdmin: {type: Boolean, default: false},
   isActive: {type: Boolean, default: true},
-	phone: {type: String, default:"", minLength: 6, maxLength: 15, trim: true}, //* Los numeros de tel tienen "-" y a veces "()"
+	phone: {type: String, minLength: 6, maxLength: 15, trim: true}, //* Los numeros de tel tienen "-" y a veces "()"
 	hashedPass:{type: String, required: true},
   avatar:{type: String, required: false},
 	//TODO autenticación de terceros

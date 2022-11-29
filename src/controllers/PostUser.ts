@@ -1,6 +1,6 @@
 import User from "../models/User"
 
-const postUser = async (name: string, email: string, hashedPass: string) => {
+const postUser = async (name: string, lastName: string, userName:string, email: string, hashedPass: string) => {
 
     let existingUser;
 
@@ -15,6 +15,8 @@ const postUser = async (name: string, email: string, hashedPass: string) => {
     const newUser = new User(
         {
             name,
+            lastName,
+            userName,
             email,
             hashedPass
         })

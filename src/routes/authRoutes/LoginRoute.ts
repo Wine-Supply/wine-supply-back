@@ -6,7 +6,7 @@ const router = Router()
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 
-//* /login/
+//* /login
 
 
 router.post("/", async(req, res) => {
