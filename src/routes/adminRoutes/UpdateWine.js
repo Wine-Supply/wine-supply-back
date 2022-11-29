@@ -20,9 +20,9 @@ router.put("/", async (req, res) => {
 	try{
 		let result;
 		if (req.files?.images) {
-			//* Destruir imagen
+			//* Destruir imagen vieja
 			const destroy = await destroyImg(imageID);
-			console.log(destroy);
+			console.log("destroy", destroy);
 			//* Subir nueva imagen
 			result = await upLoadImg(req.files.images.tempFilePath);
 			await fs.unlink(req.files.images.tempFilePath);
