@@ -3,30 +3,33 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-	// _id: ObjectId,
-	name: {type: String, required: true, minLength: 1, maxLength: 25, trim: true},
-	lastName: {type: String, required: true, minLength: 1, maxLength: 25, trim: true },
-	userName: {type: String, required: true, minLength: 3, maxLength: 15, trim: true },
+  // _id: ObjectId,
+  name: {type: String, required: true, minLength: 1, maxLength: 25, trim: true},
+  lastName: {type: String, required: true, minLength: 1, maxLength: 25, trim: true },
+  userName: {type: String, required: true, minLength: 3, maxLength: 15, trim: true },
   email: {type: String, required: true, unique: true, minLength: 8,  maxLength: 50, trim: true },
-	isAdmin: {type: Boolean, default: false},
-  isActive: {type: Boolean, default: true},
-	phone: {type: String, default:"", minLength: 6, maxLength: 15, trim: true}, //* Los numeros de tel tienen "-" y a veces "()"
-	hashedPass:{type: String, required: true},
+  hashedPass:{type: String, required: true},
+  date_of_birth:{type : Date, required: true},
+  phone: {type: String, default:"", minLength: 6, maxLength: 15, trim: true}, //* Los numeros de tel tienen "-" y a veces "()"
   avatar:{type: String, required: false},
+  isAdmin: {type: String, default: "no"},
+  isActive: {type: Boolean, default: true},
 	//TODO autenticación de terceros
-	membership_id: [
+  membership_id: [
 		{ isMember: { type: Boolean, default: false} },
 		{type: mongoose.Types.ObjectId, ref:"Membership"},
 	],
-	address:
-		[
+  address: [
 			{type: mongoose.Types.ObjectId, ref:"Address"},
 			{type: mongoose.Types.ObjectId, ref:"Address"},
 			{type: mongoose.Types.ObjectId, ref:"Address"}
 		], //* array limit = 3
   review_id: [
     {type: mongoose.Types.ObjectId, ref:"Review"}
-  ]
+  ],
+  shopping_cart: [{type: mongoose.Types.ObjectId, ref:"Wine"}],
+  order: [{type: mongoose.Types.ObjectId, ref:"ShoppingOrder"}],
+  whishList: [{type: mongoose.Types.ObjectId, ref:"Wine"}]
 }, { timestamps: true });
 
 
