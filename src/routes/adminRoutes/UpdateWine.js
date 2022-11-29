@@ -18,16 +18,31 @@ router.put("/", async (req, res) => {
 	//console.log(querys)
 
 	try{
+		
+		const wine = await Wine.findById(_id)
 		let result;
+
+		if (!wine) {
+			return res.status(404).send("Wine not found!")
+		}
+		if (Object.keys(req.body).length) {
+	
+		  for (const property in querys) {
+			wine[property]= req.body[property]
+		  }
+		}
+
+
+
 		if (req.files?.images) {
 			//* Destruir imagen vieja
 			const destroy = await destroyImg(imageID);
-			console.log("destroy", destroy);
+			//console.log("destroy", destroy);
 			//* Subir nueva imagen
 			result = await upLoadImg(req.files.images.tempFilePath);
 			await fs.unlink(req.files.images.tempFilePath);
 	
-			querys.images = [
+			wine.images = [
 				result.secure_url, //Direccion de la imagen
 				result.public_id, //Id de la imagen
 			];
@@ -36,7 +51,7 @@ router.put("/", async (req, res) => {
 		const noEmptyQuerys = checkEmptyQuery(querys);
 	
 		if (noEmptyQuerys) {
-			const updateWine = await Wine.findByIdAndUpdate(_id, querys)
+			const updateWine = await Wine.findByIdAndUpdate(_id, wine)
 			console.log(updateWine)
 			res.send(updateWine);
 		}
