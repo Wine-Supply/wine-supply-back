@@ -3,13 +3,12 @@ import User from "../models/User"
 const updateUser = async (user:any, body:any) => {
 
   const updatedUser = user
-  // console.log(body);
-
-  const {isMember} = body.membership_id[0]
+  //  console.log(body);
   
-  // console.log(body.membership_id[0]);
+  if(body.membership_id) {
+    const {isMember} = body.membership_id[0]
   
-  if(Object.keys(body.membership_id).length) {
+    // console.log(body.membership_id[0]);
 
     if(user.membership_id.length === 0){
 
@@ -17,7 +16,7 @@ const updateUser = async (user:any, body:any) => {
    }
    user.membership_id[0].isMember = isMember
 
-   const updatedUser = await user.save()
+   await user.save()
 
    return updatedUser
 
@@ -26,6 +25,8 @@ const updateUser = async (user:any, body:any) => {
   for (const property in body) {
     user[property]= body[property]
   }
+
+  await updatedUser.save()
 
 
   return updatedUser;
