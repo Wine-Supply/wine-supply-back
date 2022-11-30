@@ -7,7 +7,7 @@ const getUserReviews = async (id: string) => {
   console.log(typeof id)
 
   try {
-    const review = await ReviewModel.find({ user_id: id });
+    const review = await ReviewModel.find({ user_id: id, isActive: true });
     return review;
   }
   catch (error: any) {

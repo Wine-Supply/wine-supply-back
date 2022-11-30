@@ -3,7 +3,7 @@ import ReviewModel from "../models/Review";
 
 const checkUserReviews = async (userid: string, wineid: string) => {
     try {
-        const review = await ReviewModel.find({ user_id: userid, wine_id: wineid });
+        const review = await ReviewModel.find({ user_id: userid, wine_id: wineid, isActive: true });
         return review;
     }
     catch (error: any) {
