@@ -16,7 +16,7 @@ router.post("/", async(req, res) => {
   const hashedPass = await bcrypt.hash(password, 10)
 
   try {
-      const newUser = await postUser(name, lastName, userName,email, hashedPass)
+      const newUser = await postUser(name, lastName, userName, email, hashedPass)
 
       res.status(200).send(`${newUser.name} user created successfully!`)
 
