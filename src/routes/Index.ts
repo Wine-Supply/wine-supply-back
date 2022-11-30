@@ -7,7 +7,7 @@ import RecommendedWines from './winesRoutes/RecommendedWines';
 import PostWine from './adminRoutes/PostWine.js'
 import SearchBar from './winesRoutes/SearchBar'
 import Categories from './winesRoutes/Categories'
-
+import ShoppingCart from './winesRoutes/ShoppingCart'
 const router = Router()
 
 
@@ -16,7 +16,7 @@ router.use('/wines/filters', WinesFilters);
 router.use('/wines/search', SearchBar);
 router.use('/wines/categories', Categories);
 router.use('/wines/recomendados', RecommendedWines);
-
+router.use("wines/cart" , ShoppingCart)
 router.use('/wine/', WineId);
 
 router.use('/admin/post', PostWine);
