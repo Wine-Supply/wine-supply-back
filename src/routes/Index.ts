@@ -13,6 +13,9 @@ import VerifyUserToken from './authRoutes/VerifyUserToken'
 import GetUser from './authRoutes/GetUser'
 import UpdateWine from './adminRoutes/UpdateWine'
 import UpdateUser from './authRoutes/UpdateUserRoute';
+import GetUserReviews from './reviewsRoutes/GetUserReviews'
+import  GetWineReviews from './reviewsRoutes/GetWineReviews'
+import UserReviews from './reviewsRoutes/UserReviewPost'
 
 const router = Router()
 
@@ -34,6 +37,11 @@ router.use('/login', Login);
 router.use('/signup', SignUp);
 router.use('/getuser', VerifyUserToken, GetUser); /*<------ ejemplo de ruta verificada por middleware*/
 router.use('/user/update', VerifyUserToken, UpdateUser);
+
+//reviews
+router.use('/getUserReviews', GetUserReviews)
+router.use('/getWineReviews', GetWineReviews)
+router.use('/postReviews', UserReviews)
 
 
 export default router;
