@@ -1,6 +1,6 @@
 import { Router } from "express";
-import checkUserReviews from "../../controllers/CheckUserReviews";
-import postReview from "../../controllers/PostReview";
+import checkUserReviews from "../../controllers/ReviewsControllers/CheckUserReviews";
+import postReview from "../../controllers/ReviewsControllers/PostReview";
 
 const router = Router()
 

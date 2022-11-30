@@ -1,4 +1,4 @@
-import ReviewModel from "../models/Review";
+import ReviewModel from "../../models/Review";
 
 
 const checkUserReviews = async (userid: string, wineid: string) => {
