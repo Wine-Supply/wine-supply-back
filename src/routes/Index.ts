@@ -19,9 +19,16 @@ import DeleteReview from './reviewsRoutes/DeleteReviews'
 import UpdateReviews from './reviewsRoutes/UpdateReviews'
 /* ↓ middlewares ↓  */
 import VerifyUserToken from './middlewares/VerifyUserToken'
+import VerifyUserTokenPayment from './middlewares/VerifyUserTokenPayment'
 import AdminStatus from './middlewares/AdminStatus'
+/* ↓ payments ↓  */
+import Payment from './paymentRoutes/mercadopago/Payment'
 
 const router = Router()
+
+
+router.use('/payment', VerifyUserTokenPayment, Payment);
+
 
 
 router.use('/wines', AllWines);
