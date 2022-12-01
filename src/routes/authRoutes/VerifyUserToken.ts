@@ -1,14 +1,14 @@
-import { Router } from "express"
+// import { Router } from "express"
 const jwt = require("jsonwebtoken")
 import User from "../../models/User"
 import { config } from "dotenv";
 config();
-const router = Router()
+// const router = Router()
 
 //* /verifyuser/
 
 
-router.get("/", async(req: any, res, next) => {
+async function verToken(req: any, res: any, next: any) {
     let token
     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
         try {
@@ -25,9 +25,9 @@ router.get("/", async(req: any, res, next) => {
     }
     
     if (!token) {
-        return res.status(400).send("no token!")
+      throw new Error("no token!")
     }
 
-})
+}
 
-export default router
+export default verToken

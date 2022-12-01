@@ -3,7 +3,7 @@ import updateUser from '../../controllers/UpdateUser'
 
 //* /user/update
 
-router.get("/", async(req: any, res: any) => {
+router.put("/", async(req: any, res: any) => {
 
   const user = req.user;
   // let user;
