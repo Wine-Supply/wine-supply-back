@@ -1,10 +1,9 @@
 const router = require("express").Router()
-import updateUser  from '../../controllers/UpdateUser'
 import updateOrPostAddress from '../../controllers/AddressControllers/PostUpdateAddress'
 
-//* /user/update
+//* /user/address
 
-router.put("/", async(req: any, res: any) => {
+router.post("/", async(req: any, res: any) => {
 
   try {
 
@@ -25,13 +24,6 @@ router.put("/", async(req: any, res: any) => {
       
       return res.status(200).send(updatedUserAddress)
     }
-    if (Object.keys(req.body).length) {
-
-      const updatedUser = await updateUser(user, req.body)
-
-      return res.status(200).send(updatedUser)
-    } 
-
     return res.status(400).send({error:"No parameters sent for update"})
     
     } catch(error: any) {

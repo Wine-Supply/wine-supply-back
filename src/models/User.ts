@@ -9,7 +9,7 @@ const UserSchema = new Schema({
   userName: {type: String, required: true, minLength: 3, maxLength: 15, trim: true },
   email: {type: String, required: true, unique: true, minLength: 8,  maxLength: 50, trim: true },
   hashedPass:{type: String, required: true},
-  date_of_birth:{type : Date, required: true},
+  date_of_birth:{type : Date, required: false},
   phone: {type: String, minLength: 6, maxLength: 15, trim: true}, //* Los numeros de tel tienen "-" y a veces "()"
   avatar:{type: String, required: false},
   isAdmin: {type: String, default: "no"},
@@ -20,6 +20,9 @@ const UserSchema = new Schema({
 		{type: mongoose.Types.ObjectId, ref:"Membership"},
 	],
   address: [
+      // {isDefault, country, stateName, cityName, postalcode, streetName, streetNumber: String, floor:String, Apartment:String},
+      // {isDefault, country, region, city, postalcode, addressLine1, addressLine2},
+      // {isDefault, country, region, city, postalcode, addressLine1, addressLine2}
 			{type: mongoose.Types.ObjectId, ref:"Address"},
 			{type: mongoose.Types.ObjectId, ref:"Address"},
 			{type: mongoose.Types.ObjectId, ref:"Address"}

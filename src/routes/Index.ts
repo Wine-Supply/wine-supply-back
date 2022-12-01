@@ -13,6 +13,7 @@ import VerifyUserToken from './authRoutes/VerifyUserToken'
 import GetUser from './authRoutes/GetUser'
 import UpdateWine from './adminRoutes/UpdateWine'
 import UpdateUser from './authRoutes/UpdateUserRoute';
+import PostOrUpdateAddress from './authRoutes/PostOrUpdateAddress'
 import GetUserReviews from './reviewsRoutes/GetUserReviews'
 import  GetWineReviews from './reviewsRoutes/GetWineReviews'
 import UserReviews from './reviewsRoutes/UserReviewPost'
@@ -39,6 +40,8 @@ router.use('/login', Login);
 router.use('/signup', SignUp);
 router.use('/getuser', VerifyUserToken, GetUser); /*<------ ejemplo de ruta verificada por middleware*/
 router.use('/user/update', VerifyUserToken, UpdateUser);
+router.use('/user/address', VerifyUserToken, PostOrUpdateAddress);
+
 
 //reviews
 router.use('/getUserReviews', GetUserReviews)

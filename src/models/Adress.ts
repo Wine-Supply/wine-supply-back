@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const AddressSchema = new Schema({
-    ifDefault: { type: Boolean, required: true },
     country: { type: String, required: true , trim: true },
     region: { type: String, required: true, trim: true },
     city: { type: String, required: true, trim: true },
