@@ -19,7 +19,7 @@ const UserSchema = new Schema({
 		{ isMember: { type: Boolean, default: false} },
 		{type: mongoose.Types.ObjectId, ref:"Membership"},
 	],
-  address: {type: [Object]},
+  address: [],
   review_id: [
     {type: mongoose.Types.ObjectId, ref:"Review"}
   ],
