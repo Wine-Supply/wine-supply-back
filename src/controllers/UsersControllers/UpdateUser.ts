@@ -1,37 +1,41 @@
-import User from "../../models/User"
+const router = require("express").Router()
+import updateUser  from '../../controllers/UsersControllers/UpdateUser'
+import {updateOrPostAddress, deleteAddress} from '../../controllers/UsersControllers/PostUpdateAddress'
 
-const updateUser = async (user:any, body:any) => {
+//* /user/update
 
-  const updatedUser = user
-  //  console.log(body);
-  
-  if(body.membership_id) {
-    const {isMember} = body.membership_id[0]
-  
-    // console.log(body.membership_id[0]);
+router.put("/", async(req: any, res: any) => {
 
-    if(user.membership_id.length === 0){
+  try {
 
-   user.membership_id.push({isMember: true})
-   }
-   user.membership_id[0].isMember = isMember
+    const user = req.user;
+    // console.log(user);
+    
+    if (!user) {
+        return res.status(404).send("User not found!")
+    }
 
-   await user.save()
+    if(req.body.address){
+      const {address} = req.body
+      const {selected} = req.query
+      const isSelected = selected ?  true : false
+      const changeAddress = updateOrPostAddress(user, address, isSelected)
 
-   return updatedUser
+      //! ver que response enviar
+    }
+    if (Object.keys(req.body).length) {
 
-  }
+      const updatedUser = await updateUser(user, req.body)
 
-  for (const property in body) {
-    user[property]= body[property]
-  }
+      return res.status(200).send(updatedUser)
+    } 
 
-  await updatedUser.save()
+    return res.status(400).send({error:"No parameters sent for update"})
+    
+    } catch(error: any) {
+        return res.status(400).send({error: error.message})
+    }
+});
 
 
-  return updatedUser;
-
-};
-
-
-export default updateUser;
+export default router
