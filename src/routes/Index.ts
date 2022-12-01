@@ -9,15 +9,17 @@ import SearchBar from './winesRoutes/SearchBar'
 import Categories from './winesRoutes/Categories'
 import SignUp from './authRoutes/SignupRoute'
 import Login from './authRoutes/LoginRoute'
-import VerifyUserToken from './authRoutes/VerifyUserToken'
 import GetUser from './authRoutes/GetUser'
 import UpdateWine from './adminRoutes/UpdateWine'
 import UpdateUser from './authRoutes/UpdateUserRoute';
 import GetUserReviews from './reviewsRoutes/GetUserReviews'
-import  GetWineReviews from './reviewsRoutes/GetWineReviews'
+import GetWineReviews from './reviewsRoutes/GetWineReviews'
 import UserReviews from './reviewsRoutes/UserReviewPost'
 import DeleteReview from './reviewsRoutes/DeleteReviews'
 import UpdateReviews from './reviewsRoutes/UpdateReviews'
+/* ↓ middlewares ↓  */
+import VerifyUserToken from './middlewares/VerifyUserToken'
+import AdminStatus from './middlewares/AdminStatus'
 
 const router = Router()
 

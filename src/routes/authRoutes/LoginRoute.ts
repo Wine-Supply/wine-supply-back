@@ -43,7 +43,7 @@ router.post("/", async(req, res) => {
     if (!comparePassword) {
         return res.status(400).send("Incorrect password!")
     }
-    const token = await jwt.sign({_id: existingUser._id}, process.env.JWTKEY, {expiresIn: "15s"})
+    const token = await jwt.sign({_id: existingUser._id}, process.env.JWTKEY, {expiresIn: "2d"})
 
     return res.status(200).json( {info:"Successfull log-in!", user: existingUser, token} )
 })
