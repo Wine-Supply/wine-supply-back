@@ -30,3 +30,9 @@ el archivo .env debe estar en la carpeta principal del repo, donde esta el READM
 * **/signup/** : Ingresa al usuario a la base de datos. Recibe información (name, email, password _-sujeto a cambios-_) por body.
 * **/getuser/** : Ruta de testeo de funcionalidad token. Verifica el token ('Bearer token' en header) y devuelve info del usuario cuyo id se
 encuentra en el payload del token.
+
+### RUTAS REVIEW:
+* **/getUserReviews/** && **/getWineReviews/** : Trae todos los Reviews asociados al dato de la ruta, se debe enviar id como user_id ó wine_id según el caso.
+* **/postReviews/** : Genera un nuevo Review y re-calcula el Rating para el vino asociado. Requiere user_id, wine_id, comment y rating.
+* **/updateReviews/** : Actualiza el estado de un Review y re-calcula el Rating del vino asociado. Requiere review_id, wine_id, comment (si no se actualiza el comentario, volver a traer el aterior), rating (si no se actualiza el raiting, volver a traer el aterior).
+* **/deleteReview/** : Realiza un borrado lógico actualizando el estado de un Review.isActive en **false** y re-calcula el Rating del vino asociado. Requiere user_id, wine_id.
