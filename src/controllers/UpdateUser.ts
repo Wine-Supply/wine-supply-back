@@ -1,6 +1,3 @@
-import User from "../models/User"
-
-// NO TRABAJADO TODAVIA, por ver
 
 const updatedUser = async (user:any, body:any) => {
 
@@ -8,6 +5,8 @@ const updatedUser = async (user:any, body:any) => {
   //  console.log(body);
 
   const validate = body.name || body.lastName || body.userName || body.email || body.date_of_birth || body.phone || body.avatar || body.isActive ? true : false
+
+  if (!validate) throw new Error("no valid field for update")
   
   for (const property in body) {
     user[property]= body[property]
@@ -15,9 +14,7 @@ const updatedUser = async (user:any, body:any) => {
 
   await updatedUser.save()
 
-
   return updatedUser;
-
 
 }
 
