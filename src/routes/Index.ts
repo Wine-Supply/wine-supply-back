@@ -17,6 +17,10 @@ import GetWineReviews from './reviewsRoutes/GetWineReviews'
 import UserReviews from './reviewsRoutes/UserReviewPost'
 import DeleteReview from './reviewsRoutes/DeleteReviews'
 import UpdateReviews from './reviewsRoutes/UpdateReviews'
+
+//payment
+import PostPayment from './payment/PostPayment'
+import GetSuccesPayment from './payment/GetSuccesPayment'
 /* ↓ middlewares ↓  */
 import VerifyUserToken from './middlewares/VerifyUserToken'
 import AdminStatus from './middlewares/AdminStatus'
@@ -48,6 +52,10 @@ router.use('/getWineReviews', GetWineReviews)
 router.use('/postReviews', UserReviews)
 router.use('/deleteReview', DeleteReview)
 router.use('/updateReviews', UpdateReviews)
+
+// payment
+router.use('/payment' , PostPayment )
+router.use('/succes' , GetSuccesPayment)
 
 
 export default router;
