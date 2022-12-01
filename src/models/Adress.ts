@@ -14,6 +14,7 @@ const AddressSchema = new Schema({
     floor: { type: Number, required: false, trim: true },
     flatNumber: { type: Number, required: false, trim: true },
     isActive: {type: Boolean, default: true},
+    user_id:[{ type: mongoose.Types.ObjectId, ref:"User" }]
 }, { timestamps: true })
 
 const AddressModel = mongoose.model('Address', AddressSchema);
