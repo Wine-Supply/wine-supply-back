@@ -29,14 +29,4 @@ router.get("/", async(req: any, res: any) => {
 });
 
 
-// borrado logico de address
-// baja de suscripcion
-// cambio de name, lastname, username, email, password?, phone, address, membership, avatar
-/* 
-const doc = await Model.findById(id)
-doc.name = 'jason bourne';
-await doc.save();
-*/
-
-
 export default router
