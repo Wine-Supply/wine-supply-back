@@ -16,6 +16,8 @@ import UpdateUser from './authRoutes/UpdateUserRoute';
 import GetUserReviews from './reviewsRoutes/GetUserReviews'
 import  GetWineReviews from './reviewsRoutes/GetWineReviews'
 import UserReviews from './reviewsRoutes/UserReviewPost'
+import DeleteReview from './reviewsRoutes/DeleteReviews'
+import UpdateReviews from './reviewsRoutes/UpdateReviews'
 
 const router = Router()
 
@@ -42,6 +44,8 @@ router.use('/user/update', VerifyUserToken, UpdateUser);
 router.use('/getUserReviews', GetUserReviews)
 router.use('/getWineReviews', GetWineReviews)
 router.use('/postReviews', UserReviews)
+router.use('/deleteReview', DeleteReview)
+router.use('/updateReviews', UpdateReviews)
 
 
 export default router;
