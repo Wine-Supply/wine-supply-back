@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt")
 const router = Router()
 
 
-//* /signup/
+//* /signup
 
 
 router.post("/", async(req, res) => {
