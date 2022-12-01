@@ -1,17 +1,16 @@
 const router = require("express").Router()
-import User from "../../models/User";
 import updateUser from '../../controllers/UpdateUser'
 
 //* /user/update
 
 router.get("/", async(req: any, res: any) => {
 
-  const userId = req.user?._id;
-  let user;
+  const user = req.user;
+  // let user;
   try {
 
-    user = await User.findById(userId, "-hashedPass")
-    console.log("user", user);
+    // user = await User.findById(userId, "-hashedPass")
+    // console.log("user", user);
 
     if (!user) {
         return res.status(404).send("User not found!")
@@ -29,8 +28,7 @@ router.get("/", async(req: any, res: any) => {
     }
 });
 
-// borrado logico user - ok
-// borrado logico comentario/review - que se haga desde el review mismo 
+
 // borrado logico de address
 // baja de suscripcion
 // cambio de name, lastname, username, email, password?, phone, address, membership, avatar
