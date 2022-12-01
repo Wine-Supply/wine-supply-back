@@ -1,6 +1,6 @@
 const router = require("express").Router()
 import updateUser  from '../../controllers/UsersControllers/UpdateUser'
-import {updateOrPostAddress, deleteAddress} from '../../controllers/UsersControllers/PostUpdateAddress'
+import updateOrPostAddress from '../../controllers/AddressControllers/PostUpdateAddress'
 
 //* /user/update
 
