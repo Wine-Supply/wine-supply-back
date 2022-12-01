@@ -1,8 +1,8 @@
-import User from "../models/User"
+/* import User from "../models/User"
 
 // NO TRABAJADO TODAVIA, por ver
 
-const updatedUser = async (user:any, body:any) => {
+const postMembership = async (user:any, body:any) => {
 
   const updatedUser = user
   //  console.log(body);
@@ -11,6 +11,18 @@ const updatedUser = async (user:any, body:any) => {
     const {isMember} = body.membership_id[0]
   
     // console.log(body.membership_id[0]);
+
+    if(user.membership_id.length === 0){
+
+   user.membership_id.push({isMember: true})
+   }
+   user.membership_id[0].isMember = isMember
+
+   await user.save()
+
+   return updatedUser
+
+  }
 
   for (const property in body) {
     user[property]= body[property]
@@ -21,7 +33,4 @@ const updatedUser = async (user:any, body:any) => {
 
   return updatedUser;
 
-}
-}
-
-export default updatedUser
+}; */
