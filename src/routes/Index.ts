@@ -15,6 +15,8 @@ import UpdateWine from './adminRoutes/UpdateWine'
 import GetUserReviews from './reviewsRoutes/GetUserReviews'
 import  GetWineReviews from './reviewsRoutes/GetWineReviews'
 import UserReviews from './reviewsRoutes/UserReviewPost'
+import DeleteReview from './reviewsRoutes/DeleteReviews'
+import UpdateReviews from './reviewsRoutes/UpdateReviews'
 
 const router = Router()
 
@@ -40,6 +42,8 @@ router.use('/getuser', VerifyUserToken, GetUser) /*<------ ejemplo de ruta verif
 router.use('/getUserReviews', GetUserReviews)
 router.use('/getWineReviews', GetWineReviews)
 router.use('/postReviews', UserReviews)
+router.use('/deleteReview', DeleteReview)
+router.use('/updateReviews', UpdateReviews)
 
 
 export default router;

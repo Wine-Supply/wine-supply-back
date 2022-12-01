@@ -1,4 +1,4 @@
-import Review from '../models/Review'
+import Review from "../../models/Review";
 
 const postReview = async (user_id: string, wine_id: string, comment: string, rating: number) => {
 
