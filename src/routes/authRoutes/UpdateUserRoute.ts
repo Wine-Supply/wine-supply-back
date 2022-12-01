@@ -5,16 +5,12 @@ import updateUser from '../../controllers/UpdateUser'
 
 router.put("/", async(req: any, res: any) => {
 
-  const user = req.user;
-  // let user;
   try {
-
-    // user = await User.findById(userId, "-hashedPass")
+    const user = req.user;
     // console.log("user", user);
+    if(!user.isActive) throw new Error("inactive user, do you want to recover it?");
+    if (!user) { return res.status(404).send("User not found!") };
 
-    if (!user) {
-        return res.status(404).send("User not found!")
-    }
     if (Object.keys(req.body).length) {
 
       const updatedUser = await updateUser(user, req.body)
