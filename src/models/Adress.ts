@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const AddressSchema = new Schema({
-    ifDefault: { type: Boolean, required: true },
     country: { type: String, required: true , trim: true },
     region: { type: String, required: true, trim: true },
     city: { type: String, required: true, trim: true },
@@ -14,6 +13,7 @@ const AddressSchema = new Schema({
     floor: { type: Number, required: false, trim: true },
     flatNumber: { type: Number, required: false, trim: true },
     isActive: {type: Boolean, default: true},
+    user_id: [{type: mongoose.Types.ObjectId, ref:"User"}]
 }, { timestamps: true })
 
 const AddressModel = mongoose.model('Address', AddressSchema);
