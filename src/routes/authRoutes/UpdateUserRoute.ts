@@ -19,9 +19,8 @@ router.put("/", async(req: any, res: any) => {
       const {address} = req.body
       const {selected} = req.query
       const isSelected = selected ?  true : false
-      const changeAddress = updateOrPostAddress(user, address, isSelected)
-
-      //! ver que response enviar
+      const updatedUserAddress = updateOrPostAddress(user, address, isSelected)
+      return res.status(200).send(updatedUserAddress)
     }
     if (Object.keys(req.body).length) {
 
