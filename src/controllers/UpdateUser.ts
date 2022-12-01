@@ -6,12 +6,9 @@ const updatedUser = async (user:any, body:any) => {
 
   const updatedUser = user
   //  console.log(body);
-  
-  if(body.membership_id) {
-    const {isMember} = body.membership_id[0]
-  
-    // console.log(body.membership_id[0]);
 
+  const validate = body.name || body.lastName || body.userName || body.email || body.date_of_birth || body.phone || body.avatar || body.isActive ? true : false
+  
   for (const property in body) {
     user[property]= body[property]
   }
@@ -21,7 +18,7 @@ const updatedUser = async (user:any, body:any) => {
 
   return updatedUser;
 
-}
+
 }
 
 export default updatedUser
