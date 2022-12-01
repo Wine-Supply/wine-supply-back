@@ -1,6 +1,8 @@
 import Address from "../../models/Adress";
 import User from "../../models/User"
 
+// RUTAS CON ERRORES, REVISAR
+
 const checkAddress = async (country:string, region:string, city:string, postalCode:string, addressLine1:string, addressLine2:string, addressNumber:string, floor:Number, flatNumber:Number) => {
 
     const filters = {
@@ -26,7 +28,7 @@ const checkAddress = async (country:string, region:string, city:string, postalCo
 
 const updateOrPostAddress = async(user: any, address: any, isSelected: Boolean)=>{
 
-// address es {} con todos los fields requeridos
+// address es OBJETO con todos los fields requeridos
 const {country, region, city, postalCode, addressLine1, addressLine2, addressNumber, floor, flatNumber} = address
 
 if ( user.address.length >= 3 ) throw new Error("can't keep more than 3 addresses, please remove one");
