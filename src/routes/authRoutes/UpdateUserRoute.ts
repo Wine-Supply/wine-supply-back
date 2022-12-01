@@ -1,19 +1,27 @@
 const router = require("express").Router()
-import updateUser from '../../controllers/UpdateUser'
+import updateUser  from '../../controllers/UsersControllers/UpdateUser'
+import {updateOrPostAddress, deleteAddress} from '../../controllers/UsersControllers/PostUpdateAddress'
 
 //* /user/update
 
 router.put("/", async(req: any, res: any) => {
 
-  const user = req.user;
-  // let user;
   try {
 
-    // user = await User.findById(userId, "-hashedPass")
-    // console.log("user", user);
-
+    const user = req.user;
+    // console.log(user);
+    
     if (!user) {
         return res.status(404).send("User not found!")
+    }
+
+    if(req.body.address){
+      const {address} = req.body
+      const {selected} = req.query
+      const isSelected = selected ?  true : false
+      const changeAddress = updateOrPostAddress(user, address, isSelected)
+
+      //! ver que response enviar
     }
     if (Object.keys(req.body).length) {
 
@@ -21,6 +29,7 @@ router.put("/", async(req: any, res: any) => {
 
       return res.status(200).send(updatedUser)
     } 
+
     return res.status(400).send({error:"No parameters sent for update"})
     
     } catch(error: any) {
