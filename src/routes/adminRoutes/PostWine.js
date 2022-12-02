@@ -22,11 +22,11 @@ router.post("/", async(req, res) => {
 
   let result;
   if(req.files?.images){
-    result = await upLoadImg(req.files.images.tempFilePath)
+    result = await upLoadImg(req.files.images.tempFilePath, "Wines")
     await fs.unlink(req.files.images.tempFilePath)
   }
   else {
-    res.status(400).send("No image to upload")
+    console.log("No image to upload")
   }
 
 

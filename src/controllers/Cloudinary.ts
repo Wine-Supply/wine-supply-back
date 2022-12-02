@@ -10,9 +10,13 @@ cloudinary.config({
   });
 
 
-const upLoadImg = async(img: any) => {
+const upLoadImg = async(img: any, destiny: string) => {
+    //console.log(img);
+    //console.log(destiny);
+    
+    
     try {
-        return await cloudinary.uploader.upload(img, {folder: "Wines"});
+        return await cloudinary.uploader.upload(img, {folder: destiny});
     }
     catch (err){
         console.log("Upload image fail");

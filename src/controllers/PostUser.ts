@@ -2,6 +2,7 @@ import User from "../models/User"
 
 const postUser = async (name: string, lastName: string, userName: string, email: string, hashedPass: string) => {
 
+    const image = ["https://res.cloudinary.com/dq3sboxbn/image/upload/v1669934892/Users/Not_image.png_wd8tei.png", "v1669934892"]
     let existingUser;
 
     try {
@@ -18,7 +19,8 @@ const postUser = async (name: string, lastName: string, userName: string, email:
             lastName,
             userName,
             email,
-            hashedPass
+            hashedPass,
+            image
         })
     const createdUser = await newUser.save()
 

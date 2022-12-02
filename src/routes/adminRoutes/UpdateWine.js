@@ -28,12 +28,12 @@ router.put("/", async (req, res) => {
       }
     }
 
-    if (req.files?.images) {
+    if (req.files?.images && imageID) {
       //* Destruir imagen vieja
       const destroy = await destroyImg(imageID);
       //console.log("destroy", destroy);
       //* Subir nueva imagen
-      result = await upLoadImg(req.files.images.tempFilePath);
+      result = await upLoadImg(req.files.images.tempFilePath, "Wines");
       await fs.unlink(req.files.images.tempFilePath);
 
       wine.images = [
@@ -41,12 +41,15 @@ router.put("/", async (req, res) => {
         result.public_id, //Id de la imagen
       ];
     }
+    else {
+      console.log("Image or old ImageID not provided");
+    }
 
     const noEmptyQuerys = checkEmptyQuery(querys);
 
     if (noEmptyQuerys) {
       const updateWine = await Wine.findByIdAndUpdate(_id, wine);
-      console.log(updateWine);
+     // console.log(updateWine);
       res.send(updateWine);
     }
   } catch (error) {

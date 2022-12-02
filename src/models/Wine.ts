@@ -15,7 +15,7 @@ const WineSchema = new Schema({
     zone: {type: String, required: true},
     volume: {type: Number, required: true},
     alcoholVolume: {type: Number, required: true},
-    rating: Number, //TODO logica de ratings
+    rating: Number,
     images:{type: [String], required: true},
     strain: {type: String, required: true},
     stock: {type: Number, required: true},
