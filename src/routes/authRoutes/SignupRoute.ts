@@ -9,10 +9,10 @@ const router = Router()
 
 
 router.post("/", async(req, res) => {
-
   
   let { name, lastName, userName, email, password } = req.body;
 
+  console.log(name, lastName, userName, email, password)
   const hashedPass = await bcrypt.hash(password, 10)
 
   try {

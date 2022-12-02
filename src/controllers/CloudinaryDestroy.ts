@@ -12,8 +12,13 @@ cloudinary.config({
 
 const destroyImg = async(id: string) => {
     try {
-        const destroy = await cloudinary.uploader.destroy(id)
-        return destroy;
+        if(id !== "v1669934892"){
+            const destroy = await cloudinary.uploader.destroy(id)
+            return destroy;
+        }
+        else{
+            return "This image cannot be destroy"
+        }
     }
     catch (err){
         console.log("Img not found");
