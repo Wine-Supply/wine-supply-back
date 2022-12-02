@@ -23,6 +23,7 @@ router.post("/", async(req, res) => {
             }
             
             if (existingUser) {
+                if(!existingUser.isActive) return res.status(303).send("Inactive user, do you want to recover it?")
                 const token = jwt.sign({_id: existingUser._id}, process.env.JWTKEY, {expiresIn: "2d"})
                 return res.status(200).json({info:"Successfull log-in!", user: existingUser, token})
             }
@@ -43,6 +44,7 @@ router.post("/", async(req, res) => {
     if (!comparePassword) {
         return res.status(400).send("Incorrect password!")
     }
+    if(!existingUser.isActive) return res.status(303).send("Inactive user, do you want to recover it?")
     const token = await jwt.sign({_id: existingUser._id}, process.env.JWTKEY, {expiresIn: "2d"})
 
     return res.status(200).json( {info:"Successfull log-in!", user: existingUser, token} )
