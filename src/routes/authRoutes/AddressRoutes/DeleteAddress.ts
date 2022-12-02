@@ -1,7 +1,7 @@
 const router = require("express").Router()
 import User from "../../../models/User"
 
-//* /address/delete
+//* /address
 
 router.delete("/", async(req: any, res: any) => {
 
@@ -21,7 +21,7 @@ router.delete("/", async(req: any, res: any) => {
  
   const updatedUser= await user.save()
 
-  return res.status(200).send(updatedUser)
+  return res.status(200).send(updatedUser.address)
   
     } catch(error: any) {
         return res.status(400).send({error: error.message})

@@ -2,7 +2,7 @@ const router = require("express").Router()
 import postAddress from '../../../controllers/AddressController.ts/PostAddress'
 
 //* /address
-//const {addressNum, country, stateName, cityName, postalcode, streetName, streetNumber, floor, Apartment, isDefault} = req.body
+//const {country, stateName, cityName, postalcode, streetName, streetNumber, floor, Apartment, isDefault} = req.body
 // son todos strings
 
 router.post("/", async(req: any, res: any) => {

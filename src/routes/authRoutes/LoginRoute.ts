@@ -21,7 +21,7 @@ router.post("/", async(req, res) => {
                 const token = jwt.sign({_id: newUser._id}, process.env.JWTKEY, {expiresIn: "2d"})
                 return res.status(200).json({info:"Successfull log-in!", user: existingUser, token})
             }
-
+            
             if (existingUser) {
                 const token = jwt.sign({_id: existingUser._id}, process.env.JWTKEY, {expiresIn: "2d"})
                 return res.status(200).json({info:"Successfull log-in!", user: existingUser, token})

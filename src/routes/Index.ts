@@ -12,6 +12,7 @@ import Login from './authRoutes/LoginRoute'
 import GetUser from './authRoutes/GetUser'
 import UpdateWine from './adminRoutes/UpdateWine'
 import UpdateUser from './authRoutes/UpdateUserRoute'
+import GetAddresses from './authRoutes/AddressRoutes/GetAddresses';
 import PostAddress from './authRoutes/AddressRoutes/PostAddress'
 import UpdateAddress from './authRoutes/AddressRoutes/UpdateAddress'
 import DeleteAddress from './authRoutes/AddressRoutes/DeleteAddress'
@@ -52,8 +53,9 @@ router.use('/user/update', VerifyUserToken, UpdateUser);
 
 
 router.use('/address', VerifyUserToken, PostAddress);
-router.use('/address/update', VerifyUserToken, UpdateAddress);
-router.use('/address/delete', VerifyUserToken, DeleteAddress);
+router.use('/address', VerifyUserToken, GetAddresses);
+router.use('/address', VerifyUserToken, UpdateAddress);
+router.use('/address', VerifyUserToken, DeleteAddress);
 
 
 //reviews
