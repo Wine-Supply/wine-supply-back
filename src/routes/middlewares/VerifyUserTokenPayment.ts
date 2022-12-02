@@ -27,7 +27,6 @@ async function verTokenPayment(req: any, res: any, next: any) {
     if (!token) {
       throw new Error("no token!")
     }
-
 }
 
 export default verTokenPayment

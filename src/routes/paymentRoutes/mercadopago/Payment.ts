@@ -9,7 +9,7 @@ config();
 const router = Router()
 mongoose.Types.ObjectId
 
-// /payment/
+//* /payment/
 
 
 mercadopago.configure({
@@ -19,14 +19,17 @@ mercadopago.configure({
 
 
 router.get("/", async (req:any, res) => {
+    
     const cart = req.user.shopping_cart
+    const {name, lastName, phone, _id} = req.user
+    let id = _id.toString()
+
     let items = await PaymentCreate(req.headers.wineid, cart)
     let preference = {
         back_urls : {
-            success : 'http://localhost:3001/createorder'
+            success : `http://localhost:3001/createorder?name=${name}&lastName=${lastName}&user_id=${id}`
         },
-        items,
-        
+        items
         // Aca es donde sea cual sea el pago, me va postear a esta url que le mando
         // notification_url : 'http://localhost:3001/notificar'
     };

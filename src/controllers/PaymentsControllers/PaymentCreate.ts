@@ -29,6 +29,7 @@ if (cart) {
       items.push({
         id:e._id,
         title: e.name,
+        description: "cart",
         unit_price: e.price,
         picture_url: e.images[0],
         quantity: 1,
