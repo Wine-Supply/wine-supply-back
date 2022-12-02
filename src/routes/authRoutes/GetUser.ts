@@ -6,17 +6,18 @@ const router = Router()
 
 router.get("/", async(req: any, res, next) => {
     
-    const userId = req.user._id;
-    let user;
     try {
-        user = await User.findById(userId, "-hashedPass")
+      
+      if (!req.user) {
+        return res.status(400).send("User not found!")
+      }
+      if(!req.user.isActive) throw new Error("Inactive user, do you want to recover it?");
+      
+      return res.status(200).send(req.user)
+      
     } catch(error) {
         return res.send("error")
     }
-    if (!user) {
-        return res.status(400).send("User not found!")
-    }
-    return res.status(200).json({id: user._id, name: user.name, email: user.email})
 })
 
 //
