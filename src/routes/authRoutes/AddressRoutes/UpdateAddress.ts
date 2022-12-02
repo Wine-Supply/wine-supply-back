@@ -2,7 +2,7 @@ const router = require("express").Router()
 import updateAddress from '../../../controllers/AddressController.ts/UpdateAddress'
 
 //* /address
-//const {addressNum, country, stateName, cityName, postalcode, streetName, streetNumber, floor, Apartment, isDefault} = req.body
+//const {country, stateName, cityName, postalcode, streetName, streetNumber, floor, Apartment, isDefault} = req.body
 // son todos strings
 
 router.put("/", async(req: any, res: any) => {
@@ -14,8 +14,7 @@ router.put("/", async(req: any, res: any) => {
     if (!user) { return res.status(404).send("User not found!") };
 
     if (req.body && req.query.index) {
-      console.log("req.query",req.query.index);
-
+    
       const changedAddress = await updateAddress(user, req.body, req.query)
 
       return res.status(200).send(changedAddress)
