@@ -11,7 +11,10 @@ import SignUp from './authRoutes/SignupRoute'
 import Login from './authRoutes/LoginRoute'
 import GetUser from './authRoutes/GetUser'
 import UpdateWine from './adminRoutes/UpdateWine'
-import UpdateUser from './authRoutes/UpdateUserRoute';
+import UpdateUser from './authRoutes/UpdateUserRoute'
+import PostAddress from './authRoutes/AddressRoutes/PostAddress'
+import UpdateAddress from './authRoutes/AddressRoutes/UpdateAddress'
+import DeleteAddress from './authRoutes/AddressRoutes/DeleteAddress'
 import GetUserReviews from './reviewsRoutes/GetUserReviews'
 import GetWineReviews from './reviewsRoutes/GetWineReviews'
 import UserReviews from './reviewsRoutes/UserReviewPost'
@@ -41,6 +44,12 @@ router.use('/login', Login);
 router.use('/signup', SignUp);
 router.use('/getuser', VerifyUserToken, GetUser); /*<------ ejemplo de ruta verificada por middleware*/
 router.use('/user/update', VerifyUserToken, UpdateUser);
+
+
+router.use('/address', VerifyUserToken, PostAddress);
+router.use('/address/update', VerifyUserToken, UpdateAddress);
+router.use('/address/delete', VerifyUserToken, DeleteAddress);
+
 
 //reviews
 router.use('/getUserReviews', GetUserReviews)
