@@ -20,6 +20,7 @@
     "express-fileupload": "^1.4.0",
     "fs-extra": "^10.1.0",
     "jsonwebtoken": "^8.5.1",
+    "mercadopago": "^1.5.14",
     "mongoose": "^6.7.2"
   },
   "devDependencies": {
