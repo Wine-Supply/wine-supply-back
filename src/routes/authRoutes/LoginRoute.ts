@@ -22,6 +22,8 @@ router.post("/", async(req, res) => {
                 return res.status(200).json({info:"Successfull log-in!", user: existingUser, token})
             }
 
+            if(!existingUser.isActive) throw new Error("Inactive user, do you want to recover it?");
+
             if (existingUser) {
                 const token = jwt.sign({_id: existingUser._id}, process.env.JWTKEY, {expiresIn: "2d"})
                 return res.status(200).json({info:"Successfull log-in!", user: existingUser, token})
