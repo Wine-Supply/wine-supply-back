@@ -7,7 +7,7 @@ import fs from "fs-extra";
 //* /user/update
 
 router.put("/", async(req, res) => {
-  const { imageID } = req.body;
+  const { avatarID } = req.body;
 
   try {
     const user = req.user;
@@ -17,19 +17,19 @@ router.put("/", async(req, res) => {
 
     if (Object.keys(req.body).length) {
 
-      //!!Update Image
-      if (req.files?.image && imageID) { //* Preguta si hay imagen
-        const destroy = await destroyImg(imageID); //* Elimina imagen anterior
-        result = await upLoadImg(req.files.images.tempFilePath, "Users"); //* Guarda imagen y devuelve rutas
-        await fs.unlink(req.files.images.tempFilePath); //* Elimina imagen vieja
+      //!!Update Avatar
+      if (req.files?.image && avatarID) { //* Preguta si hay imagen y ID para el procedimiento
+        const destroy = await destroyImg(avatarID); //* Elimina imagen anterior
+        result = await upLoadImg(req.files.images.tempFilePath, "Users"); //* Guarda imagen folder "Users" y devuelve info
+        await fs.unlink(req.files.images.tempFilePath); //* Elimina imagen del servidor de Node.js
   
-        req.body.image = [ //* Coloca rutas en la propieda imagen
+        req.body.avatar = [ //* Coloca rutas en la propieda imagen
           result.secure_url, //Direccion de la imagen
           result.public_id, //Id de la imagen
         ];
       }
       else {
-        console.log("Image or old ImageID not provided");
+        console.log("Image or old-avatarID not provided");
       }
       //!!Update Image END
 
