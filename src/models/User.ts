@@ -6,7 +6,7 @@ const UserSchema = new Schema({
   // _id: ObjectId,
   name: {type: String, required: true, minLength: 1, maxLength: 25, trim: true},
   lastName: {type: String, required: true, minLength: 1, maxLength: 25, trim: true },
-  userName: {type: String, required: true, minLength: 3, maxLength: 15, trim: true },
+  userName: {type: String, required: true, minLength: 3, maxLength: 30, trim: true },
   email: {type: String, required: true, unique: true, minLength: 8,  maxLength: 50, trim: true },
   hashedPass:{type: String, required: true},
   date_of_birth:{type : Date, required: false},
