@@ -19,7 +19,7 @@ const updateAddress = async(user: any, address: any, query: any)=>{
   // por query me indican en que posicion esta el address que se va a actualizar
   let i = parseInt(query.index)
 
-  user.address = address;
+  user.address[i] = address;
 
   await user.save()
 
