@@ -16,7 +16,7 @@ router.get("/", async(req: any, res, next) => {
     if (!user) {
         return res.status(400).send("User not found!")
     }
-    return res.status(200).json({id: user._id, name: user.name, email: user.email})
+    return res.status(200).json({user})
 })
 
 //
