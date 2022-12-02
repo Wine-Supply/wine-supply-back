@@ -49,7 +49,7 @@ router.use('/admin/updatewine', UpdateWine);
 router.use('/login', Login);
 router.use('/signup', SignUp);
 router.use('/getuser', VerifyUserToken, GetUser); /*<------ ejemplo de ruta verificada por middleware*/
-router.use('/user', VerifyUserToken, UpdateUser);
+router.use('/user/update', VerifyUserToken, UpdateUser);
 
 
 router.use('/address', VerifyUserToken, PostAddress);
