@@ -21,19 +21,24 @@ import GetWineReviews from './reviewsRoutes/GetWineReviews'
 import UserReviews from './reviewsRoutes/UserReviewPost'
 import DeleteReview from './reviewsRoutes/DeleteReviews'
 import UpdateReviews from './reviewsRoutes/UpdateReviews'
+import GetCart from './paymentRoutes/GetCart'
+import AddCartItem from './paymentRoutes/AddCartItem'
+import DeleteItemCart from './paymentRoutes/DeleteItemCart'
 /* ↓ middlewares ↓  */
 import VerifyUserToken from './middlewares/VerifyUserToken'
+import VerifyUserTokenPayment from './middlewares/VerifyUserTokenPayment'
 import AdminStatus from './middlewares/AdminStatus'
+/* ↓ payments ↓  */
+import Payment from './paymentRoutes/mercadopago/Payment'
+import ShoppingOrderCreate from "./paymentRoutes/ShoppingOrderRoute";
 
 const router = Router()
-
 
 router.use('/wines', AllWines);
 router.use('/wines/filters', WinesFilters);
 router.use('/wines/search', SearchBar);
 router.use('/wines/categories', Categories);
 router.use('/wines/recomendados', RecommendedWines);
-
 router.use('/wine/', WineId);
 
 //admin
@@ -60,5 +65,11 @@ router.use('/postReviews', UserReviews)
 router.use('/deleteReview', DeleteReview)
 router.use('/updateReviews', UpdateReviews)
 
+//payments y cart
+router.use('/payment', VerifyUserTokenPayment, Payment);
+router.use('/createorder', ShoppingOrderCreate);
+router.use('/getcart', VerifyUserToken, GetCart);
+router.use('/addcartitem', VerifyUserToken, AddCartItem);
+router.use('/deletecartitem', VerifyUserToken, DeleteItemCart);
 
 export default router;
