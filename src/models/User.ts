@@ -9,13 +9,12 @@ const UserSchema = new Schema({
   userName: {type: String, required: true, minLength: 3, maxLength: 15, trim: true },
   email: {type: String, required: true, unique: true, minLength: 8,  maxLength: 50, trim: true },
   hashedPass:{type: String, required: true},
+  date_of_birth:{type : Date, required: true},
   recoverPass:{type: String},
-  date_of_birth:{type : Date},
   phone: {type: String, minLength: 6, maxLength: 15, trim: true}, //* Los numeros de tel tienen "-" y a veces "()"
-  avatar:{type: String},
+  avatar:{type: [String], required: false},
   isAdmin: {type: String, default: "no"},
   isActive: {type: Boolean, default: true},
-	//TODO autenticación de terceros
   membership_id: [
 		{ isMember: { type: Boolean, default: false} },
 		{type: mongoose.Types.ObjectId, ref:"Membership"},

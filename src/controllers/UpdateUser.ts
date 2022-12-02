@@ -4,7 +4,7 @@ const updatedUser = async (user:any, body:any) => {
   const updatedUser = user
   //  console.log(body);
 
-  const validate = body.name || body.lastName || body.userName || body.email || body.date_of_birth || body.phone || body.avatar || body.isActive ? true : false
+  const validate = body.name || body.lastName || body.userName || body.email || body.date_of_birth || body.phone || body.avatar || body.isActive || body.avatar ? true : false
 
   if (!validate) throw new Error("no valid field for update")
   
