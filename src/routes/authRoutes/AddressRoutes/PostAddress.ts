@@ -10,7 +10,7 @@ router.post("/", async(req: any, res: any) => {
   try {
     const user = req.user;
     // console.log("user", user);
-    if(!user.isActive) throw new Error("inactive user, do you want to recover it?");
+    if(!user.isActive) { return res.status(303).send("Inactive user, do you want to recover it?") }
     if (!user) { return res.status(404).send("User not found!") };
 
     if (req.body ) {
