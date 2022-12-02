@@ -30,22 +30,11 @@ import ShoppingOrderCreate from "./paymentRoutes/ShoppingOrderRoute";
 
 const router = Router()
 
-
-router.use('/payment', VerifyUserTokenPayment, Payment);
-router.use('/createorder', ShoppingOrderCreate);
-
-router.use('/getcart', VerifyUserToken, GetCart);
-router.use('/addcartitem', VerifyUserToken, AddCartItem);
-router.use('/deletecartitem', VerifyUserToken, DeleteItemCart);
-
-
-
 router.use('/wines', AllWines);
 router.use('/wines/filters', WinesFilters);
 router.use('/wines/search', SearchBar);
 router.use('/wines/categories', Categories);
 router.use('/wines/recomendados', RecommendedWines);
-
 router.use('/wine/', WineId);
 
 //admin
@@ -65,5 +54,11 @@ router.use('/postReviews', UserReviews)
 router.use('/deleteReview', DeleteReview)
 router.use('/updateReviews', UpdateReviews)
 
+//payments y cart
+router.use('/payment', VerifyUserTokenPayment, Payment);
+router.use('/createorder', ShoppingOrderCreate);
+router.use('/getcart', VerifyUserToken, GetCart);
+router.use('/addcartitem', VerifyUserToken, AddCartItem);
+router.use('/deletecartitem', VerifyUserToken, DeleteItemCart);
 
 export default router;
