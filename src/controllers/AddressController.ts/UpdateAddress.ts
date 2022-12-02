@@ -6,8 +6,6 @@ import User from "../../models/User"
 
 // mandan por query la posicion del address a cambiar
 // ejemplo: /address/update?index=0   --> voy a modificar el que este en el indice 0
-
-
 const updateAddress = async(user: any, address: any, query: any)=>{
 
   // si isDefault es true, entonces debo cambiar a false el que estaba previamente en true
@@ -26,7 +24,7 @@ const updateAddress = async(user: any, address: any, query: any)=>{
 
   await user.save()
 
-  return user
+  return user.address
 }
 
 export default updateAddress;

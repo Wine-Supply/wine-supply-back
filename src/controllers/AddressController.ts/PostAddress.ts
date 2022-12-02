@@ -20,7 +20,7 @@ const postAddress = async(user: any, address: any, query: any)=>{
 
    console.log("updatedUser", updatedUser);
   
-  return updatedUser
+  return updatedUser.address
 }
 
 export default postAddress;
