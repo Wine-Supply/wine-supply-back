@@ -12,7 +12,7 @@ const updateAddress = async(user: any, address: any, query: any)=>{
   // si la propiedad isDefault viene como true, entonces todas las anteriores se cambian a false, en el proximo paso, queda registrado el true
   if(address.isDefault){
 
-    user.address.forEach( (el:any) => el.isDefaul = false)
+    user.address.forEach( (el:any) => el.isDefault = false)
 
   }
 
