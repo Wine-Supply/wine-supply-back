@@ -31,6 +31,7 @@ import AdminStatus from './middlewares/AdminStatus'
 /* ↓ payments ↓  */
 import Payment from './paymentRoutes/mercadopago/Payment'
 import ShoppingOrderCreate from "./paymentRoutes/ShoppingOrderRoute";
+import MembershipOrderCreate from './paymentRoutes/MembershipOrderRoute';
 
 const router = Router()
 
@@ -68,6 +69,7 @@ router.use('/updateReviews', UpdateReviews)
 //payments y cart
 router.use('/payment', VerifyUserTokenPayment, Payment);
 router.use('/createorder', ShoppingOrderCreate);
+router.use('/membership', MembershipOrderCreate);
 router.use('/getcart', VerifyUserToken, GetCart);
 router.use('/addcartitem', VerifyUserToken, AddCartItem);
 router.use('/deletecartitem', VerifyUserToken, DeleteItemCart);
