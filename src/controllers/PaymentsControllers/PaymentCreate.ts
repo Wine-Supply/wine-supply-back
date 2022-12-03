@@ -12,7 +12,7 @@ const PaymentCreate = async (data: any, cart: Array<object>) => {
           id: wine._id,
           title: wine.name,
           unit_price: wine.price,
-          picture_url: wine.images[0],
+          // picture_url: wine.images[0],
           quantity: 1,
           currency_id: "ARS"
         })
@@ -31,7 +31,7 @@ if (cart) {
         title: e.name,
         description: "cart",
         unit_price: e.price,
-        picture_url: e.images[0],
+        // picture_url: e.images[0],
         quantity: 1,
         currency_id: "ARS"
       })

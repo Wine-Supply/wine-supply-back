@@ -18,24 +18,31 @@ mercadopago.configure({
 
 
 
-router.get("/", async (req:any, res) => {
-    
-    const cart = req.user.shopping_cart
+router.post("/", async (req:any, res) => {
+    const cart: any = req.shoppingCart
     const {name, lastName, phone, _id} = req.user
+    let address1;
+    for (const address of req.user.address) {
+        if (address.isDefault === true) {
+            address1 = address
+        }
+    }
+    const {country, stateName, cityName, postalCode, streetName, streetNumber, floor, Apartment} = address1
+
     let id = _id.toString()
 
     let items = await PaymentCreate(req.headers.wineid, cart)
     let preference = {
+        auto_return: 'approved',
         back_urls : {
-            success : `http://localhost:3001/createorder?name=${name}&lastName=${lastName}&user_id=${id}`
+            success : `http://localhost:3001/createorder?name=${name}&lastName=${lastName}&user_id=${id}&country=${country}&state_name=${stateName}&city_name=${cityName}&zip_code=${postalCode}&street_name=${streetName}&street_number=${streetNumber}&floor=${floor}&apartment=${Apartment}`
         },
         items
         // notification_url : 'http://localhost:3001/notificar'
     };
         
     const pruebaMercadoPago = await mercadopago.preferences.create(preference);
-    // res.send(pruebaMercadoPago.body)
-    res.send(`<a href="${pruebaMercadoPago.body.init_point}">PAGAR</a>`)
+    res.send(pruebaMercadoPago.body.init_point)
 
 
 })

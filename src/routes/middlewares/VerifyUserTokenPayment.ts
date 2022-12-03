@@ -13,9 +13,9 @@ async function verTokenPayment(req: any, res: any, next: any) {
     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
         try {
             token = req.headers.authorization.split(" ")[1]
-
             const checkToken = jwt.verify(token, process.env.JWTKEY)
             req.user = await User.findById(checkToken._id, "-hashedPass").populate({ path:'shopping_cart', select:'_id name images price stock'})
+            req.shoppingCart = JSON.parse(req.headers.items)
             next()
         } catch (error) {
             console.log(error)

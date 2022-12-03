@@ -2,11 +2,11 @@ import ShoppingOrder from "../../models/ShoppingOrder"
 import resetCart from "./ResetCart"
 
 const postOrder = async (response: any, data: any) => {
-    const {name, lastName, user_id} = response
+    const {name, lastName, user_id, country, state_name, city_name, zip_code, street_name, street_number, floor, apartment} = response
     const newOrder = new ShoppingOrder({
         user_id,
         user: `${lastName}, ${name}`,
-        order_address: "user address",
+        order_address: `${country}, ${state_name}, ${city_name} (${zip_code}), ${street_name} ${street_number}, floor: ${floor}, apartment: ${apartment}` ,
         items: data.body.items,
         orderDate: Date.now(),
         payment: data.body.payments,
