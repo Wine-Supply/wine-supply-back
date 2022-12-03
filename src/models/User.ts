@@ -16,7 +16,6 @@ const UserSchema = new Schema({
   isAdmin: {type: String, default: "no"},
   isActive: {type: Boolean, default: true},
   membership_id: [
-		{ isMember: { type: Boolean, default: false} },
 		{type: mongoose.Types.ObjectId, ref:"Membership"},
 	],
   address: [{}],
