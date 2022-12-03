@@ -1,4 +1,5 @@
 import ShoppingOrder from "../../models/ShoppingOrder"
+import User from "../../models/User"
 import resetCart from "./ResetCart"
 
 const postOrder = async (response: any, data: any) => {
@@ -15,6 +16,7 @@ const postOrder = async (response: any, data: any) => {
         orderStatus: 1 //mercadopago devuelve un string
 
 }
+    // const user = 
     )
     const createdOrder = await newOrder.save()
     if (data.body.items[0].description === "cart") {

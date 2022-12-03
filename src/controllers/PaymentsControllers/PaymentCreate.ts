@@ -2,9 +2,9 @@ import Wine from '../../models/Wine'
 import User from '../../models/User'
 
 
-const PaymentCreate = async (data: any, cart: Array<object>) => {
+const PaymentCreate = async (data: any) => {
   const items = [];
-  if (data) {
+  if (typeof data === 'string') {
     try {
       const wine  = await Wine.findById(data)
       if (wine && wine.stock>0) {
@@ -23,9 +23,9 @@ const PaymentCreate = async (data: any, cart: Array<object>) => {
       console.log(error) 
   }
 }
-if (cart) {
+if (data) {
   try {
-    cart.forEach((e:any) => {
+    data.forEach((e:any) => {
       items.push({
         id:e._id,
         title: e.name,
