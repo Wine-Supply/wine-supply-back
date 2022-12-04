@@ -3,7 +3,7 @@ config();
 import mongoose from "mongoose";
 import { app } from './App'
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 mongoose.connect(process.env.MONGO_URL!).then(()=>{
   console.log(`Listening on port ${PORT}`);
