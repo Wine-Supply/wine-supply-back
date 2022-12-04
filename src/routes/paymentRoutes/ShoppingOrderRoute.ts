@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 	const data = await mercadopago.merchant_orders.findById(orderShopId);
     postOrder(response, data)
 	
-	res.send(data);
+	res.redirect('http://localhost:3000/');
 
 })
 
