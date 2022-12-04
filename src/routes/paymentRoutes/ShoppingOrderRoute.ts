@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 	const data = await mercadopago.merchant_orders.findById(orderShopId);
     postOrder(response, data)
 	
-	res.redirect('http://localhost:3000/');
+	res.redirect('https://exquisite-brigadeiros-cc493c.netlify.app/');
 
 })
 
