@@ -1,13 +1,10 @@
 import { Router } from "express";
-import Wine from '../../../models/Wine'
-import User from '../../../models/User'
 const mercadopago = require("mercadopago");
 import { config } from "dotenv";
 import PaymentCreate from "../../../controllers/PaymentsControllers/PaymentCreate";
 import mongoose from "mongoose"
 config();
 const router = Router()
-mongoose.Types.ObjectId
 
 //* /payment/
 
@@ -20,14 +17,18 @@ mercadopago.configure({
 
 router.post("/", async (req:any, res) => {
     const {name, lastName, phone, _id} = req.user
+    let id = _id.toString()
     let address1;
     for (const address of req.user.address) {
         if (address.isDefault === true) {
             address1 = address
         }
     }
+    if (!address1) {
+        return res.status(400).send("Address not found!")
+    }
     const {country, stateName, cityName, postalCode, streetName, streetNumber, floor, Apartment} = address1
-    if (req.shopping_cart) {
+    if (req.shoppingCart) {
         const cart: any = req.shoppingCart
         let items = await PaymentCreate(cart)
         let preference = {
@@ -54,13 +55,6 @@ router.post("/", async (req:any, res) => {
         }
         const pruebaMercadoPago = await mercadopago.preferences.create(preference);
         res.send(pruebaMercadoPago.body.init_point)}
-
-    // let id = _id.toString()
-
-        
-    // const pruebaMercadoPago = await mercadopago.preferences.create(preference);
-    // res.send(pruebaMercadoPago.body.init_point)
-
 
 })
 export default router;

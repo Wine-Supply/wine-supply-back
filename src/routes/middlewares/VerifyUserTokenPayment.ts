@@ -20,7 +20,10 @@ async function verTokenPayment(req: any, res: any, next: any) {
                 req.shoppingCart = JSON.parse(req.headers.items)
             }
             if (req.headers.item) {
-                req.item = JSON.parse(req.headers.item)
+                req.item = req.headers.item
+            }
+            if (req.headers.sub_type) {
+                req.sub_type = req.headers.sub_type
             }
             next()
         } catch (error) {
