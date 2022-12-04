@@ -1,26 +1,25 @@
-import { Router } from "express"
-import User from '../../models/User'
+import { Router } from "express";
+import MembershipModel from "../../models/Membeship";
+import User from '../../models/User';
 const router = Router()
 
 
 //* /getmembership
+//! verifica token del admin
+// busca en el model de membership segun los fields que vengan por query
 
 router.get("/", async(req: any, res, next) => {
     
     try {
 
-      const user = req.user
+      //! VER QUE DEVUELVE TOKEN DE ADMIN
 
-      if ( !user ) { return res.status(400).send("User not found!") }
-      if (!user.isActive ) { return res.status(303).send("Inactive user, do you want to recover it?") }
+      if (Object.keys(req.query).length === 0) {return "missing data from query"}
       
-      const userMembership:any = await User.find({_id: user._id, isActive: true }).select("membership_id").populate('Membership').select("-user_id");
+      const dbMembership:any = await MembershipModel.find(req.query).select("-user_id");
 
-      if ( userMembership.isActive ) {
-        return res.status(200).send(userMembership) 
-      } else {
-        res.status(200).send("Membresia inactiva")
-      }
+      return res.status(200).send(dbMembership)
+
     } catch(error:any) {
       return res.status(400).send({error: error.message})
     }

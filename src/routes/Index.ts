@@ -12,6 +12,7 @@ import Login from './authRoutes/LoginRoute'
 import GetUser from './authRoutes/GetUser'
 import UpdateWine from './adminRoutes/UpdateWine'
 import UpdateUser from './authRoutes/UpdateUserRoute'
+import UserMembership from './authRoutes/UserMembership';
 import GetAddresses from './authRoutes/AddressRoutes/GetAddresses';
 import PostAddress from './authRoutes/AddressRoutes/PostAddress'
 import UpdateAddress from './authRoutes/AddressRoutes/UpdateAddress'
@@ -52,6 +53,7 @@ router.use('/login', Login);
 router.use('/signup', SignUp);
 router.use('/getuser', VerifyUserToken, GetUser); /*<------ ejemplo de ruta verificada por middleware*/
 router.use('/user/update', VerifyUserToken, UpdateUser);
+router.use('/user/membership', VerifyUserToken, UserMembership);
 
 
 router.use('/address', VerifyUserToken, PostAddress);
