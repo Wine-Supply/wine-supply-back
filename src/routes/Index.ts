@@ -12,7 +12,6 @@ import Login from './authRoutes/LoginRoute'
 import GetUser from './authRoutes/GetUser'
 import UpdateWine from './adminRoutes/UpdateWine'
 import UpdateUser from './authRoutes/UpdateUserRoute'
-import UserMembership from './authRoutes/UserMembership';
 import GetAddresses from './authRoutes/AddressRoutes/GetAddresses';
 import PostAddress from './authRoutes/AddressRoutes/PostAddress'
 import UpdateAddress from './authRoutes/AddressRoutes/UpdateAddress'
@@ -33,12 +32,18 @@ import AdminStatus from './middlewares/AdminStatus'
 import Payment from './paymentRoutes/mercadopago/Payment'
 import PaymentSubscription from './paymentRoutes/mercadopago/PaymentSubscription'
 import ShoppingOrderCreate from "./paymentRoutes/ShoppingOrderRoute";
+import GetOrders from './paymentRoutes/GetOrders'
+/* ↓ membership ↓  */
 import MembershipOrderCreate from './membershipRoutes/MembershipOrderRoute';
+import UserMembership from './membershipRoutes/UserMembership';
 import UpdateMembership from './membershipRoutes/UpdateMembership';
 import GetMembership from './membershipRoutes/GetMembership';
-import GetOrders from './paymentRoutes/GetOrders'
 
 const router = Router()
+
+router.get('/test', (req, res) => 
+res.send('prueba')
+)
 
 router.use('/wines', AllWines);
 router.use('/wines/filters', WinesFilters);
@@ -56,8 +61,6 @@ router.use('/login', Login);
 router.use('/signup', SignUp);
 router.use('/getuser', VerifyUserToken, GetUser); /*<------ ejemplo de ruta verificada por middleware*/
 router.use('/user/update', VerifyUserToken, UpdateUser);
-router.use('/user/membership', VerifyUserToken, UserMembership);
-
 
 router.use('/address', VerifyUserToken, PostAddress);
 router.use('/address', VerifyUserToken, GetAddresses);
@@ -76,12 +79,15 @@ router.use('/updateReviews', UpdateReviews)
 router.use('/payment', VerifyUserTokenPayment, Payment);
 router.use('/paymentsubs', VerifyUserTokenPayment, PaymentSubscription);
 router.use('/createorder', ShoppingOrderCreate);
-router.use('/membership', VerifyUserToken, MembershipOrderCreate);
-router.use('/membership', VerifyUserToken, UpdateMembership);
-router.use('/getmembership', VerifyUserToken, GetMembership);
 router.use('/getcart', VerifyUserToken, GetCart);
 router.use('/addcartitem', VerifyUserToken, AddCartItem);
 router.use('/deletecartitem', VerifyUserToken, DeleteItemCart);
 router.use('/getorders', VerifyUserToken, GetOrders);
+
+// membership
+router.use('/membership', VerifyUserToken,MembershipOrderCreate);
+router.use('/membership', VerifyUserToken, UpdateMembership);
+router.use('/getmembership', VerifyUserToken, GetMembership);
+router.use('/user/membership', VerifyUserToken, UserMembership);
 
 export default router;
