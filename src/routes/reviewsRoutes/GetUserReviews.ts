@@ -3,8 +3,8 @@ import getUserReviews from "../../controllers/ReviewsControllers/GetUserReviews"
 
 const router = Router()
 
-router.get("/", async (req, res) => {
-	const { user_id } = req.body
+router.get("/:user_id", async (req, res) => {
+	const { user_id } = req.params
 
 	//console.log(user_id);
 

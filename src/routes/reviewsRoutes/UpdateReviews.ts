@@ -5,7 +5,7 @@ import updateRatings from "../../controllers/ReviewsControllers/Updaterating";
 const router = Router()
 
 
-router.get("/", async (req, res) => {
+router.put("/", async (req, res) => {
 	const { review_id, wine_id, comment, rating } = req.body
 
 	if (typeof comment !== "string" || typeof rating !== "number") return res.status(400).send("Invalid data")
