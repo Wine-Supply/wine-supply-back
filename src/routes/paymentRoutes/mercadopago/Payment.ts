@@ -34,7 +34,7 @@ router.post("/", async (req:any, res) => {
         let preference = {
             auto_return: 'approved',
             back_urls : {
-                success : `http://localhost:3001/createorder?name=${name}&lastName=${lastName}&user_id=${id}&country=${country}&state_name=${stateName}&city_name=${cityName}&zip_code=${postalCode}&street_name=${streetName}&street_number=${streetNumber}&floor=${floor}&apartment=${Apartment}`
+                success : `https://wine-supply-back-production.up.railway.app/createorder?name=${name}&lastName=${lastName}&user_id=${id}&country=${country}&state_name=${stateName}&city_name=${cityName}&zip_code=${postalCode}&street_name=${streetName}&street_number=${streetNumber}&floor=${floor}&apartment=${Apartment}`
             },
             items
             // notification_url : 'http://localhost:3001/notificar'
@@ -48,7 +48,7 @@ router.post("/", async (req:any, res) => {
         let preference = {
             auto_return: 'approved',
             back_urls : {
-                success : `http://localhost:3001/createorder?name=${name}&lastName=${lastName}&user_id=${id}&country=${country}&state_name=${stateName}&city_name=${cityName}&zip_code=${postalCode}&street_name=${streetName}&street_number=${streetNumber}&floor=${floor}&apartment=${Apartment}`
+                success : `https://wine-supply-back-production.up.railway.app/createorder?name=${name}&lastName=${lastName}&user_id=${id}&country=${country}&state_name=${stateName}&city_name=${cityName}&zip_code=${postalCode}&street_name=${streetName}&street_number=${streetNumber}&floor=${floor}&apartment=${Apartment}`
             },
             items
             // notification_url : 'http://localhost:3001/notificar'
