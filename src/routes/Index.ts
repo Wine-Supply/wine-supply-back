@@ -34,6 +34,7 @@ import Payment from './paymentRoutes/mercadopago/Payment'
 import PaymentSubscription from './paymentRoutes/mercadopago/PaymentSubscription'
 import ShoppingOrderCreate from "./paymentRoutes/ShoppingOrderRoute";
 import MembershipOrderCreate from './membershipRoutes/MembershipOrderRoute';
+import UpdateMembership from './membershipRoutes/UpdateMembership';
 import GetMembership from './membershipRoutes/GetMembership';
 import GetOrders from './paymentRoutes/GetOrders'
 
@@ -76,6 +77,7 @@ router.use('/payment', VerifyUserTokenPayment, Payment);
 router.use('/paymentsubs', VerifyUserTokenPayment, PaymentSubscription);
 router.use('/createorder', ShoppingOrderCreate);
 router.use('/membership', MembershipOrderCreate);
+router.use('/membership', VerifyUserToken, UpdateMembership);
 router.use('/getmembership', VerifyUserToken, GetMembership);
 router.use('/getcart', VerifyUserToken, GetCart);
 router.use('/addcartitem', VerifyUserToken, AddCartItem);
