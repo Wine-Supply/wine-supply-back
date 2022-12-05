@@ -22,7 +22,8 @@ const WineSchema = new Schema({
     price: {type: Number, required: true},
     review_id: [
       { type: mongoose.Types.ObjectId, ref:"Review" }
-    ]
+    ],
+    isActive: {type:Boolean, default: true}
 })
 
 const WineModel = mongoose.model('Wine', WineSchema);
