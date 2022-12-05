@@ -44,3 +44,13 @@ el archivo .env debe estar en la carpeta principal del repo, donde esta el READM
 - **/postReviews/** : Genera un nuevo Review y re-calcula el Rating para el vino asociado. Requiere user_id, wine_id, comment y rating.
 - **/updateReviews/** : Actualiza el estado de un Review y re-calcula el Rating del vino asociado. Requiere review_id, wine_id, comment (si no se actualiza el comentario, volver a traer el aterior), rating (si no se actualiza el raiting, volver a traer el aterior).
 - **/deleteReview/** : Realiza un borrado lógico actualizando el estado de un Review.isActive en **false** y re-calcula el Rating del vino asociado. Requiere user_id, wine_id.
+
+### RUTAS PAYMENT:
+
+- **/payment/** : Genera un link de pago, requiere del token y los datos de la compra en el header, en el caso de ser por checkout de carrito de compras se deben insertar en el header con el key *'items'*, en el caso de traterse de un producto individual se debe insertar como *'item'* tambien en el header.
+- **/paymentsubs/** : Genera un link de pago recurrente, requiere del token el dato de la compra en el header, en el caso de la membresia regular debe tener el string *'Regular'* en un key llamado *'sub_type'* en el header.
+- **/createorder/** : Genera una orden de compra que se carga en la base de datos (Ruta solo del back).
+- **/getorders/** : Trae todas las ordenes de compras de un usuario, con su respectivos items. La dirección es la direccion default a la hora de realizar la compra.
+- **/getcart/** : Trae los items del carro de compras del usuario cargado en la base de datos (No lo usamos todavia).
+- **/addcartitem/** : Agrega un articulo al carro de compras del usuario (No lo usamos todavia).
+- **/deletecartitem/** : Retira un item del carro de compras del usuario (No lo usamos todavia).
