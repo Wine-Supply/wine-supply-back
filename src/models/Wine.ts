@@ -20,6 +20,7 @@ const WineSchema = new Schema({
     strain: {type: String, required: true},
     stock: {type: Number, required: true},
     price: {type: Number, required: true},
+    isActive: {type: Boolean, default: true},
     review_id: [
       { type: mongoose.Types.ObjectId, ref:"Review" }
     ]
