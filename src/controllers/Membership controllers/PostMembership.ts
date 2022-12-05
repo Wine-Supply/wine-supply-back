@@ -1,21 +1,21 @@
 import MembershipModel from "../../models/Membeship";
 import User from "../../models/User"
 
-const postMembership = async (response: any, data: any) => {
+const postMembership = async (response: any, user:any) => {
 
-  const {name, user_id} = response
+  const {name, price} = response
 
   const newMembership:any = new MembershipModel({
     name,
-    price: data.body.items.price,
-    user_id,
+    price,
+    user_id: user._id,
     isActive: true
   })
 
   await newMembership.save();
 
-  const user:any = await User.findById(user_id);
-  user?.membership_id.concat(newMembership._id);
+  const getUser:any = await User.findById(user._id);
+  getUser?.membership_id.concat(newMembership._id);
 
   return newMembership;
 
