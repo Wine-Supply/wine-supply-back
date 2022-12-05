@@ -3,8 +3,8 @@ import getWineReviews from "../../controllers/ReviewsControllers/GetWineReviews"
 
 const router = Router()
 
-router.get("/", async (req, res) => {
-	const { wine_id } = req.body
+router.get("/:wine_id", async (req, res) => {
+	const { wine_id } = req.params
 
 	try {
 		const review = await getWineReviews(wine_id);

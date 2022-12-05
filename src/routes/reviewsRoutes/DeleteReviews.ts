@@ -3,8 +3,8 @@ import deleteReview from "../../controllers/ReviewsControllers/DeleteReview";
 import updateRatings from "../../controllers/ReviewsControllers/Updaterating";
 const router = Router()
 
-router.get("/", async (req, res) => {
-  const { user_id, wine_id } = req.body
+router.delete("/:user_id/:wine_id", async (req, res) => {
+  const { user_id, wine_id } = req.params
 
   try {
     const review = await deleteReview(user_id, wine_id)

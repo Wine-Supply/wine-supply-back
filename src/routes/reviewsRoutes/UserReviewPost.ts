@@ -6,7 +6,7 @@ import updateRatings from "../../controllers/ReviewsControllers/Updaterating";
 const router = Router()
 
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   const { user_id, wine_id, comment, rating } = req.body
 
   const review = await checkUserReviews(user_id, wine_id);
