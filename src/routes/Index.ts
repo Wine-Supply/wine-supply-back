@@ -76,7 +76,7 @@ router.use('/updateReviews', UpdateReviews)
 router.use('/payment', VerifyUserTokenPayment, Payment);
 router.use('/paymentsubs', VerifyUserTokenPayment, PaymentSubscription);
 router.use('/createorder', ShoppingOrderCreate);
-router.use('/membership', MembershipOrderCreate);
+router.use('/membership', VerifyUserToken, MembershipOrderCreate);
 router.use('/membership', VerifyUserToken, UpdateMembership);
 router.use('/getmembership', VerifyUserToken, GetMembership);
 router.use('/getcart', VerifyUserToken, GetCart);
