@@ -54,3 +54,8 @@ el archivo .env debe estar en la carpeta principal del repo, donde esta el READM
 - **/getcart/** : Trae los items del carro de compras del usuario cargado en la base de datos (No lo usamos todavia).
 - **/addcartitem/** : Agrega un articulo al carro de compras del usuario (No lo usamos todavia).
 - **/deletecartitem/** : Retira un item del carro de compras del usuario (No lo usamos todavia).
+
+### RUTAS ADMIN:
+
+- **/admin/post/** : Creación de vinos para la venta en el catalogo.
+- **/admin/updatewine** : Edición de vinos.
