@@ -18,6 +18,16 @@ app.use(cors({
 
 app.use('/', routes);
 
+app.get('/test', (req, res)=>{
+  try {
+
+    res.send('Hello World')
+    
+  } catch (error:any) {
+    console.log(error.message);
+    
+  }
+})
 
 
 
