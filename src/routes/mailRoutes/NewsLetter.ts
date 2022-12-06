@@ -4,7 +4,7 @@ import sendNewsLetter from "../../controllers/Mails/NewsLetter";
 
 const router = Router()
 
-router.get('/', async (req, res) =>{
+router.post('/', async (req, res) =>{
     const {mails, subject, title,  news} = req.body;
 
     console.log(mails);
