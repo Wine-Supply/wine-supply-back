@@ -14,31 +14,31 @@ router.get("/", async(req: any, res) => {
   // si llega por query all=true, devuelve todos los usuarios (no trae a los usuarios admin)
 
   const {newUser, isActive, isAdmin, all} = req.query;
+  let users:any = []
 
   try {
 
     if(newUser) {
-      const newUsers = await User.find({isAdmin: "no", isActive: true}).sort({_id: -1}).limit(5)
-      return res.status(200).send(newUsers)
+      users = await User.find({isAdmin: "no", isActive: true}).sort({_id: -1}).limit(5)
     }
-    if (isAdmin){
-      const adminUsers = await User.find({isAdmin: "yes"}).sort({_id: -1})
-      return res.status(200).send(adminUsers)
+    else if (isAdmin){
+      users = await User.find({isAdmin: "yes"}).sort({_id: -1})
     }
-    if (isActive==="yes") {
-      const active = await User.find({isAdmin: "no", isActive: true}).sort({_id: -1})
-      return res.status(200).send(active)
+    else if (isActive==="yes") {
+      users = await User.find({isAdmin: "no", isActive: true}).sort({_id: -1})
     }
-    if (all) {
-      const allUsers = await User.find()
-      return res.status(200).send(allUsers)
+    else if (isActive ==="no") {
+      users = await User.find({isAdmin: "no",isActive: false})
     }
-    if (isActive ==="no") {
-      const inactive = await User.find({isAdmin: false, isActive: false}).sort({_id: -1})
-      return res.status(200).send(inactive)
+    else if (all) {
+      users = await User.find()
     }
+
+    if(users.length === 0){return res.status(200).send("No matches found") }
+
+    return res.status(200).send(users)
       
-    } catch(error:any) {
+    } catch (error:any) {
         return res.send(error.message)
     }
 })
