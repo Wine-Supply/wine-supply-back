@@ -4,13 +4,11 @@ import AllWines from './winesRoutes/AllWines';
 import WineId from './winesRoutes/WineId';
 import WinesFilters from './winesRoutes/WinesFilters';
 import RecommendedWines from './winesRoutes/RecommendedWines';
-import PostWine from './adminRoutes/PostWine.js'
 import SearchBar from './winesRoutes/SearchBar'
 import Categories from './winesRoutes/Categories'
 import SignUp from './authRoutes/SignupRoute'
 import Login from './authRoutes/LoginRoute'
 import GetUser from './authRoutes/GetUser'
-import UpdateWine from './adminRoutes/UpdateWine'
 import UpdateUser from './authRoutes/UpdateUserRoute'
 import GetAddresses from './authRoutes/AddressRoutes/GetAddresses';
 import PostAddress from './authRoutes/AddressRoutes/PostAddress'
@@ -33,6 +31,10 @@ import Payment from './paymentRoutes/mercadopago/Payment'
 import PaymentSubscription from './paymentRoutes/mercadopago/PaymentSubscription'
 import ShoppingOrderCreate from "./paymentRoutes/ShoppingOrderRoute";
 import GetOrders from './paymentRoutes/GetOrders'
+/* ↓ admin ↓  */
+import GetAllUsers from './adminRoutes/UsersAdminRoutes/GetAllUsers';
+import PostWine from './adminRoutes/PostWine.js';
+import UpdateWine from './adminRoutes/UpdateWine';
 
 const router = Router()
 
@@ -46,6 +48,7 @@ router.use('/wine/', WineId);
 //admin
 router.use('/admin/post', PostWine);
 router.use('/admin/updatewine', UpdateWine);
+router.use('/admin/users', AdminStatus,GetAllUsers);
 
 //auth
 router.use('/login', Login);
