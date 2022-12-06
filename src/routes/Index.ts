@@ -32,9 +32,12 @@ import PaymentSubscription from './paymentRoutes/mercadopago/PaymentSubscription
 import ShoppingOrderCreate from "./paymentRoutes/ShoppingOrderRoute";
 import GetOrders from './paymentRoutes/GetOrders'
 /* ↓ admin ↓  */
-import GetAllUsers from './adminRoutes/UsersAdminRoutes/GetAllUsers';
 import PostWine from './adminRoutes/PostWine.js';
 import UpdateWine from './adminRoutes/UpdateWine';
+import GetAllUsers from './adminRoutes/UsersAdminRoutes/GetAllUsers';
+import StatsPerMonth from './adminRoutes/Stats Routes/StatsPerMonth'
+
+
 
 const router = Router()
 
@@ -48,7 +51,9 @@ router.use('/wine/', WineId);
 //admin
 router.use('/admin/post', PostWine);
 router.use('/admin/updatewine', UpdateWine);
-router.use('/admin/users', AdminStatus,GetAllUsers);
+router.use('/admin/users', AdminStatus, GetAllUsers);
+router.use('/admin/stats/permonth', AdminStatus, StatsPerMonth);
+
 
 //auth
 router.use('/login', Login);
