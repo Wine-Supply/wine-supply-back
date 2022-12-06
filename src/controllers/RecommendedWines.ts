@@ -1,7 +1,7 @@
 import Wine from '../models/Wine'
 
 const getRecommendedWines = async()=> {
-    const wineRating  = await Wine.find({})
+    const wineRating  = await Wine.find({isActive: true})
 
     let sortOrderRating = wineRating.sort( (a : any , b : any)=>{
         if( a.rating > b.rating) return -1;
