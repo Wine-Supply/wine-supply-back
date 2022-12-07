@@ -3,7 +3,7 @@ import User from '../../models/User'
 
 
 const PaymentCreate = async (data: any) => {
-  const items = [];
+  const items: Array<object> = [];
   if (typeof data === 'string') {
     try {
       const wine  = await Wine.findById(data)
@@ -19,8 +19,9 @@ const PaymentCreate = async (data: any) => {
         return items
       }
       if (wine && wine.stock<=0) return console.log('No stock!')
-      } catch (error) {
-      console.log(error) 
+      } catch (error: any) {
+      console.log(error)
+      throw new Error(error)
   }
 }
 if (data) {
@@ -37,8 +38,9 @@ if (data) {
       })
     })
     return items
-  } catch (error) {
+  } catch (error:any) {
     console.log(error)
+    throw new Error(error)
   }
 }
 }

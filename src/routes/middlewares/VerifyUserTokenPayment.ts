@@ -28,13 +28,13 @@ async function verTokenPayment(req: any, res: any, next: any) {
             next()
         } catch (error) {
             console.log(error)
-            throw new Error("Not authorized!")
+            res.status(300).send("Not authorized!")
         }
 
     }
     
     if (!token) {
-      throw new Error("no token!")
+      res.status(303).send("no token!")
     }
 }
 

@@ -21,13 +21,13 @@ async function verAdmin(req: any, res: any, next: any) {
             }
         } catch (error) {
             console.log(error)
-            throw new Error("Not authorized!")
+            res.status(403).send("Not authorized!")
         }
 
     }
     
     if (!token) {
-      throw new Error("no token!")
+      res.status(401).send("No token!")
     }
 
 }

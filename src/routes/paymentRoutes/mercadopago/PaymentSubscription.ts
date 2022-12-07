@@ -19,11 +19,16 @@ router.post("/", async (req:any, res) => {
     if (!address1) {
         return res.status(400).send("Address not found!")
     }
-    const {country, stateName, cityName, postalCode, streetName, streetNumber, floor, Apartment} = address1
-    if (req.sub_type) {
-        const id: string = req.sub_type
-        let subscription = await PaymentSubCreate(id)
-        res.status(200).send(subscription.data.init_point)
+    try {
+        const {country, stateName, cityName, postalCode, streetName, streetNumber, floor, Apartment} = address1
+        if (req.sub_type) {
+            const id: string = req.sub_type
+            let subscription = await PaymentSubCreate(id)
+            return res.status(200).send(subscription.data.init_point)
+        }
+    } catch (error) {
+        console.log(error)
+        return res.status(300).send('No subscription info received!')
     }
 })
 export default router;
