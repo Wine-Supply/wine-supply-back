@@ -47,8 +47,8 @@ el archivo .env debe estar en la carpeta principal del repo, donde esta el READM
 
 ### RUTAS PAYMENT:
 
-- **/payment/** : Genera un link de pago, requiere del token y los datos de la compra en el header, en el caso de ser por checkout de carrito de compras se deben insertar en el header con el key *'items'*, en el caso de traterse de un producto individual se debe insertar como *'item'* tambien en el header.
-- **/paymentsubs/** : Genera un link de pago recurrente, requiere del token el dato de la compra en el header, en el caso de la membresia regular debe tener el string *'Regular'* en un key llamado *'sub_type'* en el header.
+- **/payment/** : Genera un link de pago, requiere del token y los datos de la compra en el header, en el caso de ser por checkout de carrito de compras se deben insertar en el header con el key _'items'_, en el caso de traterse de un producto individual se debe insertar como _'item'_ tambien en el header.
+- **/paymentsubs/** : Genera un link de pago recurrente, requiere del token el dato de la compra en el header, en el caso de la membresia regular debe tener el string _'Regular'_ en un key llamado _'sub_type'_ en el header.
 - **/createorder/** : Genera una orden de compra que se carga en la base de datos (Ruta solo del back).
 - **/getorders/** : Trae todas las ordenes de compras de un usuario, con su respectivos items. La dirección es la direccion default a la hora de realizar la compra.
 - **/getcart/** : Trae los items del carro de compras del usuario cargado en la base de datos (No lo usamos todavia).
@@ -59,3 +59,5 @@ el archivo .env debe estar en la carpeta principal del repo, donde esta el READM
 
 - **/admin/post/** : Creación de vinos para la venta en el catalogo.
 - **/admin/updatewine** : Edición de vinos.
+- **/admin/users** : Para que el admin pueda traer a todos los usuarios. A los ultimos 5 registrados, a los activos, a los inactivos y a los admin.
+- **/admin/stats/permonth** : trae a la cantidad de registros por mes. Hasta ahora trae la cantidad de usuarios y shopping orders por mes.
