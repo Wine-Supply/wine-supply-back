@@ -13,8 +13,8 @@ const bcrypt = require("bcrypt")
 router.post("/", async(req, res) => {
     let existingUser;
     if (!req.body.password) {
-        const {given_name, family_name, email} = req.body.profile
         try {
+            const {given_name, family_name, email} = req.body.profile
             let existingUser = await User.findOne({email})
             if (!existingUser) {
                 const newUser = await PostUserFirebase(given_name, family_name, email)
@@ -29,7 +29,7 @@ router.post("/", async(req, res) => {
             }
         } catch (error) {
             console.log(error)
-            throw new Error("Not authorized!")
+            return res.status(302).send("Not authorized!")
         }
 
     }
