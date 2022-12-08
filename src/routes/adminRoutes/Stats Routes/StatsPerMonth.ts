@@ -5,8 +5,14 @@ const router = require("express").Router();
 
 //* /admin/stats/permonth
 
-// por query envian el model en el que se va a buscar la data. (deben venir escritos igual que el model)
-// ejemplo: /admin/stats/permonth?model=UserModel
+// por query envian el model en el que se va a buscar la data.
+// no pongo el nombre exacto del model por query por seguridad
+// ejemplo: /admin/stats/permonth?model=user
+// user = UserModel
+// order = ShoppingOrder
+// wine = WineModel
+// review = ReviewModel
+// membership = MembershipModel
 
 // devuelve:
 // _id --> es el mes
@@ -19,8 +25,8 @@ router.get("/", async (req:any, res:any) => {
 
   try {
 
-    if (model === "UserModel") { data = await usersPerMonth()};
-    if (model === "ShoppingOrder") { data = await ordersPerMonth()};    
+    if (model === "user") { data = await usersPerMonth()};
+    if (model === "order") { data = await ordersPerMonth()};    
 
     res.status(200).send(data)
     
