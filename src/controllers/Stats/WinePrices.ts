@@ -1,9 +1,12 @@
 import WineModel from "../../models/Wine";
 
- const getStrains = async() => {
+ const getMaxPrice = async() => {
 
   const data = await WineModel.aggregate( [
-    { $group: {_id:"$strain"} }
+    { $group: {
+      _id:"$name",
+      maxPrice: {$max: "$price"},
+    } }
   ]);
 
 
@@ -17,4 +20,4 @@ import WineModel from "../../models/Wine";
   return data;
 };
 
-export default getStrains;
+export default getMaxPrice
