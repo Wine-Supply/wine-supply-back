@@ -2,7 +2,7 @@ import { Router } from "express"
 import User from "../../../models/User"
 const router = Router()
 
-//* /admin/users
+//*  SIN USO DE MOMENTO 9/12/22
 // verify Token AdminStatus
 
 router.get("/", async(req: any, res) => {
