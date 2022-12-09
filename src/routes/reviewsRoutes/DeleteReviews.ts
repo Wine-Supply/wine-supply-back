@@ -7,15 +7,17 @@ router.delete("/:user_id/:wine_id", async (req, res) => {
   const { user_id, wine_id } = req.params
 
   try {
-    const review = await deleteReview(user_id, wine_id)
+    const review = await deleteReview(user_id, wine_id) || null;
+
     if (!review) return res.status(404).send("No review to delete");
-    res.status(200).send(`Review deleted successfully!`)
+
+    res.status(200).json({message: `Review deleted successfully!`});
 
     const update = await updateRatings(wine_id);
 
 
   } catch (error: any) {
-    res.status(400).send(error.message);
+    res.status(400).json(error.message);
   }
 
 
