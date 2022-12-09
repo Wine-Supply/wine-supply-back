@@ -16,24 +16,25 @@ const postOrder = async (response: any, data: any) => {
         orderTotal:data.body.total_amount,
         orderStatus: 1 //mercadopago devuelve un string
 
-}
+    }
+    
 )
 
-const createdOrder = await newOrder.save()
-try {
-    const order_user = await User.findOneAndUpdate(
-        { _id: user_id },
-        { $push: { order: createdOrder._id  } },
-    )
-    const updatedUser = order_user?.save()
+    const createdOrder = await newOrder.save()
+    try {
+        const order_user = await User.findOneAndUpdate(
+            { _id: user_id },
+            { $push: { order: createdOrder._id  } },
+        )
+        const updatedUser = order_user?.save()
 
-} catch(err) {
-    console.log(err)
-}
-    if (data.body.items[0].description === "cart") {
-        resetCart(user_id)
-    } 
-    
-}
+    } catch(err) {
+        console.log(err)
+    }
+        if (data.body.items[0].description === "cart") {
+            resetCart(user_id)
+        } 
+        
+    }
 
 export default postOrder;
