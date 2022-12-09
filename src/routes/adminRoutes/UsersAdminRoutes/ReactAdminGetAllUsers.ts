@@ -34,8 +34,8 @@ router.get("/", async (req, res) => {
 
   //  console.log("parsedUsers", parsedUsers);
 
-    let total = users.length
-    res.header({'content-Range':  `users 0-20/${total}`, 'Access-Control-Expose-Headers': 'Content-Range'})
+    let total = parsedUsers.length
+    res.header({'content-Range':  `parsedUsers 0-20/${total}`, 'Access-Control-Expose-Headers': 'Content-Range'})
     return res.status(200).send(parsedUsers);
   } 
   catch (error: any) {
