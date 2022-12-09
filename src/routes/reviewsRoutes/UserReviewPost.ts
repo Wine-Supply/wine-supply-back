@@ -7,7 +7,7 @@ const router = Router()
 
 
 router.post("/", async (req, res) => {
-  const { user_id, wine_id, comment, rating } = req.body
+  const { user_id, wine_id, username, comment, rating } = req.body
 
   const review = await checkUserReviews(user_id, wine_id);
 
@@ -16,12 +16,12 @@ router.post("/", async (req, res) => {
     return res.status(400).json({message: "You already have a review for this wine"})
   }
 
-  const validate = user_id && wine_id && comment && rating ? true : false;
+  const validate = user_id && wine_id && username && comment && rating ? true : false;
 
   if (!validate) return res.status(400).json({message: `Missing data!`});
 
   try {
-    const newReview = await postReview(user_id, wine_id, comment, rating) || null;
+    const newReview = await postReview(user_id, wine_id, username, comment, rating) || null;
     
     const update = await updateRatings(wine_id) || null;
 
