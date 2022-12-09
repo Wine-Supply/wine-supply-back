@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 import newsLettrerModel from "./NewsLetermodel";
 
-const sendNewsLetter = async(mail: string, subject: string, title: string, news: string) => {
+const sendNewsLetter = async(mail: string, subject: string, title: string, news: string, image: string) => {
 	try {
 		console.log(news);
 		
@@ -29,7 +29,7 @@ const sendNewsLetter = async(mail: string, subject: string, title: string, news:
 				to: `${mail}`, // list of receivers
 				subject: `${subject}`, // Subject line
 				text: `${news}`, // plain text body
-				html:newsLettrerModel(), // html body
+				html:newsLettrerModel(news, image), // html body
 			});
 
 			console.log("Message sent: %s", info.messageId);

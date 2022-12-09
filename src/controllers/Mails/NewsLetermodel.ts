@@ -1,4 +1,6 @@
-const newsLettrerModel = () => {
+const newsLettrerModel = ( news: string, image: string) => {
+    if(!image) image = "https://zlsmao.stripocdn.email/content/guids/bannerImgGuid/images/image16704475095553295.png"
+    
     return (`<!doctype html>
     <html ⚡4email data-css-strict>
      <head>
@@ -395,11 +397,11 @@ const newsLettrerModel = () => {
             <tr>
             <td align="center" style="position: relative"><a target="_blank" 
               href="https://exquisite-brigadeiros-cc493c.netlify.app/">
-              <img class="adapt-img" src="https://zlsmao.stripocdn.email/content/guids/bannerImgGuid/images/image16704475095553295.png" 
+              <img class="adapt-img" src=${image} 
               alt title width="596" height="487" layout="responsive"></img></a></td>
             </tr>
             <tr>
-            <td align="center" class="es-p30t es-p30b es-p40r es-p40l" bgcolor="#333333"><p style="color: #ffffff;font-size: 20px">Take a look at our bestsellers this month and what buyers are saying, we are sure you will like it, good savings too</p></td>
+            <td align="center" class="es-p30t es-p30b es-p40r es-p40l" bgcolor="#333333"><p style="color: #ffffff;font-size: 20px">${news || "Take a look at our bestsellers this month and what buyers are saying, we are sure you will like it, good savings too"}</p></td>
             </tr>
             </table></td>
             </tr>

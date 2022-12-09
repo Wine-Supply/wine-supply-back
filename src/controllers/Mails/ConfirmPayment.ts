@@ -1,7 +1,7 @@
 import confirmPayModel from "./ConfirmPaymentModel";
 const nodemailer = require("nodemailer");
 
-const confirmPayment = async(mail: string, subject: string, title: string, descrption: string) => {
+const confirmPayment = async(subject: string, user: any, address: any, amount: any) => {
 	try {
 		
 		// async..await is not allowed in global scope, must use a wrapper
@@ -25,10 +25,10 @@ const confirmPayment = async(mail: string, subject: string, title: string, descr
 			// send mail with defined transport object
 			let info = await transporter.sendMail({
 				from: '" 🍷 Wine Suplly Team  🍷 " <winesupplyback@gmail.com>', // sender address
-				to: `${mail}`, // list of receivers
+				to: `${user.mail}`, // list of receivers
 				subject: `Payment`, // Subject line
-				text: `${descrption}`, // plain text body
-				html: confirmPayModel(), // html body
+				text: `${subject}`, // plain text body
+				html: confirmPayModel(user, amount, address), // html body
 			});
 
 			console.log("Message sent: %s", info.messageId);

@@ -2,6 +2,7 @@ import { Model } from "mongoose"
 import ShoppingOrder from "../../models/ShoppingOrder"
 import User from "../../models/User"
 import resetCart from "./ResetCart"
+import confirmPayment from "../Mails/ConfirmPayment"
 
 const postOrder = async (response: any, data: any) => {
     try {
@@ -24,8 +25,8 @@ const postOrder = async (response: any, data: any) => {
             shippingMethod: 'Correo',
             orderTotal: data.body.total_amount,
             orderStatus: 1 //mercadopago devuelve un string
-
         })
+        const mail = await confirmPayment( "Wine purchase", address, order_user, data.body.total_amount);
         const createdOrder = await newOrder.save()
         order_user.order.push(createdOrder._id)
         order_user.save()
