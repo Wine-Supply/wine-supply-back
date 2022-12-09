@@ -12,8 +12,17 @@ router.put("/", async (req, res) => {
 	try {
 		const user = req.user;
 		//console.log("user", user);
-		if (!user.isActive)
-			return res.status(303).send("Inactive user, do you want to recover it?");
+		if (!user.isActive) {
+			if (req.body.isActive) {
+				const updatedUser = await updateUser(user, req.body);
+
+				return res.status(200).send(updatedUser);
+			} else
+				return res
+					.status(303)
+					.send("Inactive user, do you want to recover it?");
+		}
+
 		if (!user) {
 			return res.status(404).send("User not found!");
 		}
