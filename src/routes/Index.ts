@@ -34,7 +34,7 @@ import GetOrders from './paymentRoutes/GetOrders'
 /* ↓ admin ↓  */
 import PostWine from './adminRoutes/PostWine.js';
 import UpdateWine from './adminRoutes/UpdateWine';
-import GetAllUsers from './adminRoutes/UsersAdminRoutes/GetAllUsers';
+import GetUsersReact from "./adminRoutes/UsersAdminRoutes/ReactAdminGetAllUsers";
 import StatsPerMonth from './adminRoutes/Stats Routes/StatsPerMonth';
 import GetWinesAdmin from './adminRoutes/WinesReactAdmin/GetWinesAdmin'
 import DeleteWineAdmin from './adminRoutes/WinesReactAdmin/DeleteWineAdmin'
@@ -53,7 +53,7 @@ router.use('/wine/', WineId);
 //admin
 router.use('/admin/post', PostWine);
 router.use('/admin/updatewine', UpdateWine);
-router.use('/admin/users', AdminStatus, GetAllUsers);
+router.use('/admin/users', AdminStatus, GetUsersReact);
 router.use('/admin/stats/permonth', AdminStatus, StatsPerMonth);
 
 router.use('/admin/wines', AdminStatus, GetWinesAdmin); //GET
