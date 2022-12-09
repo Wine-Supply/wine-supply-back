@@ -10,20 +10,25 @@ const postUserFirebase = async (given_name: string, family_name: string, email: 
         console.log( error )
     }
 
-    if (existingUser) throw new Error( "User already exist" )
-    let usern = email.slice(0,13)
-
-    const newUser = new User(
-        {
-            name: given_name,
-            lastName: family_name,
-            userName: usern,
-            email,
-            hashedPass: "firebase"
-        })
-    const createdUser = await newUser.save()
-
-    return createdUser
+    try {
+        if (existingUser) throw new Error( "User already exist" )
+        let usern = email.split("@")
+        let userName = usern[0]
+        
+        const newUser = new User(
+            {
+                name: given_name,
+                lastName: family_name,
+                userName,
+                email,
+                hashedPass: "firebase"
+            })
+        const createdUser = await newUser.save()
+        return createdUser
+    } catch(error: any) {
+        console.log(error)
+        throw new Error(error)
+    }
 };
 
 
