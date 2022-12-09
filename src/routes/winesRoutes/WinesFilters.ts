@@ -1,6 +1,5 @@
 import { Router, Request, Response} from "express";
 import Wine from "../../models/Wine";
-import checkEmptyQuery from "../../controllers/CheckEmptyQuery"
 
 const router = Router()
 
@@ -12,13 +11,12 @@ router.get("/", async (req: Request, res: Response) => {
  
   try {
 
-   const noEmptyQuerys = checkEmptyQuery(querys);
+   if (Object.keys(querys).length === 0) {  return res.status(400).send("Please select a filter option") }
  
-   if (noEmptyQuerys) {
     const filteredWines = await Wine.find(querys).select("_id name brand type description cropYear strain volume images rating price" );
     // console.log("filteredWines:", filteredWines)
-    res.send(filteredWines);
-   }
+    if (filteredWines.length === 0) { return res.status(200).send("No hay vinos para mostrar")}
+    return res.status(200).send(filteredWines);
 
   } catch (error: any) {
 
