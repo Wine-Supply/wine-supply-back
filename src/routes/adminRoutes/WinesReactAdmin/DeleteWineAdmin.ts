@@ -10,8 +10,9 @@ router.delete("/:id", async (req, res) => {
     let { id }  = req.params;
 
     try {
-        await WineModel.findByIdAndDelete(id)
-        res.status(201).send('Succesfull delete!')
+        let wine = await WineModel.findByIdAndUpdate(id, {isActive: false})
+
+        res.status(201).send(`${wine?.name} succesfully suspended!`)
 
     }
     catch (error: any) {
