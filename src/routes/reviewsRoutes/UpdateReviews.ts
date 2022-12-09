@@ -16,13 +16,16 @@ router.put("/", async (req, res) => {
 	if (!validate) return res.status(400).send(`Missing data!`);
 
 	try {
-		const newReview = await putReview(review_id, comment, rating)
+		const newReview = await putReview(review_id, comment, rating) || null;
 
-		const update = await updateRatings(wine_id);
-		res.status(200).send(`Review edited successfully!`)
+		const update = await updateRatings(wine_id) || null;
+
+		if(newReview! || update) res.status(400).json({message: `Somenthing went wrong!`});
+
+		res.status(200).json({message: `Review edited successfully!`});
 
 	} catch (error: any) {
-		res.status(400).send(error.message);
+		res.status(400).json(error.message);
 	}
 })
 

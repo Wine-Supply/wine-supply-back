@@ -13,22 +13,24 @@ router.post("/", async (req, res) => {
 
   console.log(review.length)
   if (review.length > 0) {
-    return res.status(400).send("You already have a review for this wine")
+    return res.status(400).json({message: "You already have a review for this wine"})
   }
 
   const validate = user_id && wine_id && comment && rating ? true : false;
 
-  if (!validate) return res.status(400).send(`Missing data!`);
+  if (!validate) return res.status(400).json({message: `Missing data!`});
 
   try {
-    const newReview = await postReview(user_id, wine_id, comment, rating)
-    res.status(200).send(`Review posted successfully!`)
+    const newReview = await postReview(user_id, wine_id, comment, rating) || null;
+    
+    const update = await updateRatings(wine_id) || null;
 
-    const update = await updateRatings(wine_id);
+    if(newReview! || update) res.status(400).json({message: `Somenthing went wrong, review not posted!`});
 
+    res.status(200).json({message:`Review posted successfully!`});
 
   } catch (error: any) {
-    res.status(400).send(error.message);
+    res.status(400).json(error.message);
   }
 })
 
