@@ -1,8 +1,7 @@
 const nodemailer = require("nodemailer");
 
-const sendNewsLetter = async(mail: string, subject: string, title: string, news: string) => {
+const confirmPayment = async(mail: string, subject: string, title: string, descrption: string) => {
 	try {
-		console.log(news);
 		
 		// async..await is not allowed in global scope, must use a wrapper
 		async function main() {
@@ -26,8 +25,8 @@ const sendNewsLetter = async(mail: string, subject: string, title: string, news:
 			let info = await transporter.sendMail({
 				from: '" 🍷 Wine Suplly Team  🍷 " <winesupplyback@gmail.com>', // sender address
 				to: `${mail}`, // list of receivers
-				subject: `${subject}`, // Subject line
-				text: `${news}`, // plain text body
+				subject: `Payment`, // Subject line
+				text: `${descrption}`, // plain text body
 				html: `<!doctype html>
 				<html ⚡4email data-css-strict>
 				 <head>
@@ -965,4 +964,4 @@ const sendNewsLetter = async(mail: string, subject: string, title: string, news:
 	}
 }
 
-export default sendNewsLetter;
+export default confirmPayment;
