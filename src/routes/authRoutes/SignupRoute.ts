@@ -10,18 +10,16 @@ const router = Router()
 
 router.post("/", async(req, res) => {
   
-  let { name, lastName, userName, email, password } = req.body;
-
-  console.log(name, lastName, userName, email, password)
-  const hashedPass = await bcrypt.hash(password, 10)
-
+  
   try {
+    let { name, lastName, userName, email, password } = req.body;
+    const hashedPass = await bcrypt.hash(password, 10)
       const newUser = await postUser(name, lastName, userName, email, hashedPass)
 
       res.status(200).send(`${newUser.name} user created successfully!`)
 
-  } catch (error) {
-      res.status(400).send(error);
+  } catch (error:any) {
+      res.status(400).send("Can't create user!");
   }
 })
 
