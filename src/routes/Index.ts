@@ -34,11 +34,15 @@ import GetOrders from './paymentRoutes/GetOrders'
 /* ↓ admin ↓  */
 import PostWine from './adminRoutes/PostWine.js';
 import UpdateWine from './adminRoutes/UpdateWine';
+import GetAllUsers from './adminRoutes/UsersAdminRoutes/GetAllUsers';
+
 import GetUsersReact from "./adminRoutes/UsersAdminRoutes/ReactAdminGetAllUsers";
 import StatsPerMonth from './adminRoutes/Stats Routes/StatsPerMonth';
 import GetWinesAdmin from './adminRoutes/WinesReactAdmin/GetWinesAdmin'
 import DeleteWineAdmin from './adminRoutes/WinesReactAdmin/DeleteWineAdmin'
 
+/* ↓ mails ↓  */
+import NewsLetter from './mailRoutes/NewsLetter'
 
 
 const router = Router()
@@ -90,5 +94,8 @@ router.use('/getcart', VerifyUserToken, GetCart);
 router.use('/addcartitem', VerifyUserToken, AddCartItem);
 router.use('/deletecartitem', VerifyUserToken, DeleteItemCart);
 router.use('/getorders', VerifyUserToken, GetOrders);
+
+//mail sevices
+router.use('/newsletter', NewsLetter );
 
 export default router;

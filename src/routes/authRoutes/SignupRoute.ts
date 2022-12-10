@@ -1,5 +1,6 @@
 import { Router } from "express"
 import postUser from "../../controllers/PostUser";
+import welcomeMail from "../../controllers/Mails/WelcomeMail";
 // import bcrypt from "bcrypt"
 const bcrypt = require("bcrypt")
 const router = Router()
@@ -15,6 +16,17 @@ router.post("/", async(req, res) => {
     let { name, lastName, userName, email, password } = req.body;
     const hashedPass = await bcrypt.hash(password, 10)
       const newUser = await postUser(name, lastName, userName, email, hashedPass)
+
+      try{
+        const mail = await welcomeMail(newUser.email)
+      }
+      catch (error){
+        console.log(error);
+        
+      }
+      
+      
+
 
       res.status(200).send(`${newUser.name} user created successfully!`)
 
