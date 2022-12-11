@@ -24,7 +24,7 @@ const WineSchema = new Schema({
       { type: mongoose.Types.ObjectId, ref:"Review" }
     ],
     isActive: {type:Boolean, default: true}
-})
+}, { timestamps: true });
 
 const WineModel = mongoose.model('Wine', WineSchema);
 export default WineModel;
