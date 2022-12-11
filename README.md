@@ -59,5 +59,11 @@ el archivo .env debe estar en la carpeta principal del repo, donde esta el READM
 
 - **/admin/post/** : Creación de vinos para la venta en el catalogo.
 - **/admin/updatewine** : Edición de vinos.
-- **/admin/users** : Para que el admin pueda traer a todos los usuarios. A los ultimos 5 registrados, a los activos, a los inactivos y a los admin.
+- **/admin/users** : Para que el admin pueda traer a todos los usuarios.
+- **/admin/users/isAdmin** : actualiza el estado isAdmin del usuario. (Asigan a otros usuarios como admin)
+- **/admin/users/isActive** : actualiza el estado isActive del usuario.(Borrado logico)
+- **/admin/reviews** : trae todas las reviews, ordenadas por las mas recientes.
+- **/admin/orders** :
+  .get: trae todas las ordenes de compra, ordenadas por las mas recientes.
+  .put: se puede actualizar el estado de la orden. OrderStatus: 0 = canceled, 1 = ordered.
 - **/admin/stats/permonth** : trae a la cantidad de registros por mes. Hasta ahora trae la cantidad de usuarios y shopping orders por mes.

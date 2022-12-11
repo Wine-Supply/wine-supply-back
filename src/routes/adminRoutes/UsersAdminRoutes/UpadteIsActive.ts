@@ -23,6 +23,7 @@ router.put("/:id", async(req: any, res) => {
   try {
 
     const {id} = req.params;
+    if(!id) { return res.status(400).send("Missing id")}
 
    let user:any = await User.findById(id).select("-hashedPass");
     // console.log("user", user);
