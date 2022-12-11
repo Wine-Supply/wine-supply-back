@@ -46,6 +46,8 @@ import AdminUpdateOrderStatus from './adminRoutes/React Admin Orders/AdminUpdate
 import EditWineAdmin from './adminRoutes/WinesReactAdmin/EditWineAdmin'
 import GetOneAdmin from './adminRoutes/WinesReactAdmin/GetOneAdmin'
 import PostWineAdmin from './adminRoutes/WinesReactAdmin/PostWineAdmin'
+import GetUserAdmin from './adminRoutes/UsersAdminRoutes/GetUserAdmin'
+import EditUserAdmin from './adminRoutes/UsersAdminRoutes/EditUserAdmin'
 
 /* ↓ mails ↓  */
 import NewsLetter from './mailRoutes/NewsLetter'
@@ -63,7 +65,9 @@ router.use('/wine/', WineId);
 //admin
 router.use('/admin/post', PostWine);
 router.use('/admin/updatewine', UpdateWine);
-router.use('/admin/users', AdminStatus, GetUsersReact);
+router.use('/admin/users', AdminStatus, GetUsersReact); // GET
+router.use('/admin/users', AdminStatus, GetUserAdmin); // GET ONE
+router.use('/admin/users', AdminStatus, EditUserAdmin); // PUT
 router.use('/admin/users/isAdmin', AdminStatus, UpdateAdmin);
 router.use('/admin/users/isActive', AdminStatus, UpdateIsActive);
 router.use('/admin/reviews', AdminStatus, GetReviewsReact);
@@ -73,7 +77,7 @@ router.use('/admin/orders', AdminStatus, AdminUpdateOrderStatus);
 router.use('/admin/stats/permonth', AdminStatus, StatsPerMonth);
 
 router.use('/admin/wines', AdminStatus, GetWinesAdmin); //GET
-router.use('/admin/wines/', AdminStatus, GetOneAdmin); //GET
+router.use('/admin/wines/', AdminStatus, GetOneAdmin); //GET ONE
 router.use('/admin/wines', AdminStatus, DeleteWineAdmin); //DELETE
 router.use('/admin/wines', AdminStatus, EditWineAdmin ); //PUT
 router.use('/admin/wines', AdminStatus, PostWineAdmin ); //POST
