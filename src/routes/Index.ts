@@ -39,7 +39,8 @@ import UpdateAdmin from './adminRoutes/UsersAdminRoutes/UpdateAdmin';
 import UpdateIsActive from './adminRoutes/UsersAdminRoutes/UpadteIsActive';
 import StatsPerMonth from './adminRoutes/Stats Routes/StatsPerMonth';
 import GetWinesAdmin from './adminRoutes/WinesReactAdmin/GetWinesAdmin'
-import DeleteWineAdmin from './adminRoutes/WinesReactAdmin/DeleteWineAdmin'
+import DeleteWineAdmin from './adminRoutes/WinesReactAdmin/DeleteWineAdmin';
+import GetReviewsReact from './adminRoutes/React Admin Reviews/GetReviewsReact';
 
 /* ↓ mails ↓  */
 import NewsLetter from './mailRoutes/NewsLetter'
@@ -60,6 +61,8 @@ router.use('/admin/updatewine', UpdateWine);
 router.use('/admin/users', AdminStatus, GetUsersReact);
 router.use('/admin/users/isAdmin', AdminStatus, UpdateAdmin);
 router.use('/admin/users/isActive', AdminStatus, UpdateIsActive);
+router.use('/admin/reviews', AdminStatus, GetReviewsReact);
+
 router.use('/admin/stats/permonth', AdminStatus, StatsPerMonth);
 
 router.use('/admin/wines', AdminStatus, GetWinesAdmin); //GET
