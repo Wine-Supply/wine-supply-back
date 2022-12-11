@@ -12,6 +12,8 @@ router.get("/", async (req, res) => {
   try {
     const reviews:any = await ReviewModel.find().sort({_id: -1}).lean();
 
+    if (reviews.length === 0) {res.status(404).send("No orders found")};
+
     console.log("reviews", reviews);
 
     const parsedReviews = reviews.map((e:any) => {
@@ -35,11 +37,10 @@ router.get("/", async (req, res) => {
     return res.status(200).send(parsedReviews);
   } 
   catch (error: any) {
-    return res.status(404).send('Cant get reviews!')
+    return res.status(404).send("Can't get reviews!")
   }
 
 });
-
 
 
 export default router;
