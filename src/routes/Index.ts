@@ -43,6 +43,9 @@ import DeleteWineAdmin from './adminRoutes/WinesReactAdmin/DeleteWineAdmin';
 import GetReviewsReact from './adminRoutes/React Admin Reviews/GetReviewsReact';
 import GetOrdersReact from './adminRoutes/React Admin Orders/GetOrdersReact';
 import AdminUpdateOrderStatus from './adminRoutes/React Admin Orders/AdminUpdateOrderStatus';
+import EditWineAdmin from './adminRoutes/WinesReactAdmin/EditWineAdmin'
+import GetOneAdmin from './adminRoutes/WinesReactAdmin/GetOneAdmin'
+import PostWineAdmin from './adminRoutes/WinesReactAdmin/PostWineAdmin'
 
 /* ↓ mails ↓  */
 import NewsLetter from './mailRoutes/NewsLetter'
@@ -70,9 +73,10 @@ router.use('/admin/orders', AdminStatus, AdminUpdateOrderStatus);
 router.use('/admin/stats/permonth', AdminStatus, StatsPerMonth);
 
 router.use('/admin/wines', AdminStatus, GetWinesAdmin); //GET
+router.use('/admin/wines/', AdminStatus, GetOneAdmin); //GET
 router.use('/admin/wines', AdminStatus, DeleteWineAdmin); //DELETE
-// router.use('/admin/wines', AdminStatus, ); POST
-// router.use('/admin/wines', AdminStatus, ); PUT
+router.use('/admin/wines', AdminStatus, EditWineAdmin ); //PUT
+router.use('/admin/wines', AdminStatus, PostWineAdmin ); //POST
 
 
 //auth
