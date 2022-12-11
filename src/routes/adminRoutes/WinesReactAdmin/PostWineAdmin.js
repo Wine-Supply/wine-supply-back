@@ -10,9 +10,9 @@ const router = Router()
 
 
 router.post("/", async(req, res) => {
-    console.log(req.body)
-  
-  let { name, brand, description, type, body, cropYear, origin, zone, volume, alcoholVolume, rating, images, strain, stock, price } =
+    //console.log(req.body)
+    
+  let { name, brand, description, type, body, cropYear, origin, zone, volume, alcoholVolume, rating, strain, stock, price, images1 } =
   req.body;
 
   
@@ -20,25 +20,25 @@ router.post("/", async(req, res) => {
   if ( existingWines.length ) return res.send("Vino ya esxiste en la DB!");
   
 
-  let result;
-  if(req.files?.images){
-    result = await upLoadImg(req.files.images.tempFilePath, "Wines")
-    await fs.unlink(req.files.images.tempFilePath)
-  }
-  else {
-    console.log("No image to upload")
-  }
+  // let result;
+  // if(images){
+  //   result = await upLoadImg(images.tempFilePath, "Wines")
+  //   await fs.unlink(images.tempFilePath)
+  // }
+  // else {
+  //   console.log("No image to upload")
+  // }
 
 
   //TODO actualizar para poder updatear la imagen. Modelo abajo
   //?? ECHO
 
-  images = [result.secure_url, //Direccion de la imagen
-            result.public_id //Id de la imagen
+  let images = [ images1 //result.secure_url, //Direccion de la imagen
+  //           result.public_id //Id de la imagen
   ]
 
   const validate =
-    name && brand && description && type && body && cropYear && origin && zone && volume && alcoholVolume && rating && images && strain && stock && price
+    name && brand && description && type && body && cropYear && origin && zone && volume && alcoholVolume && rating && strain && stock && price && images
       ? true
       : false;
 
@@ -46,8 +46,9 @@ router.post("/", async(req, res) => {
 if (!validate) return res.status(400).send(`Missing data!`);
 
   try {
-      const newWine = await postWine(name, brand, description, type, body, cropYear, origin, zone, volume, alcoholVolume, rating, images, strain, stock, price)
-
+      
+      const newWine = await postWine(name, brand, description, type, body, cropYear, origin, zone, volume, alcoholVolume, rating, images, strain, stock, price )
+      console.log('llego')
       res.status(200).send(`${newWine.name} wine created successfully!`)
 
   } catch (error) {

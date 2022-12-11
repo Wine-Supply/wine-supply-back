@@ -1,5 +1,6 @@
 import { Router } from "express";
 import getAllWinesAdmin from "../../../controllers/ReactAdminControllers/GeatAllWinesAdmin";
+import getWineById from "../../../controllers/GetWineById";
 
 const router = Router()
 
@@ -7,7 +8,6 @@ const router = Router()
 
 
 router.get("/", async (req, res) => {
-
   try {
     const wines = await getAllWinesAdmin();
     let total = wines.length
