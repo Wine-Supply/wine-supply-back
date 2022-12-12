@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
 
-const contactUsLetter = async(mail: string, subject: string, text: string) => {
+const contactUsLetter = async(mail: string, subject: string, text: string, name: string) => {
 	try {
 		
 		// async..await is not allowed in global scope, must use a wrapper
@@ -30,7 +30,8 @@ const contactUsLetter = async(mail: string, subject: string, text: string) => {
 				text: `${text}`, // plain text body
 				html:`
                 <h1>${subject}</h1>
-                <p>${text}</p>
+                <h2>Send by: ${name} <br/> Email: ${mail} </h2>
+                <h3>${text}</h3>
                 `, // html body
 			});
 
@@ -43,7 +44,6 @@ const contactUsLetter = async(mail: string, subject: string, text: string) => {
 		}
 		await main().catch(console.error)
         return true
-
 
 	}
 	catch (erro) {
