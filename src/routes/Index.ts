@@ -34,11 +34,11 @@ import GetOrders from './paymentRoutes/GetOrders'
 /* ↓ admin ↓  */
 import PostWine from './adminRoutes/PostWine.js';
 import UpdateWine from './adminRoutes/UpdateWine';
-import GetUsersReact from "./adminRoutes/UsersAdminRoutes/ReactAdminGetAllUsers";
+import GetUsersReact from "./adminRoutes/UsersAdminRoutes/ReactAdminGetAllUsersJS";
 import UpdateAdmin from './adminRoutes/UsersAdminRoutes/UpdateAdmin';
 import UpdateIsActive from './adminRoutes/UsersAdminRoutes/UpadteIsActive';
 import StatsPerMonth from './adminRoutes/Stats Routes/StatsPerMonth';
-import GetWinesAdmin from './adminRoutes/WinesReactAdmin/GetWinesAdmin'
+import GetWinesAdmin from './adminRoutes/WinesReactAdmin/GetWinesAdminJS'
 import DeleteWineAdmin from './adminRoutes/WinesReactAdmin/DeleteWineAdmin';
 import GetReviewsReact from './adminRoutes/React Admin Reviews/GetReviewsReact';
 import GetOrdersReact from './adminRoutes/React Admin Orders/GetOrdersReact';
