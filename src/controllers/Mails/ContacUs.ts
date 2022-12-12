@@ -31,7 +31,7 @@ const contactUsLetter = async(mail: string, subject: string, text: string, name:
 				html:`
                 <h1>${subject}</h1>
                 <h2>Send by: ${name} <br/> Email: ${mail} </h2>
-                <p>${text}</p>
+                <h3>${text}</h3>
                 `, // html body
 			});
 
