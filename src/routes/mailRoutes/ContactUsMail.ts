@@ -4,10 +4,10 @@ import contactUsLetter from "../../controllers/Mails/ContacUs";
 const router = Router()
 
 router.post('/', async (req, res) =>{
-    const {mail, subject, text} = req.body;
+    const {mail, subject, text, name} = req.body;
     
     try {
-        const mailSend = await contactUsLetter(mail, subject, text);
+        const mailSend = await contactUsLetter(mail, subject, text, name);
         if(mailSend){
             res.status(200).json({message: "Mail send"})
         }
