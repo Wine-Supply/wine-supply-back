@@ -47,7 +47,10 @@ import EditWineAdmin from './adminRoutes/WinesReactAdmin/EditWineAdmin'
 import GetOneAdmin from './adminRoutes/WinesReactAdmin/GetOneAdmin'
 import PostWineAdmin from './adminRoutes/WinesReactAdmin/PostWineAdmin'
 import GetUserAdmin from './adminRoutes/UsersAdminRoutes/GetUserAdmin'
-import EditUserAdmin from './adminRoutes/UsersAdminRoutes/EditUserAdmin'
+import EditUserAdmin from './adminRoutes/UsersAdminRoutes/EditUserAdmin';
+
+import WinePrices from './adminRoutes/Stats Routes/WinePrices';
+import WineFields from './adminRoutes/Stats Routes/WineFields';
 
 /* ↓ mails ↓  */
 import NewsLetter from './mailRoutes/NewsLetter'
@@ -76,6 +79,8 @@ router.use('/admin/orders', AdminStatus, GetOrdersReact);
 router.use('/admin/orders', AdminStatus, AdminUpdateOrderStatus);
 
 router.use('/admin/stats/permonth', AdminStatus, StatsPerMonth);
+router.use('/admin/stats/wines/prices', AdminStatus, WinePrices);
+router.use('/admin/stats/wines/fields', AdminStatus, WineFields);
 
 router.use('/admin/wines', AdminStatus, GetWinesAdmin); //GET
 router.use('/admin/wines/', AdminStatus, GetOneAdmin); //GET ONE
