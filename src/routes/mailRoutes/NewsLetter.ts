@@ -5,7 +5,7 @@ import getAllUsers from "../../controllers/GetAllUsers";
 const router = Router()
 
 router.post('/', async (req, res) =>{
-    const {mails, subject, title,  news, image} = req.body;
+    const { subject, title,  news, image} = req.body;
     
     const users = await getAllUsers();
 
@@ -19,11 +19,11 @@ router.post('/', async (req, res) =>{
                     return error
                 };
         })
-            res.send(mailSend)
+        res.status(200).json({message: "Mails send"})
         } 
     }
     catch (error: any){
-        res.status(500).send("Something bad happend :c\n " + error.message)
+        res.status(500).send("Something bad happend in server :c\n " + error.message)
     }
 })
 
