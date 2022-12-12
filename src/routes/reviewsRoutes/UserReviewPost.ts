@@ -25,9 +25,11 @@ router.post("/", async (req, res) => {
     
     const update = await updateRatings(wine_id) || null;
 
-    if(newReview! || update) res.status(400).json({message: `Somenthing went wrong, review not posted!`});
+    if(!newReview || !update) res.status(400).json({message: `Somenthing went wrong, review not posted!`});
 
-    res.status(200).json({message:`Review posted successfully!`});
+    else{
+			res.status(200).json({message: `Review posted successfully!`});
+		}
 
   } catch (error: any) {
     res.status(400).json(error.message);
