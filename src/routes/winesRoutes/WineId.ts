@@ -9,10 +9,11 @@ router.get("/:id", async (req, res) => {
 
   try {
     const wine = await getWineById(id);
-    res.send(wine);
+    console.log(wine);
+      res.send(wine);
   }
   catch (error: any) {
-    throw new Error( error );
+    res.status(404).json({message: "Not wine find with the id:" + id})
   }
 });
 

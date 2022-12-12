@@ -4,7 +4,8 @@ const getWineById = async(id: string)=> {
 
   try{
     const wine = await WineModel.findById(id);
-    return wine;
+   if(!wine) return null;
+   else return wine 
   }
   catch (error: any) {
     throw new Error( error );
