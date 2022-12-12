@@ -9,10 +9,15 @@ const router = Router()
 
 router.get("/", async(req, res) => {
   try {
-    const wineRecommended = await getRecommendedWines()    
-    res.send(wineRecommended)
+    const wineRecommended = await getRecommendedWines(); 
+    if(wineRecommended){
+      res.send(wineRecommended);
+    }
+    else{
+      res.status(400).json({message:"Not wines find"});
+    }
   }catch (error : any) {
-      res.status(400).send(error.message)
+      res.status(500).send(error.message)
   }
 })
 

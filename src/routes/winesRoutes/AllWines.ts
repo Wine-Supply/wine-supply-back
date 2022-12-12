@@ -12,10 +12,16 @@ router.get("/", async (req, res) => {
   try {
     const wines = await getAllWines();
     const fWines= filterAllWines(wines);
-    res.send(fWines);
+
+    if(fWines){
+      res.send(fWines);
+    }
+    else{
+      res.status(400).json({message:"Not wines find"});
+    }
   } 
   catch (error: any) {
-    throw new Error( error );
+    res.status(500).json( {message: "Server error :c \n",error} );
   }
 
 });
