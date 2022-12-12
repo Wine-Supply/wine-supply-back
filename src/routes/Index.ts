@@ -51,6 +51,7 @@ import EditUserAdmin from './adminRoutes/UsersAdminRoutes/EditUserAdmin'
 
 /* ↓ mails ↓  */
 import NewsLetter from './mailRoutes/NewsLetter'
+import ContacUsMail from './mailRoutes/ContactUsMail'
 
 
 const router = Router()
@@ -112,7 +113,8 @@ router.use('/addcartitem', VerifyUserToken, AddCartItem);
 router.use('/deletecartitem', VerifyUserToken, DeleteItemCart);
 router.use('/getorders', VerifyUserToken, GetOrders);
 
-//mail sevices
+//mail services
 router.use('/newsletter', NewsLetter );
+router.use('/contacusmail', ContacUsMail);
 
 export default router;
