@@ -7,18 +7,19 @@ const router = Router()
 
 router.post("/", async (req: any, res) => {
     const userId = req.user._id;
-    const wineid = req.headers.wineid
+    const wines = req.body
     try {
-        let wine = await Wine.findById(wineid)
-        req.user.shopping_cart.push(wine)
-        let user = await User.findOneAndUpdate(
-            { _id: userId }, 
-            { $push: { shopping_cart: wine } }
-        );
-        user?.save()
-
-    } catch (error: any) {
-        res.status(400).json(error.message);
+      shoppingCartChange
+        req.user.shopping_cart = wines
+        req.user?.save()
+        return res.status(200).send("wines added!")
+        // let user = await User.findOneAndUpdate(
+        //     { _id: userId }, 
+        //     { $push: { shopping_cart: wines } }
+        // );
+    } catch (err) {
+        console.log(err)
+        return res.status(403).send("Can't add wines to cart!")
     }
 
 })

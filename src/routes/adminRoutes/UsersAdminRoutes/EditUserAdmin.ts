@@ -15,7 +15,10 @@ router.put("/:id", async (req, res) => {
             return res.status(404).send("User not found!");
         }
         for (const property in req.body) {
-            if (user[property] && property !== "_id" && property !== '$__' && property !== '$isNew') {
+            if (property === "isActive") {
+                user.isActive = req.body[property]
+            }
+            if (user[property] && property !== "_id" && property !== '$__' && property !== '$isNew' && property !== 'isActive') {
                 user[property] = req.body[property];
             }
         }

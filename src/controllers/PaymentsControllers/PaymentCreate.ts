@@ -33,7 +33,7 @@ if (data) {
         description: "cart",
         unit_price: e.price,
         // picture_url: e.images[0],
-        quantity: 1,
+        quantity: e.cuantity,
         currency_id: "ARS"
       })
     })
