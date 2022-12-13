@@ -13,8 +13,8 @@ router.get("/", async (req: any, res) => {
         }
         return res.status(300).send( 'No items in the shopping cart!' )
 
-    } catch (err) {
-        console.log(err)
+    } catch (error: any) {
+        res.status(400).json(error.message);
     }
 
 })
