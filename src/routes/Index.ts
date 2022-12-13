@@ -34,11 +34,11 @@ import GetOrders from './paymentRoutes/GetOrders'
 /* ↓ admin ↓  */
 import PostWine from './adminRoutes/PostWine.js';
 import UpdateWine from './adminRoutes/UpdateWine';
-import GetUsersReact from "./adminRoutes/UsersAdminRoutes/ReactAdminGetAllUsers";
+import GetUsersReact from "./adminRoutes/UsersAdminRoutes/ReactAdminGetAllUsersJS";
 import UpdateAdmin from './adminRoutes/UsersAdminRoutes/UpdateAdmin';
 import UpdateIsActive from './adminRoutes/UsersAdminRoutes/UpadteIsActive';
 import StatsPerMonth from './adminRoutes/Stats Routes/StatsPerMonth';
-import GetWinesAdmin from './adminRoutes/WinesReactAdmin/GetWinesAdmin'
+import GetWinesAdmin from './adminRoutes/WinesReactAdmin/GetWinesAdminJS'
 import DeleteWineAdmin from './adminRoutes/WinesReactAdmin/DeleteWineAdmin';
 import GetReviewsReact from './adminRoutes/React Admin Reviews/GetReviewsReact';
 import GetOrdersReact from './adminRoutes/React Admin Orders/GetOrdersReact';
@@ -47,10 +47,14 @@ import EditWineAdmin from './adminRoutes/WinesReactAdmin/EditWineAdmin'
 import GetOneAdmin from './adminRoutes/WinesReactAdmin/GetOneAdmin'
 import PostWineAdmin from './adminRoutes/WinesReactAdmin/PostWineAdmin'
 import GetUserAdmin from './adminRoutes/UsersAdminRoutes/GetUserAdmin'
-import EditUserAdmin from './adminRoutes/UsersAdminRoutes/EditUserAdmin'
+import EditUserAdmin from './adminRoutes/UsersAdminRoutes/EditUserAdmin';
+
+import WinePrices from './adminRoutes/Stats Routes/WinePrices';
+import WineFields from './adminRoutes/Stats Routes/WineFields';
 
 /* ↓ mails ↓  */
 import NewsLetter from './mailRoutes/NewsLetter'
+import ContacUsMail from './mailRoutes/ContactUsMail'
 
 
 const router = Router()
@@ -75,6 +79,8 @@ router.use('/admin/orders', AdminStatus, GetOrdersReact);
 router.use('/admin/orders', AdminStatus, AdminUpdateOrderStatus);
 
 router.use('/admin/stats/permonth', AdminStatus, StatsPerMonth);
+router.use('/admin/stats/wines/prices', AdminStatus, WinePrices);
+router.use('/admin/stats/wines/fields', AdminStatus, WineFields);
 
 router.use('/admin/wines', AdminStatus, GetWinesAdmin); //GET
 router.use('/admin/wines/', AdminStatus, GetOneAdmin); //GET ONE
@@ -112,7 +118,8 @@ router.use('/addcartitem', VerifyUserToken, AddCartItem);
 router.use('/deletecartitem', VerifyUserToken, DeleteItemCart);
 router.use('/getorders', VerifyUserToken, GetOrders);
 
-//mail sevices
+//mail services
 router.use('/newsletter', NewsLetter );
+router.use('/contacusmail', ContacUsMail);
 
 export default router;
