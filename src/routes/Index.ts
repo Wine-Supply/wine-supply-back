@@ -56,6 +56,12 @@ import WineFields from './adminRoutes/Stats Routes/WineFields';
 import NewsLetter from './mailRoutes/NewsLetter'
 import ContacUsMail from './mailRoutes/ContactUsMail'
 
+/* ↓ membership ↓  */
+import MembershipOrderCreate from './MembershipRoutes/MembershipOrderRoute';
+import UserMembership from './MembershipRoutes/UserMembership';
+import UpdateMembership from './MembershipRoutes/UpdateMembership';
+import GetMembership from './MembershipRoutes/GetMembership';
+
 
 const router = Router()
 
@@ -121,5 +127,12 @@ router.use('/getorders', VerifyUserToken, GetOrders);
 //mail services
 router.use('/newsletter', NewsLetter );
 router.use('/contacusmail', ContacUsMail);
+
+
+// membership
+router.use('/membership', VerifyUserToken,MembershipOrderCreate);
+router.use('/membership', VerifyUserToken, UpdateMembership);
+router.use('/getmembership', VerifyUserToken, GetMembership);
+router.use('/user/membership', VerifyUserToken, UserMembership);
 
 export default router;
