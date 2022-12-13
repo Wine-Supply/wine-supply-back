@@ -5,6 +5,8 @@ const router = Router()
 //*  SIN USO DE MOMENTO 9/12/22
 // verify Token AdminStatus
 
+// /admin/newusers/
+
 router.get("/", async(req: any, res) => {
 
   // si llega por query newUser=true, devuelve los ultimos 5 usuarios creados activos, ordenados por id
@@ -15,11 +17,21 @@ router.get("/", async(req: any, res) => {
 
   const {newUser, isActive, isAdmin, all} = req.query;
   let users:any = []
+  let result
 
   try {
 
     if(newUser) {
       users = await User.find({isAdmin: "no", isActive: true}).sort({_id: -1}).limit(5)
+      result = users.map((e: any) => {
+        return {
+          id: e._id,
+          email: e.email,
+          name: e.name,
+          lastName: e.lastName,
+          userName: e.userName
+        }
+      })
     }
     else if (isAdmin){
       users = await User.find({isAdmin: "yes"}).sort({_id: -1})
@@ -35,8 +47,8 @@ router.get("/", async(req: any, res) => {
     }
 
     if(users.length === 0){return res.status(200).send("No matches found") }
-
-    return res.status(200).send(users)
+    res.header({'content-Range':  `wines 0-5/5`, 'Access-Control-Expose-Headers': 'Content-Range'})
+    return res.status(200).send(result)
       
     } catch (error:any) {
         return res.send(error.message)
