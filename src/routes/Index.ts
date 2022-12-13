@@ -38,6 +38,7 @@ import GetUsersReact from "./adminRoutes/UsersAdminRoutes/ReactAdminGetAllUsersJ
 import UpdateAdmin from './adminRoutes/UsersAdminRoutes/UpdateAdmin';
 import UpdateIsActive from './adminRoutes/UsersAdminRoutes/UpadteIsActive';
 import StatsPerMonth from './adminRoutes/Stats Routes/StatsPerMonth';
+import StatsPerWeek from './adminRoutes/Stats Routes/StatsPerWeek';
 import GetWinesAdmin from './adminRoutes/WinesReactAdmin/GetWinesAdminJS'
 import DeleteWineAdmin from './adminRoutes/WinesReactAdmin/DeleteWineAdmin';
 import GetReviewsReact from './adminRoutes/React Admin Reviews/GetReviewsReact';
@@ -48,6 +49,7 @@ import GetOneAdmin from './adminRoutes/WinesReactAdmin/GetOneAdmin'
 import PostWineAdmin from './adminRoutes/WinesReactAdmin/PostWineAdmin'
 import GetUserAdmin from './adminRoutes/UsersAdminRoutes/GetUserAdmin'
 import EditUserAdmin from './adminRoutes/UsersAdminRoutes/EditUserAdmin';
+import GetLastUsers from './adminRoutes/UsersAdminRoutes/GetAllUsers'
 
 import WinePrices from './adminRoutes/Stats Routes/WinePrices';
 import WineFields from './adminRoutes/Stats Routes/WineFields';
@@ -74,11 +76,13 @@ router.use('/admin/users', AdminStatus, GetUserAdmin); // GET ONE
 router.use('/admin/users', AdminStatus, EditUserAdmin); // PUT
 router.use('/admin/users/isAdmin', AdminStatus, UpdateAdmin);
 router.use('/admin/users/isActive', AdminStatus, UpdateIsActive);
+router.use('/admin/newusers', AdminStatus, GetLastUsers);
 router.use('/admin/reviews', AdminStatus, GetReviewsReact);
 router.use('/admin/orders', AdminStatus, GetOrdersReact);
 router.use('/admin/orders', AdminStatus, AdminUpdateOrderStatus);
 
 router.use('/admin/stats/permonth', AdminStatus, StatsPerMonth);
+router.use('/admin/stats/perweek', AdminStatus, StatsPerWeek);
 router.use('/admin/stats/wines/prices', AdminStatus, WinePrices);
 router.use('/admin/stats/wines/fields', AdminStatus, WineFields);
 
