@@ -50,8 +50,8 @@ router.get("/", async(req: any, res) => {
     res.header({'content-Range':  `wines 0-5/5`, 'Access-Control-Expose-Headers': 'Content-Range'})
     return res.status(200).send(result)
       
-    } catch (error:any) {
-        return res.send(error.message)
+    } catch (error) {
+        return res.status(500).send("Somethin bad happed retrieving the users")
     }
 })
 

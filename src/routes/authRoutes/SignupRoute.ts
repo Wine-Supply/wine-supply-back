@@ -20,8 +20,8 @@ router.post("/", async(req, res) => {
       try{
         const mail = await welcomeMail(newUser.email)
       }
-      catch (error){
-        console.log(error);
+      catch (error: any) {
+        res.status(400).json({message: "Unable to sign up", error});
         
       }
       

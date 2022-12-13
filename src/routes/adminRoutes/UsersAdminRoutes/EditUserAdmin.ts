@@ -30,7 +30,7 @@ router.put("/:id", async (req, res) => {
             updatedUser = { ...updatedUser, id: updatedUser._id }
             res.send(updatedUser);
         }
-    } catch (error: any) {
+    } catch (error) {
         console.log(error);
         res.status(400).send("Update not possible!");
     }

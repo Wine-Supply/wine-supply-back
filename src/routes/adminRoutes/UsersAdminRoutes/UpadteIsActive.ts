@@ -27,7 +27,7 @@ router.put("/:id", async(req: any, res) => {
 
    let user:any = await User.findById(id).select("-hashedPass");
     // console.log("user", user);
-    if(user.length === 0) { return res.status(200).send("No matches found for this id") };
+    if(user.length === 0) { return res.status(404).send("No matches found for this id") };
 
     const activeStatus = checkValue(user.isActive)
     // console.log("activeStatus", activeStatus);
@@ -42,7 +42,7 @@ router.put("/:id", async(req: any, res) => {
     return res.status(200).send(newUser);
       
     } catch (error:any) {
-        return res.send(error.message);
+        return res.status(500).send(error.message);
     }
 })
 
