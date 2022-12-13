@@ -7,9 +7,8 @@ const router = Router()
 
 router.post("/", async (req: any, res) => {
     const userId = req.user._id;
-    const wines = req.body
+    const wines = JSON.parse(req.body)
     try {
-      shoppingCartChange
         req.user.shopping_cart = wines
         req.user?.save()
         return res.status(200).send("wines added!")
