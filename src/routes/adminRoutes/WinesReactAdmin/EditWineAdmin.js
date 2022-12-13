@@ -11,7 +11,7 @@ const router = Router();
 router.put("/:id", async (req, res) => {
 	const { id } = req.body;
 	// let {  imageID } = req.body;
-
+	console.log(req.body)
 	try {
 		let wine = await Wine.findById(id);
 		let result;
@@ -20,7 +20,10 @@ router.put("/:id", async (req, res) => {
 			return res.status(404).send("Wine not found!");
 		}
 			for (const property in req.body) {
-				if (wine[property] && property !== "_id" && property !== '$__' && property !== '$isNew') {
+				if (property === "isActive") {
+					wine.isActive = req.body[property]
+				}
+				if (wine[property] && property !== "_id" && property !== '$__' && property !== '$isNew' && property !== 'isActive') {
 					wine[property] = req.body[property];
 				}
 			}
