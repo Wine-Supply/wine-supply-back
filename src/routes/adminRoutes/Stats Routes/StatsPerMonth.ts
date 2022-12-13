@@ -14,7 +14,7 @@ const router = require("express").Router();
 
 router.get("/", async (req:any, res:any) => {
 
-  const {model} = req.query
+  const { model } = req.query
   let data = [];
 
   try {
@@ -25,7 +25,7 @@ router.get("/", async (req:any, res:any) => {
     res.status(200).send(data)
     
   } catch (error:any) {
-    res.send(error.message)
+    res.status(500).send(error.message)
   }
 
 })

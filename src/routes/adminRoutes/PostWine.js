@@ -51,7 +51,7 @@ if (!validate) return res.status(400).send(`Missing data!`);
       res.status(200).send(`${newWine.name} wine created successfully!`)
 
   } catch (error) {
-      res.status(400).send(error.message);
+      res.status(400).send("wine not posted :c", error.message);
   }
 })
 
