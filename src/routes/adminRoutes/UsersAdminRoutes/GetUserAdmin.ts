@@ -11,7 +11,7 @@ router.get("/:id", async (req, res) => {
     res.status(200).send(newUser);
   }
   catch (error: any) {
-    res.status(400).send("Can't find user!");
+    res.status(404).send("Can't find user!");
   }
 });
 

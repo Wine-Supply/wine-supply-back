@@ -17,8 +17,8 @@ router.post("/", async (req: any, res) => {
         );
         user?.save()
 
-    } catch (err) {
-        console.log(err)
+    } catch (error: any) {
+        res.status(400).json(error.message);
     }
 
 })

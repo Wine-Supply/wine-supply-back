@@ -38,8 +38,8 @@ router.get("/", async(req: any, res) => {
 
     return res.status(200).send(users)
       
-    } catch (error:any) {
-        return res.send(error.message)
+    } catch (error) {
+        return res.status(500).send("Somethin bad happed retrieving the users")
     }
 })
 
