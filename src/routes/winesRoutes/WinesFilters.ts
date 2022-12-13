@@ -16,7 +16,7 @@ router.get("/", async (req: Request, res: Response) => {
     const filteredWines = await Wine.find(querys).select("_id name brand type description cropYear strain volume images rating price");
     // console.log("filteredWines:", filteredWines)
     if (filteredWines.length === 0) {
-      return res.status(404).send("No hay vinos para mostrar")
+      return res.status(404).send(["No wines match the filter"]);
     }
     return res.status(200).send(filteredWines);
 

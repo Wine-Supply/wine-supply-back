@@ -1,4 +1,4 @@
-import {getStrains, getZones, getOrigin, getName, getBrand, getType, getCropYear, countWines}  from '../../../controllers/Stats/WineStats/WineFields'
+import {getStrains, getZones, getOrigin, getName, getBrand, getType, getCropYear, countWines}  from '../../../controllers/Stats/WineFieldsController';
 const router = require("express").Router();
 
 // total number of registered Users Per Month
