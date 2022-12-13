@@ -13,16 +13,8 @@ import WineModel from "../../models/Wine";
  export const getStrains = async() => {
 
   const data = await WineModel.aggregate( [
-    { $group: {_id:"$strain", count: {$count:{}}} }
+    { $group: {_id:{$toLower:"$strain"}, count: {$count:{}}} }
   ]);
-
-
-  // for (const value of data) {
-  //   value.toLowerCase()
-  // }
-  // const lowerCaseData:any = data.forEach( (el:any) => el.toLowerCase())
-  
-  // const setData = [...new Set(lowerCaseData)]
 
   return data;
 };
@@ -31,7 +23,7 @@ import WineModel from "../../models/Wine";
 export const getZones = async() => {
 
   const data = await WineModel.aggregate( [
-    { $group: {_id:"$zone", count: {$count:{}}} }
+    { $group: {_id:{$toLower:"$zone"}, count: {$count:{}}} }
   ]);
 
   return data;
@@ -41,7 +33,7 @@ export const getZones = async() => {
 export const getOrigin = async() => {
 
   const data = await WineModel.aggregate( [
-    { $group: {_id:"$origin", count: {$count:{}}} }
+    { $group: {_id:{$toLower:"$origin"}, count: {$count:{}}} }
   ]);
 
   return data;
@@ -51,7 +43,7 @@ export const getOrigin = async() => {
 export const getType = async() => {
 
   const data = await WineModel.aggregate( [
-    { $group: {_id:"$type", count: {$count:{}}} }
+    { $group: {_id:{$toLower:"$type"}, count: {$count:{}}} }
   ]);
  
   return data;
@@ -61,7 +53,7 @@ export const getType = async() => {
 export const getBrand = async() => {
 
   const data = await WineModel.aggregate( [
-    { $group: {_id:"$brand", count: {$count:{}}} }
+    { $group: {_id:{$toLower:"$brand"}, count: {$count:{}}} }
   ]);
 
   return data;
@@ -71,7 +63,7 @@ export const getBrand = async() => {
 export const getName = async() => {
 
   const data = await WineModel.aggregate( [
-    { $group: {_id:"$name", count: {$count:{}} }}
+    { $group: {_id:{$toLower:"$name"}, count: {$count:{}} }}
   ]);
   return data;
 };
