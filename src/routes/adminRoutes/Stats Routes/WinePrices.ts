@@ -1,4 +1,4 @@
-import {pricesRatio, getPrices}  from '../../../controllers/Stats/WineStats/WinePrices'
+import {pricesRatio, getPrices}  from '../../../controllers/Stats/WinePricesController';
 const router = require("express").Router();
 
 // total number of registered Users Per Month
