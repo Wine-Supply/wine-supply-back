@@ -71,6 +71,33 @@ export const incomePerMonth = async() => {
   return data
 };
 
+export const itemsIncome = async() => {
+
+  const data = await ShoppingOrder.aggregate([
+    { $match: { createdAt: {$gte: lastYear } } },
+    {
+      $unwind: {
+        path: '$items'
+      }
+    }, {
+      $group: {
+        _id: '$items.id', 
+        item: {
+          $first: '$items.title'
+        }, 
+        unit_price: {
+          $first: '$items.unit_price'
+        }, 
+        count: {
+          $sum: 1
+        }
+      }
+    }
+  ])
+
+  return data
+};
+
 export const reviewsPerMonth = async() => {
 
   const data = await ReviewModel.aggregate( [
@@ -110,4 +137,5 @@ export const winesPerMonth = async() => {
 
   return data
 };
+
 

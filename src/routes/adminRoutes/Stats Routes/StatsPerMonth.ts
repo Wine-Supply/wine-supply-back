@@ -1,4 +1,4 @@
-import {usersPerMonth, ordersPerMonth, reviewsPerMonth, winesPerMonth, incomePerMonth} from '../../../controllers/Stats/StatsPerMonthController'
+import {usersPerMonth, ordersPerMonth, reviewsPerMonth, winesPerMonth, incomePerMonth, itemsIncome} from '../../../controllers/Stats/StatsPerMonthController'
 const router = require("express").Router();
 
 // total number of registered Users Per Month
@@ -32,6 +32,7 @@ router.get("/", async (req:any, res:any) => {
     if (model === "review") { data = await reviewsPerMonth()};
     if (model === "wine") { data = await winesPerMonth()}; // este esta vacio por ahora
     if (model === "income") { data = await incomePerMonth()};
+    if (model === "items") { data = await itemsIncome()};
     
     if (data.length === 0) { return res.status(404).send("no data matched")}
 
