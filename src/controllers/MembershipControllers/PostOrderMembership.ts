@@ -28,7 +28,7 @@ const postOrderMembership = async (response: any, data: any) => {
             orderStatus: 1 //mercadopago devuelve un string
         })
         // const mail = await confirmPayment( "Wine purchase", address, order_user, data.body.total_amount);
-        const mail = await confirmPayment( "Membership subscription", address, order_user, data.body.transaction_amount);
+        // const mail = await confirmPayment( "Membership subscription", address, order_user, data.body.transaction_amount);
 
        
         const createdOrder = await newOrder.save()
