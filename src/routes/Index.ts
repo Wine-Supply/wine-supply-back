@@ -132,7 +132,7 @@ router.use('/contacusmail', ContacUsMail);
 // membership
 router.use('/membership', VerifyUserToken,MembershipOrderCreate);
 router.use('/membership', VerifyUserToken, UpdateMembership);
-router.use('/getmembership', VerifyUserToken, GetMembership);
+router.use('/membership', VerifyUserToken, GetMembership);
 router.use('/user/membership', VerifyUserToken, UserMembership);
 
 export default router;
