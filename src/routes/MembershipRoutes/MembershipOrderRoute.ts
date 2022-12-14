@@ -19,6 +19,7 @@ router.get("/", async (req:any, res:any) => {
   try {
 
     const user = req.query.user_id;
+    const response = req.query;
 
 		// if (!user) { return res.status(404).send("Mising user data from query") };
 
@@ -32,13 +33,13 @@ router.get("/", async (req:any, res:any) => {
       'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN_MP,
       'Content-Type': 'application/json'
     }})
-    console.log("data.data", data.data);
+    // console.log("data.data", data.data);
     
-    console.log("data.reason", data.data.reason);
-    console.log("typeof data.reason", typeof data.data.reason);
-    console.log("preapproval_id", preapproval_id);
+    // console.log("data.reason", data.data.reason);
+    // console.log("typeof data.reason", typeof data.data.reason);
+    // console.log("preapproval_id", preapproval_id);
     
-    // postOrderMembership(response, data);
+    postOrderMembership(response, data);
     
     const newMembership = await postMembership(user, data);
     console.log("newMembership",newMembership);
