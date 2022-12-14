@@ -22,10 +22,9 @@ router.post("/", async (req:any, res) => {
     try {
         // const {country, stateName, cityName, postalCode, streetName, streetNumber, floor, Apartment} = address1
         if (req.sub_type) {
-            const data: string = req.sub_type
-            let subscription = await PaymentSubCreate(data, id)
+            const id: string = req.sub_type
+            let subscription = await PaymentSubCreate(id)
             console.log("subscription",subscription);
-            
             return res.status(200).send(subscription.data.init_point)
         }
     } catch (error) {
