@@ -2,10 +2,14 @@ import MembershipModel from "../../models/Membeship";
 import UserModel from "../../models/User"
 
 const postMembership = async (user: any, data:any) => {
+  let amount = 40;
+  if(data.reason === "Regular"){ amount = 40};
+  if(data.reason === "Premium"){ amount = 80};
+  if(data.reason === "Sommelier"){ amount = 80};
 
   const newMembership:any = new MembershipModel({
     name:data.reason,
-    price: data.auto_recurring.transaction_amount,
+    price: amount,
     user_id: user,
     isActive: true
   })

@@ -2,6 +2,7 @@ import { Router } from "express";
 const mercadopago = require('mercadopago')
 import postOrderMembership from "../../controllers/MembershipControllers/PostOrderMembership";
 import postMembership from '../../controllers/MembershipControllers/PostMembership';
+import SubscriptionDetail from '../../controllers/PaymentsControllers/SubscriptionDetail';
 import axios from "axios";
 import { config } from "dotenv";
 config();
@@ -18,10 +19,8 @@ router.get("/", async (req:any, res:any) => {
   try {
 
     const user = req.query.user_id;
-		//console.log("user", user);
-		// if (!user) { return res.status(404).send("User not found!") };
-    // const response = req.query;
-    // console.log("response", response);
+
+		// if (!user) { return res.status(404).send("Mising user data from query") };
 
 	  // const orderShopId = response.merchant_order_id;
     // console.log("orderShopId", orderShopId);
@@ -37,7 +36,7 @@ router.get("/", async (req:any, res:any) => {
     console.log("preapproval_id", preapproval_id);
     
     // postOrderMembership(response, data);
-    // const data = {reason: "Regular", auto_recurring: {transaction_amount:1} }
+    
     const newMembership = await postMembership(user, data);
     console.log("newMembership",newMembership);
     
