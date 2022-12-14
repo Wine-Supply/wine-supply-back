@@ -4,7 +4,7 @@ const SubscriptionDetail = async (data: any, id:any) => {
     switch (data) {
         case 'Regular':{
             return {
-                "reason": "Wine Club (Regular Subscription)",
+                "reason": "Regular",
                 "auto_recurring": {
                 "frequency": 1,
                 "frequency_type": "months",
@@ -19,7 +19,7 @@ const SubscriptionDetail = async (data: any, id:any) => {
             break;}
         case 'Premium':{
             return {
-                "reason": "Wine Club (Premium Subscription)",
+                "reason": "Premium",
                 "auto_recurring": {
                 "frequency": 1,
                 "frequency_type": "months",
@@ -33,7 +33,7 @@ const SubscriptionDetail = async (data: any, id:any) => {
             break;}
         case 'Sommeliere':{
             return {
-                "reason": "Wine Club (Sommeliere Subscription)",
+                "reason": "Sommeliere",
                 "auto_recurring": {
                 "frequency": 1,
                 "frequency_type": "months",
