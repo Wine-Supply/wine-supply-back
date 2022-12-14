@@ -23,6 +23,7 @@ import GetCart from './paymentRoutes/GetCart'
 import AddCartItem from './paymentRoutes/AddCartItem'
 import DeleteItemCart from './paymentRoutes/DeleteItemCart'
 /* ↓ middlewares ↓  */
+import AdminStatusCheck from './middlewares/AdminStatusCheck'
 import VerifyUserToken from './middlewares/VerifyUserToken'
 import VerifyUserTokenPayment from './middlewares/VerifyUserTokenPayment'
 import AdminStatus from './middlewares/AdminStatus'
@@ -75,6 +76,7 @@ router.use('/wines/recomendados', RecommendedWines);
 router.use('/wine/', WineId);
 
 //admin
+router.use('/adminstatuscheck', AdminStatusCheck);
 router.use('/admin/post', PostWine);
 router.use('/admin/updatewine', UpdateWine);
 router.use('/admin/users', AdminStatus, GetUsersReact); // GET
