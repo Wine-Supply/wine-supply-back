@@ -15,7 +15,7 @@ router.put("/", async (req, res) => {
 		if (!user) {
 			return res.status(404).send("User not found!");
 		}
-		if (!user.isActive) {
+		if (user.isActive) {
 			const updatedUser = await updateUser(user, req.body);
 
 			return res.status(200).send(updatedUser);
