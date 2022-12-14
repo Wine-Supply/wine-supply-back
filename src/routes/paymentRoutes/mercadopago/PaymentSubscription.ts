@@ -24,7 +24,7 @@ router.post("/", async (req:any, res) => {
         if (req.sub_type) {
             const data: string = req.sub_type
             let subscription = await PaymentSubCreate(data,id)
-            console.log("subscription",subscription);
+            // console.log("subscription",subscription);
             return res.status(200).send(subscription.data.init_point)
         }
     } catch (error) {

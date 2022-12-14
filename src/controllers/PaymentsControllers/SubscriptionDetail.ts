@@ -13,7 +13,8 @@ const SubscriptionDetail = async (data: any, id:any) => {
                 "transaction_amount": 40,
                 "currency_id": "ARS"
                 },
-                "back_url": `https://wine-supply-back-production.up.railway.app/membershipcreateorder?user_id=${id}`
+                "back_url": `https://google.com`
+                //"back_url": `https://wine-supply-back-production.up.railway.app/membershipcreateorder?user_id=${id}`
               }
             break;}
         case 'Premium':{
