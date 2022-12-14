@@ -29,7 +29,9 @@ const postOrder = async (response: any, data: any) => {
             orderStatus: 1 //mercadopago devuelve un string
         })
         // const mail = await confirmPayment( "Wine purchase", address, order_user, data.body.total_amount);
-        const mail = await confirmPayment( "Wine purchase", address, order_user, data.body.total_amount);
+        const mail = await confirmPayment( "Wine purchase", order_user, data.body.total_amount);
+        console.log(mail);
+        
         const createdOrder = await newOrder.save()
         order_user.order.push(createdOrder._id)
         order_user.shopping_cart = []
