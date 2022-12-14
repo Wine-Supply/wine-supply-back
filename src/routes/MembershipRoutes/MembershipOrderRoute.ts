@@ -32,8 +32,10 @@ router.get("/", async (req:any, res:any) => {
       'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN_MP,
       'Content-Type': 'application/json'
     }})
-    console.log("data.reason", data.reason);
-    console.log("typeof data.reason", typeof data.reason);
+    console.log("data.data", data.data);
+    
+    console.log("data.reason", data.data.reason);
+    console.log("typeof data.reason", typeof data.data.reason);
     console.log("preapproval_id", preapproval_id);
     
     // postOrderMembership(response, data);
