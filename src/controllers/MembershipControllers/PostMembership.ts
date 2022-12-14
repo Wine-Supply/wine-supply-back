@@ -4,8 +4,8 @@ import User from "../../models/User"
 const postMembership = async (user: any, data:any) => {
 
   const newMembership:any = new MembershipModel({
-    name:data.body.reason,
-    price: data.body.transaction_amount,
+    name:data.reason,
+    price: data.auto_recurring.transaction_amount,
     user_id: user._id,
     isActive: true
   })
