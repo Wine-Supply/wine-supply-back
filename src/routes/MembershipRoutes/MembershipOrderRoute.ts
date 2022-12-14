@@ -12,7 +12,7 @@ const router = Router()
 router.get("/", async (req:any, res:any) => {
   try {
 
-    const user = req.user;
+    const user = req.query.user_id;
 		//console.log("user", user);
 		if (!user.isActive) {return res.status(303).send("Inactive user, do you want to recover it?") };
 		if (!user) { return res.status(404).send("User not found!") };
