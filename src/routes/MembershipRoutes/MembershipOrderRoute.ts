@@ -19,25 +19,28 @@ router.post("/", async (req:any, res:any) => {
 
     const user = req.query.user_id;
 		//console.log("user", user);
-		if (!user.isActive) {return res.status(303).send("Inactive user, do you want to recover it?") };
-		if (!user) { return res.status(404).send("User not found!") };
-    const response = req.query;
-    console.log("response", response);
+		// if (!user) { return res.status(404).send("User not found!") };
+    // const response = req.query;
+    // console.log("response", response);
 
 	  // const orderShopId = response.merchant_order_id;
     // console.log("orderShopId", orderShopId);
 	  // const data = await mercadopago.merchant_orders.findById(orderShopId);
     // console.log("date", data);
 
-    // const preapproval_id = req.query.preapproval_id
-    // const data = axios.get(`https://api.mercadopago.com/preapproval/${preapproval_id}`, {headers: {
-    //   'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN_MP,
-    //   'Content-Type': 'application/json'
-    // }})
+    const preapproval_id = req.query.preapproval_id
+    const data1 = axios.get(`https://api.mercadopago.com/preapproval/${preapproval_id}`, {headers: {
+      'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN_MP,
+      'Content-Type': 'application/json'
+    }})
+    console.log("data1", data1);
+    console.log("preapproval_id", preapproval_id);
     
     // postOrderMembership(response, data);
-    const data = {reason: "hola", auto_recurring: {transaction_amount:1} }
+    const data = {reason: "Regular", auto_recurring: {transaction_amount:1} }
     const newMembership = postMembership(user, data);
+    console.log("newMembership",newMembership);
+    
 	
 	  res.send(newMembership);
 
