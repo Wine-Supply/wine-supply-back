@@ -2,6 +2,7 @@ import { Router } from "express";
 const mercadopago = require('mercadopago')
 import ShoppingOder from "../../models/ShoppingOrder"
 import postOrder from "../../controllers/PaymentsControllers/PostOrder";
+import UserModel from "../../models/User";
 
 const router = Router()
 
@@ -15,7 +16,9 @@ router.get("/", async (req, res) => {
 		const data = await mercadopago.merchant_orders.findById(orderShopId);
 		postOrder(response, data)
 		
-		return res.redirect('http://localhost:3000/home/products');
+    const user:any = await UserModel.findById(response.user_id);
+		return res.redirect(`https://effortless-lolly-5fd0a5.netlify.app/user/${user?.name}/profile`);
+    //https://effortless-lolly-5fd0a5.netlify.app/
     // https://exquisite-brigadeiros-cc493c.netlify.app/
     // 'http://localhost:3000/home/products'
 
