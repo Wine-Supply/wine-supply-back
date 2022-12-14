@@ -8,7 +8,7 @@ const postMembership = async (user: any, data:any) => {
   if(data.reason === "Sommelier"){ amount = 80};
 
   const newMembership:any = new MembershipModel({
-    name:data.reason,
+    name: data.reason,
     price: amount,
     user_id: user,
     isActive: true

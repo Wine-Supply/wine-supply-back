@@ -25,7 +25,7 @@ router.get("/", async (req:any, res:any) => {
 	  // const orderShopId = response.merchant_order_id;
     // console.log("orderShopId", orderShopId);
 	  // const data = await mercadopago.merchant_orders.findById(orderShopId);
-    // console.log("date", data);
+    // console.log("data", data);
 
     const preapproval_id = req.query.preapproval_id
     const data = await axios.get(`https://api.mercadopago.com/preapproval/${preapproval_id}`, {headers: {
