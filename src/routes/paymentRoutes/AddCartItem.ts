@@ -8,19 +8,30 @@ const router = Router()
 router.post("/", async (req: any, res) => {
     const userId = req.user._id;
     const wines = JSON.parse(req.headers.items)
-    try {
-        req.user.shopping_cart = wines
-        req.user?.save()
-        return res.status(200).send("wines added!")
-        // let user = await User.findOneAndUpdate(
-        //     { _id: userId }, 
-        //     { $push: { shopping_cart: wines } }
-        // );
-    } catch (err) {
-        console.log(err)
-        return res.status(403).send("Can't add wines to cart!")
-    }
-
-})
+    // let listWines = wines.map((e:any) => {
+        //     return {
+            try {
+            //         id: e._id,
+            //         name: e.name,
+            //         img: e.img,
+            //         descriptions: e.descriptions,
+            //         price: e.price,
+            //         rating: e.rating,
+            //         cuantity: e.cuantity
+            //     }
+            let user = await User.findOneAndUpdate(
+                    { _id: userId }, 
+                    { $set: { shopping_cart: wines } }
+                );
+            user?.save()
+                return res.status(200).send("wines added!")
+        } catch (err) {
+            console.log(err)
+            return res.status(403).send("Can't add wines to cart!")
+        }}
+        )
+            //     let updatedUser = req.user
+            //     updatedUser.shopping_cart = listWines
+            //     updatedUser.save()
 
 export default router;

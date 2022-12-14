@@ -35,7 +35,7 @@ router.post("/", async (req:any, res) => {
             let preference = {
                 auto_return: 'approved',
                 back_urls : {
-                    success : `http://localhost:30001/createorder?user_id=${id}`
+                    success : `http://localhost:3001/createorder?user_id=${id}`
                 },
                 items
                 // notification_url : 'http://localhost:3001/notificar'
