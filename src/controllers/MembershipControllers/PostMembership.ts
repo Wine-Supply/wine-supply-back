@@ -12,8 +12,9 @@ const postMembership = async (user: any, data:any) => {
 
   const createdMembership = await newMembership.save();
 
-  // const getUser:any = await UserModel.findById(user);
-  // getUser?.membership_id.concat(newMembership._id);
+  const getUser:any = await UserModel.findById(user);
+  getUser?.membership_id.concat(createdMembership._id);
+  const updatedUser = await getUser.save();
 
   return createdMembership;
 
