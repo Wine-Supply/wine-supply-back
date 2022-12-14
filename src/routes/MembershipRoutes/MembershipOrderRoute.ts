@@ -28,11 +28,12 @@ router.get("/", async (req:any, res:any) => {
     // console.log("data", data);
 
     const preapproval_id = req.query.preapproval_id
-    const data = await axios.get(`https://api.mercadopago.com/preapproval/${preapproval_id}`, {headers: {
+    const data:any = await axios.get(`https://api.mercadopago.com/preapproval/${preapproval_id}`, {headers: {
       'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN_MP,
       'Content-Type': 'application/json'
     }})
-    console.log("data1", data);
+    console.log("data.reason", data.reason);
+    console.log("typeof data.reason", typeof data.reason);
     console.log("preapproval_id", preapproval_id);
     
     // postOrderMembership(response, data);
