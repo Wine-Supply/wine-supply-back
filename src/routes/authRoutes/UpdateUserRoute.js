@@ -51,7 +51,7 @@ router.put("/", async (req, res) => {
 		}
 		return res.status(400).send({ error: "No parameters sent for update" });
 	} catch (error) {
-		return res.status(400).send({ error: error.message });
+		return res.status(400).send({message: "Can not update :c", error: error.message });
 	}
 });
 

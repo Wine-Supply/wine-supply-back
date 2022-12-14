@@ -1,4 +1,4 @@
-const confirmPayModel = (user: any, amount: any, address: any) => {
+const confirmPayModel = (user: any, amount: any) => {
     return (`<!doctype html>
     <html ⚡4email data-css-strict>
     <head><meta charset="utf-8"><style amp4email-boilerplate>body{visibility:hidden}</style><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
@@ -370,7 +370,7 @@ const confirmPayModel = (user: any, amount: any, address: any) => {
     </tr>
     <tr>
     <td align="center" class="es-p25">
-      <p style="color: #9c9c9c;font-size: 14px">Your our purchase has been confirmed.<br>
+      <p style="color: #9c9c9c;font-size: 14px">Your purchase has been confirmed.<br>
         Your order will be delivered to the address you indicated<br>betweenthe next three and fifteen days.<br>
         We hope you enjoy your purchase and see you again soon.<br></p></td>
     </tr>
@@ -378,8 +378,7 @@ const confirmPayModel = (user: any, amount: any, address: any) => {
 
     <td align="center" class="es-p25">
     <p style="color: #9c9c9c;font-size: 14px">Purchase made by ${user.name} ${user.lastName}<br>
-      Send to: ${address.country}, ${address.stateName}, ${address.cityName} (${address.postalCode}), ${address.streetName} ${address.streetNumber}, floor: ${address.floor || null}, apartment: ${address.apartment || null}.<br>
-      For ${amount}.<br></p></td>
+      For ${amount} $.<br></p></td>
   </tr>
 
     <tr>
