@@ -134,7 +134,7 @@ router.use('/contacusmail', ContacUsMail);
 
 
 // membership
-router.use('/membershipcreateorder', VerifyUserToken,MembershipOrderCreate);
+router.use('/membershipcreateorder', MembershipOrderCreate);
 router.use('/membership', VerifyUserToken, UpdateMembership);
 router.use('/membership', VerifyUserToken, GetMembership);
 router.use('/user/membership', VerifyUserToken, UserMembership);
