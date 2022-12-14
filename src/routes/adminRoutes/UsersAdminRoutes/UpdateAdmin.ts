@@ -17,16 +17,20 @@ router.put("/:id", async(req: any, res) => {
 
   const checkValue = function(isAdmin:any){
     if(isAdmin === "yes") { return "no"} else { return "yes"}
-   }
+  }
 
   try {
 
     const {id} = req.params;
-    if(!id) { return res.status(400).send("Missing id")}
+    if(!id) { 
+      return res.status(404).send("Missing id")
+    }
 
-   let user:any = await User.findById(id).select("-hashedPass");
+  let user:any = await User.findById(id).select("-hashedPass");
     // console.log("user", user);
-    if(user.length === 0) { return res.status(200).send("No matches found for this id") };
+    if(user.length === 0) { 
+      return res.status(200).send("No matches found for this id") 
+    };
 
     const adminStatus = checkValue(user.isAdmin)
     // console.log("adminStatus", adminStatus);
@@ -37,11 +41,11 @@ router.put("/:id", async(req: any, res) => {
     const newUser = { ...user._doc, id: user._id}
     let total = newUser.length
     res.header({'content-Range':  `newUser 0-20/${total}`, 'Access-Control-Expose-Headers': 'Content-Range'})
-     
+
     return res.status(200).send(newUser);
       
     } catch (error:any) {
-        return res.send(error.message)
+        return res.status(500).send(error.message)
     }
 })
 
