@@ -29,13 +29,14 @@ router.post("/", async (req:any, res:any) => {
 	  // const data = await mercadopago.merchant_orders.findById(orderShopId);
     // console.log("date", data);
 
-    const preapproval_id = req.query.preapproval_id
-    const data = axios.get(`https://api.mercadopago.com/preapproval/${preapproval_id}`, {headers: {
-      'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN_MP,
-      'Content-Type': 'application/json'
-    }})
+    // const preapproval_id = req.query.preapproval_id
+    // const data = axios.get(`https://api.mercadopago.com/preapproval/${preapproval_id}`, {headers: {
+    //   'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN_MP,
+    //   'Content-Type': 'application/json'
+    // }})
     
-    postOrderMembership(response, data);
+    // postOrderMembership(response, data);
+    const data = {reason: "hola", auto_recurring: {transaction_amount:1} }
     const newMembership = postMembership(user, data);
 	
 	  res.send(newMembership);
