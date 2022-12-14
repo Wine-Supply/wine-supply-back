@@ -10,7 +10,7 @@ const router = Router()
 router.get("/", async (req, res) => {
 
     try {
-		const response = req.query;
+		const response = req.query; // id - orderShopId (es de mercado pago)
 		const orderShopId = response.merchant_order_id;
 		const data = await mercadopago.merchant_orders.findById(orderShopId);
 		postOrder(response, data)

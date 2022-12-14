@@ -17,7 +17,7 @@ const PaymentSubCreate = async (data: any) => {
     } catch (error: any) {
       console.log(error)
       throw new Error(error)
-    } 
+    }
   }
 
 export default PaymentSubCreate;

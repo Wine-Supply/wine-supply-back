@@ -20,6 +20,9 @@ router.get("/", async(req: any, res, next) => {
       
       const userMembership:any = await User.find({_id: user._id, isActive: true }).select("membership_id").populate('Membership').select("-user_id");
 
+      console.log("userMembership",userMembership);
+      
+
       if ( userMembership.isActive ) {
         return res.status(200).send(userMembership)
       } else {

@@ -4,7 +4,8 @@ import User from '../../models/User';
 const router = Router()
 
 
-//* /getmembership
+//* /membership?name=
+// Regular - Premium - Sommielere
 //! verifica token del admin
 // busca en el model de membership segun los fields que vengan por query
 
