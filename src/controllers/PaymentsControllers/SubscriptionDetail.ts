@@ -1,6 +1,7 @@
 
 
-const SubscriptionDetail = async (data: any) => {
+const SubscriptionDetail = async (data: any, id:any) => {
+
     switch (data) {
         case 'Regular':{
             return {
@@ -13,7 +14,9 @@ const SubscriptionDetail = async (data: any) => {
                 "transaction_amount": 40,
                 "currency_id": "ARS"
                 },
-                "back_url": "http://google.com"
+                "back_url": {
+                  success : `https://wine-supply-back-production.up.railway.app/membershipcreateorder?user_id=${id}`
+              }
               }
             break;}
         case 'Premium':{
@@ -27,7 +30,9 @@ const SubscriptionDetail = async (data: any) => {
                 "transaction_amount": 60,
                 "currency_id": "ARS"
                 },
-                "back_url": "http://google.com"
+                "back_url": {
+                  success : `https://wine-supply-back-production.up.railway.app/createorder?user_id=${id}`
+              }
               }
             break;}
         case 'Sommeliere':{
@@ -41,7 +46,9 @@ const SubscriptionDetail = async (data: any) => {
                 "transaction_amount": 80,
                 "currency_id": "ARS"
                 },
-                "back_url": "http://google.com"
+                "back_url": {
+                  success : `https://wine-supply-back-production.up.railway.app/createorder?user_id=${id}`
+              }
               }
             break;}
         default:
