@@ -39,7 +39,9 @@ router.get("/", async (req:any, res:any) => {
     // console.log("typeof data.reason", typeof data.data.reason);
     // console.log("preapproval_id", preapproval_id);
     
-    postOrderMembership(response, data);
+    const createdOrder = postOrderMembership(response, data);
+    console.log("createdOrder",createdOrder);
+    
     
     const newMembership = await postMembership(user, data);
     console.log("newMembership",newMembership);
