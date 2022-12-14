@@ -1,13 +1,11 @@
 import MembershipModel from "../../models/Membeship";
 import User from "../../models/User"
 
-const postMembership = async (response: any, user:any) => {
-
-  const {name, price} = response
+const postMembership = async (user: any, data:any) => {
 
   const newMembership:any = new MembershipModel({
-    name,
-    price,
+    name:data.body.reason,
+    price: data.body.transaction_amount,
     user_id: user._id,
     isActive: true
   })

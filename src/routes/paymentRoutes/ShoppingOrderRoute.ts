@@ -16,6 +16,8 @@ router.get("/", async (req, res) => {
 		postOrder(response, data)
 		
 		return res.redirect('http://localhost:3000/home/products');
+    // https://exquisite-brigadeiros-cc493c.netlify.app/
+    // 'http://localhost:3000/home/products'
 
 	} catch (error) {
 		console.log(error)

@@ -35,7 +35,7 @@ router.post("/", async (req:any, res) => {
             let preference = {
                 auto_return: 'approved',
                 back_urls : {
-                    success : `http://localhost:3001/createorder?user_id=${id}`
+                    success : `https://wine-supply-back-production.up.railway.app/createorder?user_id=${id}`
                 },
                 items
                 // notification_url : 'http://localhost:3001/notificar'
@@ -49,7 +49,7 @@ router.post("/", async (req:any, res) => {
             let preference = {
                 auto_return: 'approved',
                 back_urls : {
-                    success : `http://localhost:3001/createorder?user_id=${id}`
+                    success : `https://wine-supply-back-production.up.railway.app/createorder?user_id=${id}`
                 },
                 items
                 // notification_url : 'http://localhost:3001/notificar'

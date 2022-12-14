@@ -1,6 +1,6 @@
 import { Router } from "express";
 const mercadopago = require('mercadopago')
-import postOrder from "../../controllers/PaymentsControllers/PostOrder";
+import postOrderMembership from "../../controllers/MembershipControllers/PostOrderMembership";
 import postMembership from '../../controllers/MembershipControllers/PostMembership';
 
 
@@ -24,8 +24,8 @@ router.post("/", async (req:any, res:any) => {
 	  const data = await mercadopago.merchant_orders.findById(orderShopId);
     console.log("date", data);
     
-    // postOrder(response, data);
-    const newMembership = postMembership(response, user);
+    postOrderMembership(response, data);
+    const newMembership = postMembership(user, data);
 	
 	  res.send(newMembership);
 

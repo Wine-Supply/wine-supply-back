@@ -20,18 +20,21 @@ const postOrderMembership = async (response: any, data: any) => {
             user: `${order_user.lastName}, ${order_user.name}`,
             // order_address: `${country}, ${stateName}, ${cityName} (${postalCode}), ${streetName} ${streetNumber}, floor: ${floor}, apartment: ${apartment}`,
             order_address: `adress`,
-            items: data.body.items,
+            items: data.body.reason,
             orderDate: Date.now(),
             payment: "Mercado Pago",
             shippingMethod: 'Correo',
-            orderTotal: data.body.total_amount,
+            orderTotal: data.body.transaction_amount,
             orderStatus: 1 //mercadopago devuelve un string
         })
         // const mail = await confirmPayment( "Wine purchase", address, order_user, data.body.total_amount);
-        const mail = await confirmPayment( "Wine purchase", address, order_user, data.body.total_amount);
+        const mail = await confirmPayment( "Membership subscription", address, order_user, data.body.transaction_amount);
+
+       
         const createdOrder = await newOrder.save()
+
+        // AGREGAR NUEVA ORDEN A user.order
         order_user.order.push(createdOrder._id)
-        order_user.shopping_cart = []
         order_user.save()
     } catch (error: any) {
         throw new Error(error)
