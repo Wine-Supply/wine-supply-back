@@ -9,7 +9,9 @@ const router = Router()
 // *  /membershipcreateorder
 // VerifyUserToken
 
-router.get("/", async (req:any, res:any) => {
+router.post("/", async (req:any, res:any) => {
+  console.log("Hello World");
+  
   try {
 
     const user = req.query.user_id;
@@ -19,12 +21,14 @@ router.get("/", async (req:any, res:any) => {
     const response = req.query;
     console.log("response", response);
 
-	  const orderShopId = response.merchant_order_id;
-    console.log("orderShopId", orderShopId);
-	  const data = await mercadopago.merchant_orders.findById(orderShopId);
-    console.log("date", data);
-    
-    postOrderMembership(response, data);
+	  // const orderShopId = response.merchant_order_id;
+    // console.log("orderShopId", orderShopId);
+	  // const data = await mercadopago.merchant_orders.findById(orderShopId);
+    // console.log("date", data);
+    const data = {
+      body: {reason: "hola", transaction_amount: "chau"}
+    }
+    // postOrderMembership(response, data);
     const newMembership = postMembership(user, data);
 	
 	  res.send(newMembership);
