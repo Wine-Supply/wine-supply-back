@@ -47,7 +47,7 @@ router.get("/", async (req:any, res:any) => {
     // console.log("newMembership",newMembership);
     
 	
-	  return res.redirect(`https://marvelous-centaur-ea56a8.netlify.app/home`);
+	  return res.redirect(`https://marvelous-centaur-ea56a8.netlify.app/`);
 
   } catch(error: any) {
     return res.status(400).send({error: error.message})
