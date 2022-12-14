@@ -9,7 +9,7 @@ const postMembership = async (user: any, data:any) => {
 
   const newMembership:any = new MembershipModel({
     name: data.data?.reason,
-    price: amount,
+    price: data.data?.auto_recurring?.transaction_amount,
     user_id: user,
     isActive: true
   })

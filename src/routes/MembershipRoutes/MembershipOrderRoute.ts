@@ -52,6 +52,7 @@ router.get("/", async (req:any, res:any) => {
 
 })
 
+
 export default router;
 
 // RUTA GET A MERCADO PAGO:
