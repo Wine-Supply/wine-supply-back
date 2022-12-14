@@ -29,7 +29,7 @@ router.get("/", async (req:any, res:any) => {
     // console.log("date", data);
 
     const preapproval_id = req.query.preapproval_id
-    const data1 = axios.get(`https://api.mercadopago.com/preapproval/${preapproval_id}`, {headers: {
+    const data1 = await axios.get(`https://api.mercadopago.com/preapproval/${preapproval_id}`, {headers: {
       'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN_MP,
       'Content-Type': 'application/json'
     }})
@@ -38,7 +38,7 @@ router.get("/", async (req:any, res:any) => {
     
     // postOrderMembership(response, data);
     const data = {reason: "Regular", auto_recurring: {transaction_amount:1} }
-    const newMembership = postMembership(user, data);
+    const newMembership = await postMembership(user, data);
     console.log("newMembership",newMembership);
     
 	
