@@ -9,7 +9,7 @@ const router = Router()
 // *  /membershipcreateorder
 // VerifyUserToken
 
-router.post("/", async (req:any, res:any) => {
+router.get("/", async (req:any, res:any) => {
   try {
 
     const user = req.user;
