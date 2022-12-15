@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 		postOrder(response, data)
 		
     const user:any = await UserModel.findById(response.user_id);
-		return res.redirect(`https://marvelous-centaur-ea56a8.netlify.app/user/${user?.name}/profile`);
+		return res.redirect(`https://voluble-hummingbird-3fb9b1.netlify.app/user/${user?.name}/profile`);
     // 'http://localhost:3000/home/products'
 
 	} catch (error) {
