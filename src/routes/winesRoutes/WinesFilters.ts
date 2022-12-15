@@ -7,13 +7,14 @@ const router = Router()
 
 router.get("/", async (req: Request, res: Response) => {
 
-  const querys = req.query;
+  const querys:any = req.query;
+  querys.isActive = true;
 
   try {
 
     if (Object.keys(querys).length === 0) { return res.status(400).send("Please select a filter option") }
 
-    const filteredWines = await Wine.find({querys, isActive:true}).select("_id name brand type description cropYear strain volume images rating price");
+    const filteredWines = await Wine.find(querys).select("_id name brand type description cropYear strain volume images rating price");
     // console.log("filteredWines:", filteredWines)
     if (filteredWines.length === 0) {
       return res.status(404).send(["No wines match the filter"]);
